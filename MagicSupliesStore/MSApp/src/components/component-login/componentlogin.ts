@@ -1,5 +1,6 @@
-import { Component, inject, Input, model, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, model, OnInit, Output, signal, viewChild, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { InputOverviewExample } from '../component-input';
 
 
 export interface DialogData {
@@ -12,20 +13,22 @@ export interface DialogData {
     templateUrl: './componentlogin.html',
 })
 export class LoginInputComponent implements OnInit {
+  
+  @ViewChild('inputComponent1') inputComponent1 !: InputOverviewExample;
+  @ViewChild('inputComponent2') inputComponent2 !: InputOverviewExample;
+
   readonly dialogRef = inject(MatDialogRef<LoginInputComponent>);
   readonly data = inject<DialogData>(MAT_DIALOG_DATA);
   readonly animal = model(this.data.animal);
 
+
+
   onNoClick(): void {
     this.dialogRef.close();
   }
-    @Input() field1: string = '';
-    @Input() placeholder: string = '';
 
 
     ngOnInit(): void {
-        console.log(this.placeholder);
-        console.log('popo');
     }
 
 

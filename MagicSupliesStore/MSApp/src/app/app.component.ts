@@ -1,4 +1,4 @@
-import { Component, inject, model, signal } from '@angular/core';
+import { Component, inject, model, signal, ViewChild } from '@angular/core';
 import { LoginInputComponent } from '../components/component-login/componentlogin';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 
 export class AppComponent 
   {
+    @ViewChild('loginComponent') loginComponent!: LoginInputComponent;
+
     readonly animal = signal('');
     readonly name = model('');
     readonly dialog = inject(MatDialog);
@@ -28,6 +30,7 @@ export class AppComponent
         console.log('The dialog was closed');
         if (result !== undefined) {
           this.animal.set(result);
+          alert (this.loginComponent.inputComponent1.value)
         }
       });
     }
