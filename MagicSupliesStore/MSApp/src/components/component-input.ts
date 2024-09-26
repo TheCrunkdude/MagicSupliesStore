@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'input-overview-example',
@@ -15,8 +15,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 
     template: `<form class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>{{field1}}</mat-label>
-    <input (input)="onChange($event)" matInput placeholder={{placeholder}} value={{this.value}}>
+    <mat-label>{{field}}</mat-label>
+    <input (input)="onChange($event)" matInput placeholder={{placeholder}} value={{valuefromInput}}>
   </mat-form-field>
 
   
@@ -24,14 +24,20 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 })
 export class InputOverviewExample implements OnInit{ 
 
-    @Input () field1 : string = '';
+    @Input () field : string = '';
     @Input () placeholder : string = '';
-    value : string = '';
+    @Output() inputSelected = new EventEmitter<string>();
+
+    valuefromInput : string = '';
    
     onChange(event: Event): void {
+
+      //retrieves the value from the htmltextbox and updates the internal variable
       var inputString = (event.target as HTMLTextAreaElement).value
-      this.value = inputString
-      console.log('value => ' + this.value)
+      this.valuefromInput = inputString
+      //emits the event for the selected value
+      this.inputSelected.emit(this.valuefromInput)
+      console.log('Input LEVEL value => ' + this.valuefromInput)
     }
     
     ngOnInit(): void {

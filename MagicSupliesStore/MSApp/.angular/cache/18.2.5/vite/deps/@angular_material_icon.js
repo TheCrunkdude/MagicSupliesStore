@@ -1,13 +1,13 @@
 import {
   DomSanitizer,
   HttpClient
-} from "./chunk-NO6AZWO7.js";
+} from "./chunk-OOGKCCBY.js";
 import {
   MatCommonModule
-} from "./chunk-HN4PUGGD.js";
+} from "./chunk-GZV3GXHU.js";
 import {
   DOCUMENT
-} from "./chunk-CXXGTKFS.js";
+} from "./chunk-4T6G2ISC.js";
 import {
   Attribute,
   ChangeDetectionStrategy,
@@ -22,20 +22,10 @@ import {
   Optional,
   SecurityContext,
   SkipSelf,
-  Subscription,
   ViewEncapsulation$1,
   booleanAttribute,
-  catchError,
-  finalize,
-  forkJoin,
   inject,
-  map,
-  of,
   setClassMetadata,
-  share,
-  take,
-  tap,
-  throwError,
   ɵɵInputTransformsFeature,
   ɵɵStandaloneFeature,
   ɵɵattribute,
@@ -50,9 +40,21 @@ import {
   ɵɵinjectAttribute,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-PQVLUFY2.js";
+} from "./chunk-I52G4DG7.js";
+import {
+  Subscription,
+  catchError,
+  finalize,
+  forkJoin,
+  map,
+  of,
+  share,
+  take,
+  tap,
+  throwError
+} from "./chunk-2CVCC5YH.js";
 
-// ../node_modules/@angular/material/fesm2022/icon.mjs
+// node_modules/@angular/material/fesm2022/icon.mjs
 var _c0 = ["*"];
 var policy;
 function getPolicy() {
