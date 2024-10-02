@@ -2,28 +2,32 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/LoginControler.cs">
     <Files>
-      <File FileName="MagicstoreAPI/Controllers/WeatherForecastController.cs" />
-      <File FileName="MagicstoreAPI/Controllers/LoginControler.cs" Line="31" Column="26" />
-      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" />
-      <File FileName="MagicstoreAPI/Program.cs" Line="28" Column="1" />
-      <File FileName="MagicstoreAPI/Infrastructures/LoginModel.cs" />
+      <File FileName="MagicstoreAPI/Controllers/LoginControler.cs" Line="45" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI" expanded="True">
             <Node name="MagicstoreAPI" expanded="True">
-              <Node name="Controllers" expanded="True" selected="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="LoginControler.cs" selected="True" />
+              </Node>
+              <Node name="Infrastructures" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

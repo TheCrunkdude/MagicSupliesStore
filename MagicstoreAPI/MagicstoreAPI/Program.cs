@@ -2,6 +2,16 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowCors", policy =>
+    {
+        policy.AllowAnyOrigin();
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddScoped<AuthenticationService>();
 
@@ -18,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowCors");
 
 app.UseHttpsRedirection();
 

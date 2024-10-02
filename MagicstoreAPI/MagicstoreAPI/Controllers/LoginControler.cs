@@ -36,11 +36,15 @@ namespace MagicstoreAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] LoginModel loginModel, string test, string password2)
+        public async Task<IActionResult> Post([FromBody] LoginModel loginModel)
         {
             string mensaje = await _authenticationService.Authenticate(loginModel.User, loginModel.Password);
+
             return Ok(mensaje);
         }
+
+
+
 
         // PUT api/values/5
         [HttpPut("{id}")]

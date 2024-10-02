@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app.routes';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { BrowserModule } from '@angular/platform-browser';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

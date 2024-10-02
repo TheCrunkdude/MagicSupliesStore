@@ -1,9 +1,9 @@
-import { Component, inject, model, signal, ViewChild } from '@angular/core';
-import { LoginInputComponent } from '../components/component-login/componentlogin';
+import { Component, inject, model, OnInit, signal, ViewChild } from '@angular/core';
+import { DialogData, LoginInputComponent } from '../components/component-login/componentlogin';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-
+import { ApiService, loginModel } from '../services/api.service';
 
   @Component({
   selector: 'app-root',
@@ -11,31 +11,42 @@ import { map } from 'rxjs';
   styleUrl: './app.component.css'
 })
 
-export class AppComponent 
+export class AppComponent implements OnInit
   {
     @ViewChild('loginComponent') loginComponent!: LoginInputComponent;
 
     readonly field1 = signal('');
     readonly valuefromInput2 = model('');
     readonly dialog = inject(MatDialog);
-  
 
-    constructor(private router: Router){}
+    constructor(private router: Router, private ApiService: ApiService){//Aqui construimos nuestro objeto " ApiService" y //
+      
+    }
 
     openSignUpDialog(): void {
       const dialogRef = this.dialog.open(LoginInputComponent);
   
-      dialogRef.afterClosed().pipe(map(
-        //use the pipe and map methods to update or change the result before hitting the subscribe block
-        result => result = JSON.stringify(result)
-      )).subscribe(result => {
+      dialogRef.afterClosed().subscribe(
+        (result: any) => {
         console.log('The dialog was closed');
         if (result !== undefined) {
-          console.log('App LEVEL ===> result')
-          console.log(result)
-          alert (result)
+
+          let request: loginModel = {
+            User : result.valueFromInput1 ,
+            Password : result.valueFromInput2
+          }
+
+          let result2 = ''
+      this.ApiService.postData(request).subscribe(
+        response => {
+          result2 = response;
+          console.log(result2)
+          localStorage.setItem( 'TokenID', result2)
+        })  
         }
       });
+    }
+    ngOnInit ():void{
     }
   title = 'MSApp';
 }

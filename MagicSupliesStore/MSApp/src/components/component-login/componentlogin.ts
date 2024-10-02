@@ -5,7 +5,7 @@ import { InputOverviewExample } from '../component-input';
 
 export interface DialogData {
   valueFromInput1: string;
-  valueFromInput2?: string;
+  valueFromInput2: string;
 }
 @Component({
   selector: 'input-login',
@@ -19,7 +19,8 @@ export class LoginInputComponent implements OnInit {
 
   readonly dialogRef = inject(MatDialogRef<LoginInputComponent>);
   readonly data: DialogData = {
-    valueFromInput1: ''
+    valueFromInput1: '',
+    valueFromInput2: ''
   };
   InputData = model(this.data);
 
@@ -27,7 +28,9 @@ export class LoginInputComponent implements OnInit {
 
     //Creates the Signal with the Internal values
     let InputDataSignal: DialogData = {
-      valueFromInput1: this.inputComponent1.valuefromInput
+      valueFromInput1: this.inputComponent1.valuefromInput,
+      valueFromInput2: this.inputComponent2.valuefromInput
+
     }
 
     //Sets the signal 
@@ -39,7 +42,7 @@ export class LoginInputComponent implements OnInit {
     console.log(this.data)
     console.log("Event value =====>")
     console.log(event)
-    console.log("valueFromInput1 ===> " + this.inputComponent1.valuefromInput)
+    console.log("valueFromInput1 ===> " + this.inputComponent1.valuefromInput + this.inputComponent2.valuefromInput  )
   }
 
   onNoClick(): void {
