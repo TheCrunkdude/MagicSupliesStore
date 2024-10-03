@@ -24,7 +24,7 @@ private apiUrl = 'https://localhost:7201/api';
     return this.http.post (`${this.apiUrl}/LoginControler`, loginModel,{ responseType: 'text' } )
 
     console.log('detdata ok')
-
   }
+
 
 }

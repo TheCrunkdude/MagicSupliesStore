@@ -42,11 +42,30 @@ export class AppComponent implements OnInit
           result2 = response;
           console.log(result2)
           localStorage.setItem( 'TokenID', result2)
+          this.navigate()
         })  
+
         }
       });
+ 
+      
+
     }
+    navigate():void{
+
+     
+      if (localStorage.getItem('TokenID') != ' ') {
+        this.router.navigate(['MainPage'])
+      }
+
+    }
+
     ngOnInit ():void{
+      
+    }
+
+    openMainPage(): void {
+      // this.router.navigate(/MainPage)
     }
   title = 'MSApp';
 }

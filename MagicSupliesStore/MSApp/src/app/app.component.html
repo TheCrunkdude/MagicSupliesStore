@@ -1,9 +1,10 @@
 
 
-<div class="landing-container">
-
+<div class="landing-container" id="ClassMain">
 <img-slider>
 </img-slider>
   <h1>Welcome to Our Service!</h1>
   <button mat-raised-button (click)="openSignUpDialog()">Sign Up</button>
+  <button routerLink="/MainPage">Ir a Main Page</button>
 </div>
+<router-outlet></router-outlet>

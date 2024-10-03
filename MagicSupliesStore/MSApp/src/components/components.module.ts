@@ -5,6 +5,8 @@ import { InputOverviewExample } from './component-input';
 import { MaterialModule } from './material.module';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { componentslider } from './slider-component/componentslider';
+import { MainpageComponent } from '../app/mainpage/mainpage-component';
+
 
 
 
@@ -12,15 +14,19 @@ import { componentslider } from './slider-component/componentslider';
   declarations: [
     componentslider,
     LoginInputComponent,
-    InputOverviewExample
+    InputOverviewExample,
+    MainpageComponent
+    
   ],
   imports: [
     CommonModule,
     NgImageSliderModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   exports:[
-    componentslider
+    componentslider,
+    MainpageComponent
   ]
   
 })
