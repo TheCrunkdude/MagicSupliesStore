@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainpageComponent implements OnInit{
+  
   ngOnInit(): any {
+    
     document.getElementById("ClassMain")?.remove()
     console.log('Mainpage funcionando')
+
+    
   }
 
 }

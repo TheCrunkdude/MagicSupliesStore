@@ -17,13 +17,13 @@ private apiUrl = 'https://localhost:7201/api';
 
   getData (): Observable <any>{
     return this.http.get (`${this.apiUrl}/LoginControler`)
-    console.log('detdata ok')
+    console.log('getdata ok')
   }
   postData (loginModel:loginModel): Observable <any>{
     
     return this.http.post (`${this.apiUrl}/LoginControler`, loginModel,{ responseType: 'text' } )
 
-    console.log('detdata ok')
+    console.log('getdata ok')
   }
 
 

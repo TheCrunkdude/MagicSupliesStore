@@ -3,7 +3,6 @@ import { Component } from "@angular/core";
 @Component({
     selector: 'img-slider',
     templateUrl: './componentslider.html',
-
     styleUrls: ['./componentslider.css']
   })
   export class componentslider  {

@@ -7,7 +7,7 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-XI4BTHL7.js";
+} from "./chunk-WYRBTLU4.js";
 import {
   A11yModule,
   BidiModule,
@@ -29,11 +29,11 @@ import {
   getRtlScrollAxisType,
   hasModifierKey,
   supportsScrollBehavior
-} from "./chunk-XM4CAVBZ.js";
+} from "./chunk-WFPEGIBZ.js";
 import {
   DOCUMENT,
   Location
-} from "./chunk-UXBE7KA7.js";
+} from "./chunk-6KKKRVWG.js";
 import {
   ANIMATION_MODULE_TYPE,
   ApplicationRef,
@@ -119,9 +119,9 @@ import {
   ɵɵstyleProp,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-EVXH2QJU.js";
+} from "./chunk-CIVJVHEK.js";
 
-// ../../../node_modules/@angular/cdk/fesm2022/collections.mjs
+// node_modules/@angular/cdk/fesm2022/collections.mjs
 var DataSource = class {
 };
 function isDataSource(value) {
@@ -283,7 +283,7 @@ var UniqueSelectionDispatcher = class _UniqueSelectionDispatcher {
   }], null, null);
 })();
 
-// ../../../node_modules/@angular/cdk/fesm2022/scrolling.mjs
+// node_modules/@angular/cdk/fesm2022/scrolling.mjs
 var _c0 = ["contentWrapper"];
 var _c1 = ["*"];
 var VIRTUAL_SCROLL_STRATEGY = new InjectionToken("VIRTUAL_SCROLL_STRATEGY");
@@ -1850,7 +1850,7 @@ var ScrollingModule = class _ScrollingModule {
   }], null, null);
 })();
 
-// ../../../node_modules/@angular/cdk/fesm2022/portal.mjs
+// node_modules/@angular/cdk/fesm2022/portal.mjs
 function throwNullPortalError() {
   throw Error("Must provide a portal to attach");
 }
@@ -2397,7 +2397,7 @@ var PortalModule = class _PortalModule {
   }], null, null);
 })();
 
-// ../../../node_modules/@angular/cdk/fesm2022/overlay.mjs
+// node_modules/@angular/cdk/fesm2022/overlay.mjs
 var scrollBehaviorSupported = supportsScrollBehavior();
 var BlockScrollStrategy = class {
   constructor(_viewportRuler, document2) {
@@ -5158,7 +5158,7 @@ var FullscreenOverlayContainer = class _FullscreenOverlayContainer extends Overl
   }], null);
 })();
 
-// ../../../node_modules/@angular/cdk/fesm2022/dialog.mjs
+// node_modules/@angular/cdk/fesm2022/dialog.mjs
 function CdkDialogContainer_ng_template_0_Template(rf, ctx) {
 }
 var DialogConfig = class {
@@ -5918,7 +5918,7 @@ var DialogModule = class _DialogModule {
   }], null, null);
 })();
 
-// ../../../node_modules/@angular/material/fesm2022/dialog.mjs
+// node_modules/@angular/material/fesm2022/dialog.mjs
 function MatDialogContainer_ng_template_2_Template(rf, ctx) {
 }
 var MatDialogConfig = class {

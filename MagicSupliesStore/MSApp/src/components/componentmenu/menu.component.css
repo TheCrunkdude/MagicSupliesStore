@@ -1,0 +1,14 @@
+html {
+    font-size: 14px;
+}
+
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+span #menuID{ 
+    padding-right: 10px;
+}

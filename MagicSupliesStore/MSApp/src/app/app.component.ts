@@ -1,4 +1,4 @@
-import { Component, inject, model, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, inject, model, OnInit, signal, ViewChild } from '@angular/core';
 import { DialogData, LoginInputComponent } from '../components/component-login/componentlogin';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -22,6 +22,9 @@ export class AppComponent implements OnInit
     constructor(private router: Router, private ApiService: ApiService){//Aqui construimos nuestro objeto " ApiService" y //
       
     }
+    // ngAfterViewInit(): void {
+    //   document.getElementById('ClassMain')?.remove
+    // }
 
     openSignUpDialog(): void {
       const dialogRef = this.dialog.open(LoginInputComponent);

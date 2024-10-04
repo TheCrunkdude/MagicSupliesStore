@@ -6,8 +6,9 @@ import { MaterialModule } from './material.module';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { componentslider } from './slider-component/componentslider';
 import { MainpageComponent } from '../app/mainpage/mainpage-component';
-
-
+import { MenuComponent } from './componentmenu/menu.component';
+import { PrimeNgModule } from './primeng.module';
+import { UsersComponent } from '../app/users/users.component';
 
 
 @NgModule({
@@ -15,18 +16,21 @@ import { MainpageComponent } from '../app/mainpage/mainpage-component';
     componentslider,
     LoginInputComponent,
     InputOverviewExample,
-    MainpageComponent
+    MainpageComponent,
+    MenuComponent,
+    UsersComponent
     
   ],
   imports: [
     CommonModule,
     NgImageSliderModule,
     MaterialModule,
-    
+    PrimeNgModule
   ],
   exports:[
     componentslider,
     MainpageComponent
+    
   ]
   
 })

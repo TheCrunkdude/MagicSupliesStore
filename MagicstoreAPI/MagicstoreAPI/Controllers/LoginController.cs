@@ -13,10 +13,10 @@ namespace MagicstoreAPI.Controllers
 
     [Route("api/[controller]")]
 
-    public class LoginControler : Controller
+    public class LoginController : Controller
     {
         private AuthenticationService _authenticationService;
-        public LoginControler(AuthenticationService authenticationService)
+        public LoginController(AuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
         }

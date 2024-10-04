@@ -1,7 +1,7 @@
 import {
   DomSanitizer
-} from "./chunk-DO3DJVQR.js";
-import "./chunk-XCXTD62S.js";
+} from "./chunk-BB7XRBWB.js";
+import "./chunk-SMDFQHUQ.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -10,7 +10,7 @@ import {
   NgIf,
   NgStyle,
   isPlatformBrowser
-} from "./chunk-UXBE7KA7.js";
+} from "./chunk-6KKKRVWG.js";
 import {
   ChangeDetectorRef,
   Component,
@@ -58,9 +58,9 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate2,
   ɵɵviewQuery
-} from "./chunk-EVXH2QJU.js";
+} from "./chunk-CIVJVHEK.js";
 
-// ../../../node_modules/ng-image-slider/fesm2020/ng-image-slider.mjs
+// node_modules/ng-image-slider/fesm2020/ng-image-slider.mjs
 var _c0 = (a0) => ({
   "ng-fullimage-loading": a0
 });

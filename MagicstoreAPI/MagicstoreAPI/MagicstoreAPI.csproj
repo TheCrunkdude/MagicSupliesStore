@@ -18,9 +18,13 @@
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Infrastructures\" />
+    <None Remove="Repositories\" />
+    <None Remove="Infrastructures\Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Infrastructures\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Infrastructures\Entities\" />
   </ItemGroup>
 </Project>
