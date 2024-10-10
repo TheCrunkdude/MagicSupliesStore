@@ -8,6 +8,7 @@ namespace MagicstoreAPI.Services
 	{
 		private UserRepository _userRepository;
 		private readonly ILogger<UserService> _logger;
+
 		public UserService(ILogger<UserService> logger,UserRepository userRepository)
 		{
 			_logger = logger;
@@ -27,6 +28,7 @@ namespace MagicstoreAPI.Services
             {
                 throw new Exception("Get User Service Error" + ex.Message);
             }
+
         }
     }
 }

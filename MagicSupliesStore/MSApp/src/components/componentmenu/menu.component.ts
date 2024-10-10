@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
       {
         label: 'Home',
         icon: 'pi pi-home',
-        routerLink: "/home"
+        routerLink: "/MainPage"
       },
       {
         label: 'Services',
@@ -31,6 +31,7 @@ export class MenuComponent implements OnInit {
       {
         label: 'Products',
         icon: 'pi pi-code',
+        
         items: [
           [
             {

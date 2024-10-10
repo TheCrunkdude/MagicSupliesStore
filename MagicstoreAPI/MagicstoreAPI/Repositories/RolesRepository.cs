@@ -6,21 +6,21 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class UserRepository
+	public class RolesRepository
 	{
         //propiedades//
-        private readonly ILogger<UserRepository> _logger;
+        private readonly ILogger<RolesRepository> _logger;
         private ApplicationDBContext _applicationDb;
         //Constructor Adentro creas OBJETOS!!!//
-        public UserRepository(ILogger<UserRepository>logger, ApplicationDBContext applicationDB)
-		{
+        public RolesRepository(ILogger<RolesRepository> logger, ApplicationDBContext applicationDB)
+        {
             _logger = logger;
             _applicationDb = applicationDB;
         }
         //Metodos (Ojo, van AFUERA del constructor!!)//
-        public async Task<List<Users>> GetUsersRepo()
+        public async Task<List<Roles>> GetRolesRepo()
         {
-            var QueryResult = _applicationDb.MSDB_Users.ToList();
+            var QueryResult = _applicationDb.MSDB_Roles.ToList();
 
             return QueryResult;
         }

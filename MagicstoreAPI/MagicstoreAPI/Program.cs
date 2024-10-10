@@ -23,6 +23,10 @@ options.UseSqlServer(connection));
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<RolesService>();
+builder.Services.AddScoped<RolesRepository>();
+builder.Services.AddScoped<PermissionsService>();
+builder.Services.AddScoped<PermissionsRepository>();
 
 builder.Services.AddControllers();
 

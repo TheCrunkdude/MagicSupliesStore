@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-
 namespace MagicstoreAPI.Infrastructures.Entities
 {
 	public class Users

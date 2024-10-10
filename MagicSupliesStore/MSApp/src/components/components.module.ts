@@ -8,7 +8,10 @@ import { componentslider } from './slider-component/componentslider';
 import { MainpageComponent } from '../app/mainpage/mainpage-component';
 import { MenuComponent } from './componentmenu/menu.component';
 import { PrimeNgModule } from './primeng.module';
-import { UsersComponent } from '../app/users/users.component';
+import { UsersPageComponent } from '../app/users-page/userspage.component';
+import { LoginpageComponent } from '../app/login-page/loginpage';
+import { UserTable} from '../app/interfaces/userTable-interface';
+import { GridComponent } from './gridcomponent/gridcomponent';
 
 
 @NgModule({
@@ -18,19 +21,22 @@ import { UsersComponent } from '../app/users/users.component';
     InputOverviewExample,
     MainpageComponent,
     MenuComponent,
-    UsersComponent
-    
+    UsersPageComponent,
+    LoginpageComponent,
+    GridComponent
+   
   ],
   imports: [
     CommonModule,
     NgImageSliderModule,
     MaterialModule,
-    PrimeNgModule
+    PrimeNgModule,
+    
   ],
   exports:[
     componentslider,
-    MainpageComponent
-    
+    MainpageComponent,
+    MenuComponent,
   ]
   
 })
