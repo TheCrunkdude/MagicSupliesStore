@@ -1,4 +1,14 @@
 
 <div>
-    <app-gridcomponent></app-gridcomponent>
+    <!-- //crear un modelo para "agregar" que abra un modelo para poder agregar un usuario, 
+     debe tener un boton para agregar o cancelar y si le das "agregar" use el metodo post 
+     para golpear nuestra API// -->
+
+     <div class="example-button-container">
+        <button mat-fab extended (click)="AddOrEditUser()">
+          <mat-icon>add</mat-icon>
+          Add New User
+        </button>
+      </div>
+    <app-gridcomponent #gridComponent [dataSourceGridInput]="dataSourceUserPage" ></app-gridcomponent>
 </div>

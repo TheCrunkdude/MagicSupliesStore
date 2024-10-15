@@ -12,6 +12,7 @@ import { UsersPageComponent } from '../app/users-page/userspage.component';
 import { LoginpageComponent } from '../app/login-page/loginpage';
 import { UserTable} from '../app/interfaces/userTable-interface';
 import { GridComponent } from './gridcomponent/gridcomponent';
+import { AddOrEditUser } from '../app/models/add-edit-usersmodel';
 
 
 @NgModule({
@@ -21,10 +22,9 @@ import { GridComponent } from './gridcomponent/gridcomponent';
     InputOverviewExample,
     MainpageComponent,
     MenuComponent,
-    UsersPageComponent,
-    LoginpageComponent,
-    GridComponent
-   
+    GridComponent,
+    AddOrEditUser
+    
   ],
   imports: [
     CommonModule,
@@ -37,6 +37,9 @@ import { GridComponent } from './gridcomponent/gridcomponent';
     componentslider,
     MainpageComponent,
     MenuComponent,
+    AddOrEditUser,
+    GridComponent,
+    MaterialModule
   ]
   
 })

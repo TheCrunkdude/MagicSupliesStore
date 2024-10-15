@@ -3,7 +3,7 @@
     flex-direction: column; /* Stack items vertically */
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full height of the viewport */
+    height: 80vh; /* Full height of the viewport */
     text-align: center; /* Center text */
   }
   h1 {

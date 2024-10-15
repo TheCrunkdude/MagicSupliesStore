@@ -6,12 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersPageComponent } from './users-page/userspage.component';
+import { LoginpageComponent } from './login-page/loginpage';
 
 
 @NgModule({
   declarations: [
-    AppComponent
-    
+    AppComponent,
+    UsersPageComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,

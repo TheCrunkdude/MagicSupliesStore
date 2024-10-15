@@ -30,7 +30,6 @@ export class LoginInputComponent implements OnInit {
     let InputDataSignal: DialogData = {
       valueFromInput1: this.inputComponent1.valuefromInput,
       valueFromInput2: this.inputComponent2.valuefromInput
-
     }
 
     //Sets the signal 

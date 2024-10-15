@@ -6,11 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   .example-form {
   min-width: 150px;
   max-width: 500px;
+  height:  100px;
   width: 100%;
 }
 
 .example-full-width {
-  width: 100%;
+
+  width: 80%;
+  margin: 10%; 
 }`,
 
     template: `<form class="example-form">
@@ -18,9 +21,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     <mat-label>{{field}}</mat-label>
     <input (input)="onChange($event)" matInput placeholder={{placeholder}} value={{valuefromInput}}>
   </mat-form-field>
-
-  
 </form>`,
+
 })
 export class InputOverviewExample implements OnInit{ 
 
