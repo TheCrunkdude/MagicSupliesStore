@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
 using Microsoft.Extensions.Logging;
 using static System.Net.Mime.MediaTypeNames;
@@ -23,6 +24,40 @@ namespace MagicstoreAPI.Repositories
             var QueryResult = _applicationDb.MSDB_Users.ToList();
 
             return QueryResult;
+        }
+
+        public async Task<Users> GetUserValue(int? id, string? name)
+        {
+            var QueryResult = _applicationDb.MSDB_Users.Where(x => x.UserName == name || x.ID == id).FirstOrDefault();
+            return QueryResult;
+
+        }
+
+        
+        public async Task<Users> CreateNewUser(Users user)
+        {
+            //Insert a new user to the database//
+            var QueryResult = _applicationDb.MSDB_Users.Add(user).Entity;
+            _applicationDb.SaveChanges();
+            return QueryResult;
+
+        }
+
+
+
+
+        public GenericResponse AzureRequest(int configurationID, string json)
+        {
+            try
+            {
+                var Result = new GenericResponse() { Response = json, ConfigurationId = configurationID, Success = true };
+                return Result;
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("AzureRequest Error" + ex.Message);
+            }
         }
     }
 }

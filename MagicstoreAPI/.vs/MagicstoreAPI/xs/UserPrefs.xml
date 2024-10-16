@@ -1,33 +1,38 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/LoginControler.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/RolesControler.cs">
     <Files>
-      <File FileName="MagicstoreAPI/Controllers/LoginControler.cs" Line="45" Column="1" />
+      <File FileName="MagicstoreAPI/Controllers/PermissionsController.cs" Line="18" Column="34" />
+      <File FileName="MagicstoreAPI/Controllers/UserController.cs" Line="29" Column="53" />
+      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" Line="39" Column="66" />
+      <File FileName="MagicstoreAPI/Infrastructures/LoginModel.cs" Line="4" Column="15" />
+      <File FileName="MagicstoreAPI/Infrastructures/Entities/Users.cs" Line="19" Column="1" />
+      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI" expanded="True">
-            <Node name="MagicstoreAPI" expanded="True">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
+            <Node name="MagicstoreAPI">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers">
+                <Node name="RolesControler.cs" selected="True" />
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="LoginControler.cs" selected="True" />
+              <Node name="Infrastructures" expanded="True">
+                <Node name="Entities" expanded="True" />
               </Node>
-              <Node name="Infrastructures" expanded="True" />
-              <Node name="Properties" expanded="True" />
               <Node name="Services" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

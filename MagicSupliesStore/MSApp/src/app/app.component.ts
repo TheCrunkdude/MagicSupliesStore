@@ -14,8 +14,6 @@ import { Route } from '@angular/router';
 export class AppComponent implements OnInit
   {
     ngOnInit ():void{
-    
-      
     }
 
   title = 'MSApp';

@@ -28,7 +28,35 @@ namespace MagicstoreAPI.Services
             {
                 throw new Exception("Get User Service Error" + ex.Message);
             }
+        }
 
+        public async Task<Users> GetSingleUser(int? id, string? name)
+        {
+            try
+            {
+                var result = await _userRepository.GetUserValue(id, name);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Get User Service Error" + ex.Message);
+
+            }
+
+        }
+        public async Task<bool> CreateNewUserService(Users user)
+        {
+            try
+            {
+                _logger.LogInformation("Create New user service is ok ");
+
+                var insertresult = await _userRepository.CreateNewUser (user);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Create Employee Service Error" + ex.Message);
+            }
         }
     }
 }

@@ -20,11 +20,13 @@
     <None Remove="Infrastructures\" />
     <None Remove="Repositories\" />
     <None Remove="Infrastructures\Entities\" />
+    <None Remove="Infrastructures\DTO\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Infrastructures\" />
     <Folder Include="Repositories\" />
     <Folder Include="Infrastructures\Entities\" />
+    <Folder Include="Infrastructures\DTO\" />
   </ItemGroup>
 </Project>

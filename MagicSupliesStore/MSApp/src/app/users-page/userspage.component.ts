@@ -29,12 +29,13 @@ export class UsersPageComponent implements OnInit {
       console.log (x)
       })
   }
+  async CheckExistingUser (){
+    
+  }
 
   ngOnInit(): void {
     this.LoadUserDataMethod()
-
     }
-    
     async LoadUserDataMethod() {
       if (this.apiService) {
         this.apiService.getUserTable()
