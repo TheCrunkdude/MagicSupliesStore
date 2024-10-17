@@ -3,7 +3,7 @@ import { DialogData, LoginInputComponent } from '../../components/component-logi
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { ApiService, loginModel } from '../../services/api.service';
+import { ApiService, LoginModel } from '../../services/api.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -34,7 +34,7 @@ export class LoginpageComponent implements OnInit {
         console.log('The dialog was closed');
         if (result !== undefined) {
 
-          let request: loginModel = {
+          let request: LoginModel = {
             User: result.valueFromInput1,
             Password: result.valueFromInput2
           }

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UserTable } from '../interfaces/userTable-interface';
 import { AddOrEditUser } from '../models/add-edit-usersmodel';
 import * as alertify from 'alertifyjs';
+import { response } from 'express';
 
 @Component({
   selector: 'app-users',
@@ -18,40 +19,72 @@ import * as alertify from 'alertifyjs';
 export class UsersPageComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   dataSourceUserPage: any;
+  newUser!: UserTable;
 
-  constructor (public apiService:ApiService ){
+  constructor(public apiService: ApiService) {
 
   }
 
-  AddOrEditUser(){
+  AddOrEditUser() {
     const dialogRef = this.dialog.open(AddOrEditUser);
     dialogRef.afterClosed().subscribe(
       x => {
-      console.log (x)
+
+        this.newUser = {
+          ID: 0,
+          UserName: x.valueFromInput1,
+          Password: x.valueFromInput2,
+          RoleID: x.valueFromInput3,
+          Mail: x.valueFromInput4,
+          CreationDate: new Date,
+        };
+        console.log(this.newUser)
+        this.CreateUser()
       })
   }
-  CreateUser (){
-    
+
+  CreateUser() {
+
+    this.apiService.getUserByName(this.newUser.UserName).subscribe(
+      response => {
+        if (response != null) {
+          alertify.success('El usuario ya existe')
+        }
+        else {
+          this.apiService.postUser(this.newUser).subscribe(
+            response => {
+              alertify.success(response)
+              this.LoadUserDataMethod()
+            }
+          )
+        }
+      
+      }
+
+    )
+
+
   }
 
-  TestAlert(){
+  TestAlert() {
     alertify.success('TU CULO')
   }
 
   ngOnInit(): void {
     this.LoadUserDataMethod()
+  }
+
+  async LoadUserDataMethod() {
+    if (this.apiService) {
+      this.apiService.getUserTable()
+        .subscribe(
+          response => {
+            // Este dataSource no es el mismo que el de mat table 
+            this.dataSourceUserPage = new MatTableDataSource<UserTable>(response);
+          })
     }
-    async LoadUserDataMethod() {
-      if (this.apiService) {
-        this.apiService.getUserTable()
-          .subscribe(
-            response => {
-              // Este dataSource no es el mismo que el de mat table 
-              this.dataSourceUserPage = new MatTableDataSource<UserTable>(response);
-            })
-      }
-    
-    }
-  
+
+  }
+
 
 }

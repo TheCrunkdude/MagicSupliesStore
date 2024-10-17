@@ -26,7 +26,7 @@ namespace MagicstoreAPI.Controllers
 
         [Route ("/api/GetUser")]
         [HttpGet]
-        public async Task<Users> GetUser([FromQuery] int? id, [FromQuery] string? name)
+        public async Task<Users> GetUser([FromQuery] int? id, [FromQuery] string name)
         {
             Users result =  _userService.GetSingleUser(id,name).Result;
             return (result);
@@ -37,13 +37,13 @@ namespace MagicstoreAPI.Controllers
         // Metodo post, para generar nuevo usuario//
         [Route("/api/PostNewUser")]
             [HttpPost]
-            public  ActionResult<string> CreateNewUser(Users user)
+            public async Task<string> CreateNewUser(Users user)
         {
-            
-            var result =  _userService.CreateNewUserService(user).Result;
+
+            var result = _userService.CreateNewUserService(user).Result;
             var result2 = result == false ? "El empleado ya existe" : "Empleado creado";
 
-            return Ok (result2);
+            return result2;
         }
 
         // Metodo put, para actualizar usuario//

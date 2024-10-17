@@ -3,7 +3,7 @@ import { DialogData, LoginInputComponent } from '../components/component-login/c
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { ApiService, loginModel } from '../services/api.service';
+import { ApiService, LoginModel } from '../services/api.service';
 import { Route } from '@angular/router';
   @Component({
   selector: 'app-root',

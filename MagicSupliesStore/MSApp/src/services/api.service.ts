@@ -24,13 +24,15 @@ private apiUrl = 'https://localhost:7201/api';
     return this.http.get<UserTable[]>(this.apiUrl+ '/GetUsers');
   }
 
-  getUser (id:number, name:string  ):Observable <any> {
+  getUser (id?:number|any, name?:string  ):Observable <any> {
+    return this.http.get(`${this.apiUrl}/GetUser?id=${id}&name=${name}`);
+  }  
 
-    return this.http.get(`${this.apiUrl}/GetUser?id= ${id} &name= ${name}`);
+  getUserByName ( name?:string  ):Observable <any> {
+    return this.http.get(`${this.apiUrl}/GetUser?name=${name}`);
   }  
   postUser(userTable:UserTable): Observable<any>{
     return this.http.post (`${this.apiUrl}/PostNewUser`, userTable,{ responseType: 'text' } )
-
   }
 
   postData (loginModel:LoginModel): Observable <any>{
