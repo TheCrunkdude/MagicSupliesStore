@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserTable } from '../interfaces/userTable-interface';
 import { AddOrEditUser } from '../models/add-edit-usersmodel';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-users',
@@ -29,8 +30,12 @@ export class UsersPageComponent implements OnInit {
       console.log (x)
       })
   }
-  async CheckExistingUser (){
+  CreateUser (){
     
+  }
+
+  TestAlert(){
+    alertify.success('TU CULO')
   }
 
   ngOnInit(): void {

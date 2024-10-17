@@ -1,7 +1,7 @@
 import {
   DomSanitizer
-} from "./chunk-BB7XRBWB.js";
-import "./chunk-SMDFQHUQ.js";
+} from "./chunk-RLPDFS3O.js";
+import "./chunk-MTZGB2IJ.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -10,7 +10,7 @@ import {
   NgIf,
   NgStyle,
   isPlatformBrowser
-} from "./chunk-6KKKRVWG.js";
+} from "./chunk-EMLNBNZC.js";
 import {
   ChangeDetectorRef,
   Component,
@@ -25,7 +25,6 @@ import {
   PLATFORM_ID,
   ViewChild,
   ViewEncapsulation$1,
-  __spreadValues,
   setClassMetadata,
   ɵɵNgOnChangesFeature,
   ɵɵadvance,
@@ -58,7 +57,10 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate2,
   ɵɵviewQuery
-} from "./chunk-CIVJVHEK.js";
+} from "./chunk-EBZ2VPYJ.js";
+import {
+  __spreadValues
+} from "./chunk-3OV72XIM.js";
 
 // node_modules/ng-image-slider/fesm2020/ng-image-slider.mjs
 var _c0 = (a0) => ({

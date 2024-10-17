@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserTable} from '../app/interfaces/userTable-interface';
 
-export interface loginModel{
+export interface LoginModel{
   User : string,
   Password: string
 }
@@ -23,12 +23,19 @@ private apiUrl = 'https://localhost:7201/api';
   getUserTable(): Observable<UserTable[]> {
     return this.http.get<UserTable[]>(this.apiUrl+ '/GetUsers');
   }
-  
 
-  postData (loginModel:loginModel): Observable <any>{
+  getUser (id:number, name:string  ):Observable <any> {
+
+    return this.http.get(`${this.apiUrl}/GetUser?id= ${id} &name= ${name}`);
+  }  
+  postUser(userTable:UserTable): Observable<any>{
+    return this.http.post (`${this.apiUrl}/PostNewUser`, userTable,{ responseType: 'text' } )
+
+  }
+
+  postData (loginModel:LoginModel): Observable <any>{
     
     return this.http.post (`${this.apiUrl}/LoginControler`, loginModel,{ responseType: 'text' } )
-
     console.log('getdata ok')
   }
 

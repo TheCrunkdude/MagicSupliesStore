@@ -55,7 +55,7 @@ namespace MagicstoreAPI.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Create Employee Service Error" + ex.Message);
+                throw ex;
             }
         }
     }

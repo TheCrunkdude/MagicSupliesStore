@@ -37,13 +37,13 @@ namespace MagicstoreAPI.Controllers
         // Metodo post, para generar nuevo usuario//
         [Route("/api/PostNewUser")]
             [HttpPost]
-            public async Task<string> CreateNewUser(Users user)
+            public  ActionResult<string> CreateNewUser(Users user)
         {
-
-            var result = _userService.CreateNewUserService(user).Result;
+            
+            var result =  _userService.CreateNewUserService(user).Result;
             var result2 = result == false ? "El empleado ya existe" : "Empleado creado";
 
-            return result2;
+            return Ok (result2);
         }
 
         // Metodo put, para actualizar usuario//
