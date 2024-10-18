@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, viewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ComponentsModule } from '../../components/components.module';
 import { ApiService } from '../../services/api.service';
@@ -7,6 +7,7 @@ import { UserTable } from '../interfaces/userTable-interface';
 import { AddOrEditUser } from '../models/add-edit-usersmodel';
 import * as alertify from 'alertifyjs';
 import { response } from 'express';
+import { GridComponent } from '../../components/gridcomponent/gridcomponent';
 
 @Component({
   selector: 'app-users',
@@ -21,6 +22,8 @@ export class UsersPageComponent implements OnInit {
   dataSourceUserPage: any;
   newUser!: UserTable;
 
+  @ViewChild('gridComponent') gridComponent !: GridComponent;
+
   constructor(public apiService: ApiService) {
 
   }
@@ -29,7 +32,6 @@ export class UsersPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddOrEditUser);
     dialogRef.afterClosed().subscribe(
       x => {
-
         this.newUser = {
           ID: 0,
           UserName: x.valueFromInput1,
@@ -58,12 +60,13 @@ export class UsersPageComponent implements OnInit {
             }
           )
         }
-      
       }
-
     )
+  }
 
-
+  UpdateUser(event: any): void {
+    console.log(event)
+    alertify.success(event.toString())
   }
 
   TestAlert() {

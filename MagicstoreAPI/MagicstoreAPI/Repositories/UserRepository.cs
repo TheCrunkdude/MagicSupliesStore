@@ -42,7 +42,24 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
 
         }
+        public async Task<Users> UpdateUser(Users user)
+        {
+            //update user at the database//
+            var UsersEntity = _applicationDb.MSDB_Users.Where(x => x.ID == user.ID).FirstOrDefault();
+            if (UsersEntity !=null)
+            {
+                UsersEntity.UserName = user.UserName;
+                UsersEntity.Password = user.Password;
+                UsersEntity.RoleID = user.RoleID;
+                UsersEntity.Mail = user.Mail;
+                UsersEntity.CreationDate = user.CreationDate;
 
+                var QueryResult = _applicationDb.MSDB_Users.Update(UsersEntity);
+                _applicationDb.SaveChanges();
+                return QueryResult.Entity;
+            }
+            return null;
+        }
 
 
 

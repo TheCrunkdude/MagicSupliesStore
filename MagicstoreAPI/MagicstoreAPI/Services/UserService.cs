@@ -44,6 +44,7 @@ namespace MagicstoreAPI.Services
             }
 
         }
+
         public async Task<bool> CreateNewUserService(Users user)
         {
             try
@@ -58,6 +59,26 @@ namespace MagicstoreAPI.Services
                 throw ex;
             }
         }
+
+        public async Task<bool> UpdateUserService(Users user)
+        {
+            try
+            {
+                _logger.LogInformation("Update user service is ok ");
+                var insertresult = await _userRepository.UpdateUser(user);
+                if (insertresult != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+                
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
 

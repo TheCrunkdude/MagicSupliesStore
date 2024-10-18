@@ -5,11 +5,11 @@
      para golpear nuestra API// -->
 
      <div class="example-button-container">
-        <button mat-fab extended (click)="AddOrEditUser()">
+        <p-button mat-fab extended (click)="AddOrEditUser()">
           <mat-icon>add</mat-icon>
-          Add New User
-        </button>
-        <button (click)="TestAlert()"> Test alertify</button>
+          New User
+        </p-button>
+        <p-button (click)="TestAlert()"> Test alertify</p-button>
       </div>
-    <app-gridcomponent #gridComponent [dataSourceGridInput]="dataSourceUserPage" ></app-gridcomponent>
+    <app-gridcomponent #gridComponent (gridSelected)="UpdateUser($event)" [dataSourceGridInput]="dataSourceUserPage" ></app-gridcomponent>
 </div>

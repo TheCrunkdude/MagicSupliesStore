@@ -39,7 +39,8 @@ import { AddOrEditUser } from '../app/models/add-edit-usersmodel';
     MenuComponent,
     AddOrEditUser,
     GridComponent,
-    MaterialModule
+    MaterialModule,
+    PrimeNgModule
   ]
   
 })

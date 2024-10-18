@@ -32,10 +32,10 @@ export class InputOverviewExample implements OnInit{
 
     valuefromInput : string = '';
    
-    onChange(event: Event): void {
+    onChange(esvent: Event): void {
 
       //retrieves the value from the htmltextbox and updates the internal variable
-      var inputString = (event.target as HTMLTextAreaElement).value
+      var inputString = (esvent.target as HTMLTextAreaElement).value
       this.valuefromInput = inputString
       //emits the event for the selected value
       this.inputSelected.emit(this.valuefromInput)

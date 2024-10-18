@@ -31,15 +31,19 @@ private apiUrl = 'https://localhost:7201/api';
   getUserByName ( name?:string  ):Observable <any> {
     return this.http.get(`${this.apiUrl}/GetUser?name=${name}`);
   }  
+
   postUser(userTable:UserTable): Observable<any>{
-    return this.http.post (`${this.apiUrl}/PostNewUser`, userTable,{ responseType: 'text' } )
+    return this.http.post (`${this.apiUrl}/PostNewUser`,userTable,{ responseType: 'text'})
   }
 
-  postData (loginModel:LoginModel): Observable <any>{
-    
-    return this.http.post (`${this.apiUrl}/LoginControler`, loginModel,{ responseType: 'text' } )
-    console.log('getdata ok')
+  putUser (userTable:UserTable): Observable <any>{
+    return this.http.put(`${this.apiUrl}/UpdateUser`,userTable,{ responseType: 'text'})
   }
+  
+  postData (loginModel:LoginModel): Observable <any>{
+    return this.http.post (`${this.apiUrl}/LoginControler`,loginModel,{ responseType: 'text'})
+  }
+
 
 
 }

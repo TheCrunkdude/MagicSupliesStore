@@ -16,13 +16,12 @@ namespace MagicstoreAPI.Controllers
         }
         // Metodo get, para obtener el valor de nuestra tabla//
         [Route("/api/GetUsers")]
-            [HttpGet]
-            public async Task<List<Users>> GetUsers()
-            {
-                List<Users> result = _userService.GetUsers().Result;
-                return (result);
-
-            }
+        [HttpGet]
+        public async Task<List<Users>> GetUsers()
+        {
+            List<Users> result = _userService.GetUsers().Result;
+            return (result);
+        }
 
         [Route ("/api/GetUser")]
         [HttpGet]
@@ -30,24 +29,28 @@ namespace MagicstoreAPI.Controllers
         {
             Users result =  _userService.GetSingleUser(id,name).Result;
             return (result);
-
         }
-
 
         // Metodo post, para generar nuevo usuario//
         [Route("/api/PostNewUser")]
-            [HttpPost]
-            public async Task<string> CreateNewUser(Users user)
+        [HttpPost]
+        public async Task<string> CreateNewUser(Users user)
         {
-
             var result = _userService.CreateNewUserService(user).Result;
             var result2 = result == false ? "El empleado ya existe" : "Empleado creado";
-
             return result2;
         }
 
         // Metodo put, para actualizar usuario//
-   
+        [Route("/api/UpdateUser")]
+        [HttpPut]
+        public async Task<string> UpdateUser(Users user)
+        {
+            var result = _userService.UpdateUserService(user).Result;
+            var result2 = result == false ? "El empleado no puede ser actualizado" : "Empleado actualizado";
+            return result2;
+        }
+
 
     }
 }
