@@ -21,6 +21,8 @@ export class UsersPageComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   dataSourceUserPage: any;
   User!: UserTable;
+  userColumns: { key: string, header: string }[] = [];
+  userHeaders: string[] = [];
 
   @ViewChild('gridComponent') gridComponent !: GridComponent;
 
@@ -117,7 +119,26 @@ export class UsersPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.LoadGrid()
     this.LoadUserDataMethod()
+  }
+
+  async LoadGrid() {
+
+    //Load headers information
+    this.userHeaders = ['id', 'userName', 'password',
+      'roleID', 'mail', 'creationDate', 'actions'];
+
+    //Loads columns information
+    this.userColumns = [
+      { key: 'id', header: 'ID' },
+      { key: 'userName', header: 'UserName' },
+      { key: 'password', header: 'Password' },
+      { key: 'roleID', header: 'Role ID' },
+      { key: 'mail', header: 'Mail' },
+      { key: 'creationDate', header: 'Creation Date' },
+    ];
+
   }
 
   async LoadUserDataMethod() {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ɵgetLocaleCurrencyCode} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, input, ɵgetLocaleCurrencyCode} from '@angular/core';
 
 @Component({
   selector: 'app-gridcomponent',
@@ -8,12 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output, ɵgetLocaleCurrencyCode
 
 export class GridComponent implements OnInit{
   
-fechaDummy: Date=new Date();
-
-displayedColumns: string[] = ['ID','UserName','Password','RoleID','Mail','CreationDate','Actions'];
-
-@Input () dataSourceGridInput : any;
-
+@Input() dataSourceGridInput : any;
+@Input() headers: string[] = [];
+@Input() columns: { key: string, header: string }[] = [];
 @Output() buttonEditSelected = new EventEmitter<any>();
 @Output() buttonDeleteSelected = new EventEmitter<any>();
 

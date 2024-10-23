@@ -3159,19 +3159,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/christiancontreras/.nuget/packages/": {}
+    "/Users/carlosdelatorre/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+      "projectUniqueName": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
       "projectName": "MagicstoreAPI",
-      "projectPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
-      "packagesPath": "/Users/christiancontreras/.nuget/packages/",
-      "outputPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
+      "projectPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+      "packagesPath": "/Users/carlosdelatorre/.nuget/packages/",
+      "outputPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/christiancontreras/.nuget/NuGet/NuGet.Config"
+        "/Users/carlosdelatorre/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
