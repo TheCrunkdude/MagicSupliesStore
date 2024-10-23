@@ -1,10 +1,17 @@
 import {
-  BaseIcon,
-  ConnectedOverlayScrollHandler,
-  DomHandler,
   Ripple,
   RippleModule
-} from "./chunk-2U2AED7E.js";
+} from "./chunk-2BAL6PBF.js";
+import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-MYCONKYB.js";
+import {
+  BaseIcon,
+  ConnectedOverlayScrollHandler,
+  DomHandler
+} from "./chunk-JA5IITHI.js";
 import {
   ObjectUtils,
   PrimeNGConfig,
@@ -12,14 +19,9 @@ import {
   SharedModule,
   UniqueComponentId,
   zindexutils
-} from "./chunk-2BMDVVFC.js";
-import {
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-BT7WXTB7.js";
-import "./chunk-DXZPNFKF.js";
-import "./chunk-YF37NZHO.js";
+} from "./chunk-SRHDTDWL.js";
+import "./chunk-RLPDFS3O.js";
+import "./chunk-MTZGB2IJ.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -29,7 +31,7 @@ import {
   NgStyle,
   NgTemplateOutlet,
   isPlatformBrowser
-} from "./chunk-YUHHZCXD.js";
+} from "./chunk-EMLNBNZC.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -100,8 +102,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-RQBGMOKZ.js";
-import "./chunk-4B74GRUI.js";
+} from "./chunk-EBZ2VPYJ.js";
 import {
   __spreadProps,
   __spreadValues

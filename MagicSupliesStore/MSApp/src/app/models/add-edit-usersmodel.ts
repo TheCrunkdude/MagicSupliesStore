@@ -1,6 +1,6 @@
-import {Component, inject, model, OnInit, signal, ViewChild}from '@angular/core';
+import {Component, Inject, inject, model, OnInit, signal, ViewChild}from '@angular/core';
 import { UserTable } from '../../app/interfaces/userTable-interface';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { InputOverviewExample } from '../../components/component-input';
 
 export interface DialogData {
@@ -39,7 +39,16 @@ export interface DialogData {
 
     };
     InputData = model(this.data);
-  
+    dialogData : any;
+    isEdit: boolean = false;
+
+ 
+    constructor(@Inject(MAT_DIALOG_DATA) public matDialogData: any,){
+
+      this.dialogData = matDialogData
+
+    }
+
     inputSelect(event: any) {
       //Creates the Signal with the Internal values
       this.data.valueFromInput1 = this.inputComponent1.valuefromInput,
@@ -54,12 +63,22 @@ export interface DialogData {
     onNoClick(): void {
       this.dialogRef.close();
     }
-    addUser()
+
+    Close()
     {
       this.dialogRef.close(this.data);
-      
     }
+
     ngOnInit(): void {
+      
+      this.data.valueFromInput1= this.dialogData.UserName
+      this.data.valueFromInput2= this.dialogData.Password
+      this.data.valueFromInput3=this.dialogData.RoleID
+      this.data.valueFromInput4=this.dialogData.Mail
+      this.isEdit = this.dialogData.IsEdit
+
+      console.log('==> Dialog parent data: ', this.dialogData)
+
     }
   }
   

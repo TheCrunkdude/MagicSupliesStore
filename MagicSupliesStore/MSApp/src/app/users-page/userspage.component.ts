@@ -1,13 +1,13 @@
 import { Component, inject, OnInit, ViewChild, viewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogContainer } from '@angular/material/dialog';
 import { ComponentsModule } from '../../components/components.module';
 import { ApiService } from '../../services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserTable } from '../interfaces/userTable-interface';
 import { AddOrEditUser } from '../models/add-edit-usersmodel';
 import * as alertify from 'alertifyjs';
-import { response } from 'express';
 import { GridComponent } from '../../components/gridcomponent/gridcomponent';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-users',
@@ -20,7 +20,7 @@ import { GridComponent } from '../../components/gridcomponent/gridcomponent';
 export class UsersPageComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   dataSourceUserPage: any;
-  newUser!: UserTable;
+  User!: UserTable;
 
   @ViewChild('gridComponent') gridComponent !: GridComponent;
 
@@ -32,7 +32,7 @@ export class UsersPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddOrEditUser);
     dialogRef.afterClosed().subscribe(
       x => {
-        this.newUser = {
+        this.User = {
           ID: 0,
           UserName: x.valueFromInput1,
           Password: x.valueFromInput2,
@@ -40,20 +40,20 @@ export class UsersPageComponent implements OnInit {
           Mail: x.valueFromInput4,
           CreationDate: new Date,
         };
-        console.log(this.newUser)
+        console.log(this.User)
         this.CreateUser()
       })
   }
 
   CreateUser() {
 
-    this.apiService.getUserByName(this.newUser.UserName).subscribe(
+    this.apiService.getUserByName(this.User.UserName).subscribe(
       response => {
         if (response != null) {
           alertify.success('El usuario ya existe')
         }
         else {
-          this.apiService.postUser(this.newUser).subscribe(
+          this.apiService.postUser(this.User).subscribe(
             response => {
               alertify.success(response)
               this.LoadUserDataMethod()
@@ -65,9 +65,52 @@ export class UsersPageComponent implements OnInit {
   }
 
   UpdateUser(event: any): void {
-    console.log(event)
-    alertify.success(event.toString())
+
+    console.log('Update user method', event)
+    const temp = {
+      ID: event.id,
+      UserName: event.userName,
+      Password: event.password,
+      RoleID: event.roleID,
+      Mail: event.mail,
+      CreationDate: new Date(),
+      IsEdit: true // Add your new property here
+    };
+
+    const dialogRef = this.dialog.open(AddOrEditUser, { data: temp })
+    dialogRef.afterClosed().subscribe(
+      x => {
+        this.User = {
+          ID: event.id,
+          UserName: x.valueFromInput1,
+          Password: x.valueFromInput2,
+          RoleID: x.valueFromInput3,
+          Mail: x.valueFromInput4,
+          CreationDate: new Date,
+        };
+        console.log(this.User)
+        //this update user
+        this.apiService.putUser(this.User).subscribe(
+          response => {
+            alertify.success(response)
+            this.LoadUserDataMethod()
+          })
+      })
   }
+
+  //IMPLEMENT DELETE 
+  DeleteUser(event: any): void {
+
+    if (confirm("Are you sure to delete " + event.userName)) {
+      this.apiService.deleteUser(event.id).subscribe(
+        response => {
+          alertify.success(response)
+          this.LoadUserDataMethod()
+        }
+      )
+    }
+  }
+  //!!!!
 
   TestAlert() {
     alertify.success('TU CULO')

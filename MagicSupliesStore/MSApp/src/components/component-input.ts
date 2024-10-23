@@ -26,7 +26,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class InputOverviewExample implements OnInit{ 
 
-    @Input () field : string = '';
+    @Input () field : string  = '';
     @Input () placeholder : string = '';
     @Output() inputSelected = new EventEmitter<string>();
 

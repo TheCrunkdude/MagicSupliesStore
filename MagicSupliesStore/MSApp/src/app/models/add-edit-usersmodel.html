@@ -1,11 +1,12 @@
 
-<input-overview-example #inputComponent1 (inputSelected)="inputSelect($event)" [field]="'username'" [placeholder]="'type username'">
+<input-overview-example #inputComponent1 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput1" [placeholder]="'type username'">
 </input-overview-example>
-<input-overview-example #inputComponent2 (inputSelected)="inputSelect($event)" [field]="'Password'" [placeholder]="'type Password'">
+<input-overview-example #inputComponent2 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput2" [placeholder]="'type Password'">
 </input-overview-example>
-<input-overview-example #inputComponent3 (inputSelected)="inputSelect($event)" [field]="'RoleID'" [placeholder]="'type RoleID'">
+<input-overview-example #inputComponent3 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput3" [placeholder]="'type RoleID'">
 </input-overview-example>
-<input-overview-example #inputComponent4 (inputSelected)="inputSelect($event)" [field]="'Mail'" [placeholder]="'type Mail'">
+<input-overview-example #inputComponent4 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput4" [placeholder]="'type Mail'">
 </input-overview-example>
 <p-button class="boton" (click)="onNoClick()">Cancel </p-button>
-<p-button class="boton" (click)="addUser()">Add User</p-button>
+<p-button *ngIf="!isEdit" class="boton" (click)="Close()">Add User</p-button>
+<p-button *ngIf="isEdit" class="boton" (click)="Close()">Edit User</p-button>

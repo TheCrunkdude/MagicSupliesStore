@@ -1,8 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, ɵgetLocaleCurrencyCode} from '@angular/core';
-import { UserTable } from '../../app/interfaces/userTable-interface';
-import { ApiService } from '../../services/api.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { emit } from 'process';
 
 @Component({
   selector: 'app-gridcomponent',
@@ -18,12 +14,16 @@ displayedColumns: string[] = ['ID','UserName','Password','RoleID','Mail','Creati
 
 @Input () dataSourceGridInput : any;
 
-@Output() gridSelected = new EventEmitter<string>();
+@Output() buttonEditSelected = new EventEmitter<any>();
+@Output() buttonDeleteSelected = new EventEmitter<any>();
 
 
-SelectGridEvent(id: any){
-  this.gridSelected.emit(id)
+SelectEditButtonEvent(element: any){
+  this.buttonEditSelected.emit(element)
   
+}
+SelectDeleteButtonEvent (element: any){
+this.buttonDeleteSelected.emit(element)
 }
 
 ngOnInit(): void {

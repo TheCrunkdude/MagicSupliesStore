@@ -39,6 +39,9 @@ private apiUrl = 'https://localhost:7201/api';
   putUser (userTable:UserTable): Observable <any>{
     return this.http.put(`${this.apiUrl}/UpdateUser`,userTable,{ responseType: 'text'})
   }
+  deleteUser(id: number):Observable<any>{
+    return this.http.delete(`${this.apiUrl}/DeleteUser?ID=${id}`,{ responseType: 'text'})
+  }
   
   postData (loginModel:LoginModel): Observable <any>{
     return this.http.post (`${this.apiUrl}/LoginControler`,loginModel,{ responseType: 'text'})

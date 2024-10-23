@@ -60,7 +60,14 @@ namespace MagicstoreAPI.Repositories
             }
             return null;
         }
-
+        //Delete user from DB
+        public async Task<Users> DeleteUser(int userID)
+        {
+            var UsersEntity = _applicationDb.MSDB_Users.Where(x => x.ID == userID).FirstOrDefault();
+            var QueryResult = _applicationDb.MSDB_Users.Remove(UsersEntity).Entity;
+            _applicationDb.SaveChanges();
+            return QueryResult;
+        }
 
 
         public GenericResponse AzureRequest(int configurationID, string json)

@@ -51,6 +51,17 @@ namespace MagicstoreAPI.Controllers
             return result2;
         }
 
+        // Metodo put, para actualizar usuario//
+        [Route("/api/DeleteUser")]
+        [HttpDelete]
+        public async Task<string> DeleteUser([FromQuery] int ID )
+        {
+
+            var result = _userService.DeleteUserService(ID).Result;
+            var result2 = result == false ? "Usuario no eliminado" : "Usuario eliminado";
+            return result2;
+        }
+
 
     }
 }

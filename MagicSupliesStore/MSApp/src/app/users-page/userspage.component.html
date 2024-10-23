@@ -11,5 +11,5 @@
         </p-button>
         <p-button (click)="TestAlert()"> Test alertify</p-button>
       </div>
-    <app-gridcomponent #gridComponent (gridSelected)="UpdateUser($event)" [dataSourceGridInput]="dataSourceUserPage" ></app-gridcomponent>
+    <app-gridcomponent #gridComponent (buttonEditSelected)="UpdateUser($event)" (buttonDeleteSelected)="DeleteUser($event)" [dataSourceGridInput]="dataSourceUserPage" ></app-gridcomponent>
 </div>

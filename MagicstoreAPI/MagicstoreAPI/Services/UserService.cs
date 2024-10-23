@@ -79,6 +79,22 @@ namespace MagicstoreAPI.Services
             }
         }
 
+        public async Task<bool> DeleteUserService (int userID)
+        {
+            try
+            {
+                var deleteresult = await _userRepository.DeleteUser(userID);
+                if (deleteresult !=null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 
