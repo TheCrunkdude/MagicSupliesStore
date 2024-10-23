@@ -1,17 +1,10 @@
 import {
-  Ripple,
-  RippleModule
-} from "./chunk-2BAL6PBF.js";
-import {
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-MYCONKYB.js";
-import {
   BaseIcon,
   ConnectedOverlayScrollHandler,
-  DomHandler
-} from "./chunk-JA5IITHI.js";
+  DomHandler,
+  Ripple,
+  RippleModule
+} from "./chunk-3CGFOR6J.js";
 import {
   ObjectUtils,
   PrimeNGConfig,
@@ -20,6 +13,11 @@ import {
   UniqueComponentId,
   zindexutils
 } from "./chunk-SRHDTDWL.js";
+import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-MYCONKYB.js";
 import "./chunk-RLPDFS3O.js";
 import "./chunk-MTZGB2IJ.js";
 import {

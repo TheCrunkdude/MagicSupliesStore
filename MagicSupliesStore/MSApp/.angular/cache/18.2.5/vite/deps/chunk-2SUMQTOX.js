@@ -84,31 +84,17 @@ function transition(stateChangeExpr, steps, options = null) {
     options
   };
 }
-function animation(steps, options = null) {
-  return {
-    type: AnimationMetadataType.Reference,
-    animation: steps,
-    options
-  };
-}
 function animateChild(options = null) {
   return {
     type: AnimationMetadataType.AnimateChild,
     options
   };
 }
-function useAnimation(animation2, options = null) {
-  return {
-    type: AnimationMetadataType.AnimateRef,
-    animation: animation2,
-    options
-  };
-}
-function query(selector, animation2, options = null) {
+function query(selector, animation, options = null) {
   return {
     type: AnimationMetadataType.Query,
     selector,
-    animation: animation2,
+    animation,
     options
   };
 }
@@ -157,10 +143,10 @@ var BrowserAnimationBuilder = class _BrowserAnimationBuilder extends AnimationBu
       throw new RuntimeError(3600, (typeof ngDevMode === "undefined" || ngDevMode) && "Angular detected that the `AnimationBuilder` was injected, but animation support was not enabled. Please make sure that you enable animations in your application by calling `provideAnimations()` or `provideAnimationsAsync()` function.");
     }
   }
-  build(animation2) {
+  build(animation) {
     const id = this._nextAnimationId;
     this._nextAnimationId++;
-    const entry = Array.isArray(animation2) ? sequence(animation2) : animation2;
+    const entry = Array.isArray(animation) ? sequence(animation) : animation;
     issueAnimationCommand(this._renderer, null, id, "register", [entry]);
     return new BrowserAnimationFactory(id, this._renderer);
   }
@@ -508,9 +494,7 @@ export {
   style,
   state,
   transition,
-  animation,
   animateChild,
-  useAnimation,
   query,
   NoopAnimationPlayer,
   AnimationGroupPlayer,
@@ -525,4 +509,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-FGX3ACNQ.js.map
+//# sourceMappingURL=chunk-2SUMQTOX.js.map

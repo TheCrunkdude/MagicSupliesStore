@@ -1,10 +1,8 @@
 import {
-  Ripple
-} from "./chunk-2BAL6PBF.js";
-import {
   BaseIcon,
-  DomHandler
-} from "./chunk-JA5IITHI.js";
+  DomHandler,
+  Ripple
+} from "./chunk-3CGFOR6J.js";
 import {
   ObjectUtils,
   PrimeTemplate,
