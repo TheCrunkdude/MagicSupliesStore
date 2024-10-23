@@ -1,6 +1,7 @@
 .example-button-container {
     display: flex;
-    justify-content: center;
+    padding-right: 0px;
+    justify-content: right;
     color: aqua;
-    width: 180px;
+    width: 90%;
   }
