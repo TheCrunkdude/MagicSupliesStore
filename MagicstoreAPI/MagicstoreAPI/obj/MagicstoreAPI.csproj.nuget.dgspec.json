@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj": {}
+    "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj": {}
   },
   "projects": {
-    "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj": {
+    "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+        "projectUniqueName": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
         "projectName": "MagicstoreAPI",
-        "projectPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
-        "packagesPath": "/Users/carlosdelatorre/.nuget/packages/",
-        "outputPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
+        "projectPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+        "packagesPath": "/Users/christiancontreras/.nuget/packages/",
+        "outputPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/carlosdelatorre/.nuget/NuGet/NuGet.Config"
+          "/Users/christiancontreras/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -45,6 +45,10 @@
               "version": "[7.0.20, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.20, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
               "target": "Package",
               "version": "[7.0.20, )"
             },

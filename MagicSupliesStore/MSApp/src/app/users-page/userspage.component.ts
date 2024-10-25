@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild, viewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogContainer } from '@angular/material/dialog';
 import { ComponentsModule } from '../../components/components.module';
 import { ApiService } from '../../services/api.service';

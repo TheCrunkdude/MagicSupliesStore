@@ -6,6 +6,11 @@ import {
   RippleModule
 } from "./chunk-3CGFOR6J.js";
 import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-MYCONKYB.js";
+import {
   ObjectUtils,
   PrimeNGConfig,
   PrimeTemplate,
@@ -13,11 +18,6 @@ import {
   UniqueComponentId,
   zindexutils
 } from "./chunk-SRHDTDWL.js";
-import {
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-MYCONKYB.js";
 import "./chunk-RLPDFS3O.js";
 import "./chunk-MTZGB2IJ.js";
 import {

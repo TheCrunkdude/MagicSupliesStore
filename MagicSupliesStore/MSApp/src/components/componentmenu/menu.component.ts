@@ -68,13 +68,13 @@ export class MenuComponent implements OnInit {
                   routerLink: "/Users"
                 },
                 {
-                  label: 'Permissions'
-                  // routerLink: "/Permissions"
+                  label: 'Permissions',
+                  routerLink: "/Permissions"
 
                 },
                 {
-                  label: 'Roles'
-                  // routerLink: "/Roles"
+                  label: 'Roles',
+                  routerLink: "/Roles"
 
                 }
               ]

@@ -1,0 +1,8 @@
+
+<input-overview-example #inputComponent1 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput1" [placeholder]="'type permission ID'">
+</input-overview-example>
+<input-overview-example #inputComponent2 (inputSelected)="inputSelect($event)" [field]="this.data.valueFromInput2" [placeholder]="'type Role'">
+</input-overview-example>
+<p-button class="boton" (click)="onNoClick()">Cancel </p-button>
+<p-button *ngIf="!isEdit" class="boton" (click)="Close()">Add Role</p-button>
+<p-button *ngIf="isEdit" class="boton" (click)="Close()">Edit Role</p-button>

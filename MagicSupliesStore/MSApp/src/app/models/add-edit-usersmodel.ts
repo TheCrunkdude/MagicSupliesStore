@@ -8,10 +8,7 @@ export interface DialogData {
   valueFromInput2: string;
   valueFromInput3: string;
   valueFromInput4: string;
-
 }
-
-
 
 @Component({
     selector: 'add-edit-usersmodel',
@@ -38,6 +35,14 @@ export interface DialogData {
       valueFromInput4: ''
 
     };
+    fieldData:{field1:string,field2:string,field3:string,field4:string} ={
+      field1:'User Name', 
+      field2: 'Pasword',
+      field3: 'Pasword',
+      field4: 'Pasword'
+
+    }
+
     InputData = model(this.data);
     dialogData : any;
     isEdit: boolean = false;

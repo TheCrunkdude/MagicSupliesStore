@@ -3,13 +3,13 @@
     <!-- //crear un modelo para "agregar" que abra un modelo para poder agregar un usuario, 
      debe tener un boton para agregar o cancelar y si le das "agregar" use el metodo post 
      para golpear nuestra API// -->
-    <app-gridcomponent #gridComponent (buttonEditSelected)="UpdateUser($event)" 
-    (buttonDeleteSelected)="DeleteUser($event)" [dataSourceGridInput]="dataSourceUserPage" 
-    [columns]="userColumns" [headers]="userHeaders"></app-gridcomponent>
+    <app-gridcomponent #gridComponent [dataSourceGridInput]="dataSourcePermissionsPage" 
+    [columns]="permissionsColumns" [headers]="permissionsHeaders"></app-gridcomponent>
     <div class="example-button-container">
-      <p-button mat-fab extended (click)="AddOrEditUser()">
+      <p-button mat-fab extended >
         <mat-icon>add</mat-icon>
-        New User
+        New Permission
       </p-button>
     </div>
+
   </div>

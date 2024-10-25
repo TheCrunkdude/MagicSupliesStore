@@ -3,7 +3,7 @@ import {
   ScrollDispatcher,
   ScrollingModule,
   ViewportRuler
-} from "./chunk-XUTCSZJO.js";
+} from "./chunk-NA4NOVE2.js";
 import {
   animate,
   animateChild,
@@ -32,7 +32,7 @@ import {
   coerceNumberProperty,
   hasModifierKey,
   supportsScrollBehavior
-} from "./chunk-HRUU6TGP.js";
+} from "./chunk-4NYHPOPO.js";
 import {
   DOCUMENT,
   Location
