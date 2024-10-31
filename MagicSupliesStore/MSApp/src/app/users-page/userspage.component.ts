@@ -69,17 +69,18 @@ export class UsersPageComponent implements OnInit {
   UpdateUser(event: any): void {
 
     console.log('Update user method', event)
-    const temp = {
-      ID: event.id,
-      UserName: event.userName,
-      Password: event.password,
-      RoleID: event.roleID,
-      Mail: event.mail,
-      CreationDate: new Date(),
-      IsEdit: true // Add your new property here
-    };
+    const modalValues: {key: string, value: string}[] = 
+    [
+      {key: "ID", value: event.id},
+      {key: "UserName", value: event.userName},
+      {key: "Password", value: event.password},
+      {key: "RoleID", value: event.roleID},
+      {key: "Mail", value: event.mail},
+      {key: "CreationDate", value: new Date().toString()},
+      {key: "IsEdit", value: true},
+    ];
 
-    const dialogRef = this.dialog.open(AddOrEditUser, { data: temp })
+    const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
     dialogRef.afterClosed().subscribe(
       x => {
         this.User = {
@@ -90,7 +91,7 @@ export class UsersPageComponent implements OnInit {
           Mail: x.valueFromInput4,
           CreationDate: new Date,
         };
-        console.log(this.User)
+        console.log('This user afterclose' + this.User)
         //this update user
         this.apiService.putUser(this.User).subscribe(
           response => {

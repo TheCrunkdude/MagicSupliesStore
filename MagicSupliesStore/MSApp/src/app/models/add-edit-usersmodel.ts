@@ -1,14 +1,9 @@
-import {Component, Inject, inject, model, OnInit, signal, ViewChild}from '@angular/core';
+import {Component, Inject, inject, model, OnInit, QueryList, signal, ViewChild, ViewChildren}from '@angular/core';
 import { UserTable } from '../../app/interfaces/userTable-interface';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { InputOverviewExample } from '../../components/component-input';
 
-export interface DialogData {
-  valueFromInput1: string;
-  valueFromInput2: string;
-  valueFromInput3: string;
-  valueFromInput4: string;
-}
+
 
 @Component({
     selector: 'add-edit-usersmodel',
@@ -22,26 +17,19 @@ export interface DialogData {
   })
   export class AddOrEditUser implements OnInit {
     
-    @ViewChild('inputComponent1') inputComponent1 !: InputOverviewExample;
-    @ViewChild('inputComponent2') inputComponent2 !: InputOverviewExample;
-    @ViewChild('inputComponent3') inputComponent3 !: InputOverviewExample;
-    @ViewChild('inputComponent4') inputComponent4 !: InputOverviewExample;
+    @ViewChildren('inputComponent') inputComponents: QueryList<InputOverviewExample>
+    = new QueryList<InputOverviewExample>();
 
     readonly dialogRef = inject(MatDialogRef<AddOrEditUser>);
-    data: DialogData = {
-      valueFromInput1: '',
-      valueFromInput2: '',
-      valueFromInput3: '',
-      valueFromInput4: ''
+    data: {valueFromInput: string}[]=[
+    ]
 
-    };
-    fieldData:{field1:string,field2:string,field3:string,field4:string} ={
-      field1:'User Name', 
-      field2: 'Pasword',
-      field3: 'Pasword',
-      field4: 'Pasword'
-
-    }
+    fieldData:{key:number, fieldname:string}[] =[
+      {key:1, fieldname:'User Name'}, 
+      {key:2, fieldname:'Pasword'},
+      {key:3, fieldname:'Role'},
+      {key:4, fieldname:'Mail'}
+    ]
 
     InputData = model(this.data);
     dialogData : any;
@@ -51,16 +39,17 @@ export interface DialogData {
     constructor(@Inject(MAT_DIALOG_DATA) public matDialogData: any,){
 
       this.dialogData = matDialogData
+      
 
     }
 
     inputSelect(event: any) {
       //Creates the Signal with the Internal values
-      this.data.valueFromInput1 = this.inputComponent1.valuefromInput,
-      this.data.valueFromInput2= this.inputComponent2.valuefromInput,
-      this.data.valueFromInput3= this.inputComponent3.valuefromInput,
-      this.data.valueFromInput4= this.inputComponent4.valuefromInput
+      console.log(this.inputComponents)
+      this.inputComponents.forEach(element => {
+        this.data.push({valueFromInput:element.valuefromInput})
 
+      });      
       //Sets the signal  
       this.InputData.set(this.data)
     }
@@ -75,11 +64,17 @@ export interface DialogData {
     }
 
     ngOnInit(): void {
-      
-      this.data.valueFromInput1= this.dialogData.UserName
-      this.data.valueFromInput2= this.dialogData.Password
-      this.data.valueFromInput3=this.dialogData.RoleID
-      this.data.valueFromInput4=this.dialogData.Mail
+        let counter = 0;
+
+        console.log('ngonInit ==>', this.dialogData)
+        console.log('inputcomponents ==>', this.inputComponents)
+        this.inputComponents.map
+        this.inputComponents.forEach(element => {
+          element.valuefromInput = this.dialogData[0].value
+          counter= counter +1;
+      });
+
+      console.log('Value from data',this.data)
       this.isEdit = this.dialogData.IsEdit
 
       console.log('==> Dialog parent data: ', this.dialogData)
