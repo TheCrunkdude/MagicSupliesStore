@@ -2,6 +2,7 @@ import {Component, Inject, inject, model, OnInit, QueryList, signal, ViewChild, 
 import { UserTable } from '../../app/interfaces/userTable-interface';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { InputOverviewExample } from '../../components/component-input';
+import e from 'express';
 
 
 
@@ -24,11 +25,7 @@ import { InputOverviewExample } from '../../components/component-input';
     data: {valueFromInput: string}[]=[
     ]
 
-    fieldData:{key:number, fieldname:string}[] =[
-      {key:1, fieldname:'User Name'}, 
-      {key:2, fieldname:'Pasword'},
-      {key:3, fieldname:'Role'},
-      {key:4, fieldname:'Mail'}
+    fieldData:{key:number, fieldname:string, _value:string}[] =[
     ]
 
     InputData = model(this.data);
@@ -40,7 +37,6 @@ import { InputOverviewExample } from '../../components/component-input';
 
       this.dialogData = matDialogData
       
-
     }
 
     inputSelect(event: any) {
@@ -64,18 +60,21 @@ import { InputOverviewExample } from '../../components/component-input';
     }
 
     ngOnInit(): void {
-        let counter = 0;
-
+        let counter = 1;
+        this.isEdit =this.dialogData.isEdit;
         console.log('ngonInit ==>', this.dialogData)
-        console.log('inputcomponents ==>', this.inputComponents)
-        this.inputComponents.map
-        this.inputComponents.forEach(element => {
-          element.valuefromInput = this.dialogData[0].value
-          counter= counter +1;
+
+        this.dialogData.modalData.forEach((element:  { key: number, columnName: any; value: any, isModal: any })  => {
+          if (element.isModal){
+            this.fieldData.push ({key:counter, fieldname: element.columnName, _value: element.value})
+          counter = counter+1
+          }
+
       });
+      console.log('inputcomponents ==>', this.inputComponents)
 
       console.log('Value from data',this.data)
-      this.isEdit = this.dialogData.IsEdit
+      this.isEdit = this.dialogData.isEdit
 
       console.log('==> Dialog parent data: ', this.dialogData)
 

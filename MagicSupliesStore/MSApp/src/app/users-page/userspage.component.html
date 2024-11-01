@@ -5,7 +5,7 @@
      para golpear nuestra API// -->
     <app-gridcomponent #gridComponent (buttonEditSelected)="UpdateUser($event)" 
     (buttonDeleteSelected)="DeleteUser($event)" [dataSourceGridInput]="dataSourceUserPage" 
-    [columns]="userColumns" [headers]="userHeaders"></app-gridcomponent>
+    [columns]="userColumns" [headers]="userHeaders" ></app-gridcomponent>
     <div class="example-button-container">
       <p-button mat-fab extended (click)="AddOrEditUser()">
         <mat-icon>add</mat-icon>

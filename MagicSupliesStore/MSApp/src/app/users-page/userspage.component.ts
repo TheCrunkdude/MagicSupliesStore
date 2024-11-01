@@ -69,16 +69,16 @@ export class UsersPageComponent implements OnInit {
   UpdateUser(event: any): void {
 
     console.log('Update user method', event)
-    const modalValues: {key: string, value: string}[] = 
-    [
-      {key: "ID", value: event.id},
-      {key: "UserName", value: event.userName},
-      {key: "Password", value: event.password},
-      {key: "RoleID", value: event.roleID},
-      {key: "Mail", value: event.mail},
-      {key: "CreationDate", value: new Date().toString()},
-      {key: "IsEdit", value: true},
-    ];
+    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
+    {modalData: [
+      {key: 1, columnName: "ID", value: event.id,isModal:false},
+      {key: 2, columnName: "UserName", value: event.userName, isModal:true},
+      {key: 3, columnName: "Password", value: event.password, isModal:true},
+      {key: 4, columnName: "RoleID", value: event.roleID, isModal:true},
+      {key: 5, columnName: "Mail", value: event.mail, isModal:true},
+      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
+    ], 
+    isEdit: true};
 
     const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
     dialogRef.afterClosed().subscribe(
@@ -91,6 +91,7 @@ export class UsersPageComponent implements OnInit {
           Mail: x.valueFromInput4,
           CreationDate: new Date,
         };
+        
         console.log('This user afterclose' + this.User)
         //this update user
         this.apiService.putUser(this.User).subscribe(

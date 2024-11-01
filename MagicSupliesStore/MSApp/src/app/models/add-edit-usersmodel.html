@@ -1,5 +1,5 @@
 
-<input-overview-example *ngFor="let field of fieldData" #inputComponent  (inputSelected)="inputSelect($event)" [field]= field.fieldname [placeholder]="'type'+field.fieldname">
+<input-overview-example *ngFor="let field of fieldData" #inputComponent  (inputSelected)="inputSelect($event)" [field]= field._value [placeholder]="'type'+field.fieldname">
 </input-overview-example>
 <p-button class="boton" (click)="onNoClick()">Cancel </p-button>
 <p-button *ngIf="!isEdit" class="boton" (click)="Close()">Add User</p-button>w
