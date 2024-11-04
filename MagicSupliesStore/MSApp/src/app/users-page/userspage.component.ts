@@ -68,7 +68,6 @@ export class UsersPageComponent implements OnInit {
 
   UpdateUser(event: any): void {
 
-    console.log('Update user method', event)
     const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
     {modalData: [
       {key: 1, columnName: "ID", value: event.id,isModal:false},
@@ -85,14 +84,12 @@ export class UsersPageComponent implements OnInit {
       x => {
         this.User = {
           ID: event.id,
-          UserName: x.valueFromInput1,
-          Password: x.valueFromInput2,
-          RoleID: x.valueFromInput3,
-          Mail: x.valueFromInput4,
+          UserName: x[0].valueFromDialog,
+          Password: x[1].valueFromDialog,
+          RoleID: x[2].valueFromDialog,
+          Mail: x[3].valueFromDialog,
           CreationDate: new Date,
         };
-        
-        console.log('This user afterclose' + this.User)
         //this update user
         this.apiService.putUser(this.User).subscribe(
           response => {

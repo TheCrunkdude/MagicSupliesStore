@@ -22,13 +22,12 @@ import e from 'express';
     = new QueryList<InputOverviewExample>();
 
     readonly dialogRef = inject(MatDialogRef<AddOrEditUser>);
-    data: {valueFromInput: string}[]=[
+    data: {valueFromDialog: string}[]=[
     ]
 
     fieldData:{key:number, fieldname:string, _value:string}[] =[
     ]
 
-    InputData = model(this.data);
     dialogData : any;
     isEdit: boolean = false;
 
@@ -41,15 +40,13 @@ import e from 'express';
 
     inputSelect(event: any) {
       //Creates the Signal with the Internal values
-      console.log(this.inputComponents)
+      this.data = []
       this.inputComponents.forEach(element => {
-        this.data.push({valueFromInput:element.valuefromInput})
-
+        this.data.push({valueFromDialog:element.valuefromInput})
       });      
-      //Sets the signal  
-      this.InputData.set(this.data)
     }
   
+
     onNoClick(): void {
       this.dialogRef.close();
     }
@@ -62,7 +59,6 @@ import e from 'express';
     ngOnInit(): void {
         let counter = 1;
         this.isEdit =this.dialogData.isEdit;
-        console.log('ngonInit ==>', this.dialogData)
 
         this.dialogData.modalData.forEach((element:  { key: number, columnName: any; value: any, isModal: any })  => {
           if (element.isModal){
@@ -71,12 +67,8 @@ import e from 'express';
           }
 
       });
-      console.log('inputcomponents ==>', this.inputComponents)
-
-      console.log('Value from data',this.data)
       this.isEdit = this.dialogData.isEdit
 
-      console.log('==> Dialog parent data: ', this.dialogData)
 
     }
   }

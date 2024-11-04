@@ -1,15 +1,15 @@
 import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-MYCONKYB.js";
+import {
   BaseIcon,
   ConnectedOverlayScrollHandler,
   DomHandler,
   Ripple,
   RippleModule
 } from "./chunk-3CGFOR6J.js";
-import {
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-MYCONKYB.js";
 import {
   ObjectUtils,
   PrimeNGConfig,
