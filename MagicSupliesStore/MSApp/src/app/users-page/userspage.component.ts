@@ -36,10 +36,10 @@ export class UsersPageComponent implements OnInit {
       x => {
         this.User = {
           ID: 0,
-          UserName: x.valueFromInput1,
-          Password: x.valueFromInput2,
-          RoleID: x.valueFromInput3,
-          Mail: x.valueFromInput4,
+          UserName: x[0].valueFromDialog,
+          Password: x[1].valueFromDialog,
+          RoleID: x[2].valueFromDialog,
+          Mail: x[3].valueFromDialog,
           CreationDate: new Date,
         };
         console.log(this.User)
