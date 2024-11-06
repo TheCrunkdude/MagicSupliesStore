@@ -1,0 +1,68 @@
+import { Component, Inject, inject, model, OnInit, ViewChild } from "@angular/core";
+import { InputOverviewExample } from '../../components/component-input';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+
+
+
+export interface RolesDialogData {
+    valueFromInput1: string;
+    valueFromInput2: string;
+  }
+
+@Component({
+    selector: 'add-edit-rolemodel',
+    templateUrl: './add-edit-rolemodel.html',
+    styles: `
+      .boton{
+        margin:auto;
+        margin-bottom: 10px,
+        width: 500px,
+      }`
+  })
+
+export class AddEditRolesModel implements OnInit{
+
+  @ViewChild('inputComponent1') inputComponent1 !: InputOverviewExample;
+  @ViewChild('inputComponent2') inputComponent2 !: InputOverviewExample;
+ 
+  readonly dialogRef = inject(MatDialogRef<AddEditRolesModel>);
+    data: RolesDialogData = {
+      valueFromInput1: '',
+      valueFromInput2: '',
+    };
+    InputData = model(this.data);
+    dialogData : any;
+    isEdit: boolean = false;
+    
+    constructor(@Inject(MAT_DIALOG_DATA) public matDialogData: any,){
+      this.dialogData = matDialogData
+    }
+
+    inputSelect(event: any) {
+      //Creates the Signal with the Internal values
+      this.data.valueFromInput1 = this.inputComponent1.valuefromInput,
+      this.data.valueFromInput2= this.inputComponent2.valuefromInput,
+     
+      //Sets the signal  
+      this.InputData.set(this.data)
+    }
+      
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+
+    Close()
+    {
+      this.dialogRef.close(this.data);
+    }
+
+  ngOnInit(): void {
+      
+    this.data.valueFromInput1= this.dialogData.PermissionsID
+    this.data.valueFromInput2= this.dialogData.Role
+    this.isEdit = this.dialogData.IsEdit
+
+    console.log('==> Dialog parent data: ', this.dialogData)
+
+  }
+}

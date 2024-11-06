@@ -3154,24 +3154,25 @@
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.20",
       "Microsoft.EntityFrameworkCore >= 7.0.20",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 7.0.20",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.20",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
   "packageFolders": {
-    "/Users/carlosdelatorre/.nuget/packages/": {}
+    "/Users/christiancontreras/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+      "projectUniqueName": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
       "projectName": "MagicstoreAPI",
-      "projectPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
-      "packagesPath": "/Users/carlosdelatorre/.nuget/packages/",
-      "outputPath": "/Users/carlosdelatorre/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
+      "projectPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
+      "packagesPath": "/Users/christiancontreras/.nuget/packages/",
+      "outputPath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/carlosdelatorre/.nuget/NuGet/NuGet.Config"
+        "/Users/christiancontreras/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -3202,6 +3203,10 @@
             "version": "[7.0.20, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.20, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
             "target": "Package",
             "version": "[7.0.20, )"
           },

@@ -19,7 +19,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     template: `<form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>{{field}}</mat-label>
-    <input (input)="onChange($event)" matInput placeholder={{placeholder}} value={{valuefromInput}}>
+    <input (input)="onChange($event)" matInput  placeholder={{placeholder}} value={{valuefromInput}}>
   </mat-form-field>
 </form>`,
 

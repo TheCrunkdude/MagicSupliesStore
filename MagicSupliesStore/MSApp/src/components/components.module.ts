@@ -13,6 +13,7 @@ import { LoginpageComponent } from '../app/login-page/loginpage';
 import { UserTable} from '../app/interfaces/userTable-interface';
 import { GridComponent } from './gridcomponent/gridcomponent';
 import { AddOrEditUser } from '../app/models/add-edit-usersmodel';
+import { AddEditRolesModel } from '../app/models/add-edit-rolemodel';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddOrEditUser } from '../app/models/add-edit-usersmodel';
     MainpageComponent,
     MenuComponent,
     GridComponent,
-    AddOrEditUser
+    AddOrEditUser,
+    AddEditRolesModel
     
   ],
   imports: [

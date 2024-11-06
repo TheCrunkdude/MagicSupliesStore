@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild, viewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogContainer } from '@angular/material/dialog';
 import { ComponentsModule } from '../../components/components.module';
 import { ApiService } from '../../services/api.service';
@@ -31,24 +31,41 @@ export class UsersPageComponent implements OnInit {
   }
 
   AddOrEditUser() {
-    const dialogRef = this.dialog.open(AddOrEditUser);
+
+    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
+    {modalData: [
+      {key: 1, columnName: "ID", value: '',isModal:false},
+      {key: 2, columnName: "UserName", value: '', isModal:true},
+      {key: 3, columnName: "Password", value: '', isModal:true},
+      {key: 4, columnName: "RoleID", value: '', isModal:true},
+      {key: 5, columnName: "Mail", value: '', isModal:true},
+      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
+    ], 
+    isEdit: false};
+
+    const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
     dialogRef.afterClosed().subscribe(
       x => {
+
+        if (x != null)
+          {
         this.User = {
           ID: 0,
-          UserName: x.valueFromInput1,
-          Password: x.valueFromInput2,
-          RoleID: x.valueFromInput3,
-          Mail: x.valueFromInput4,
+          UserName: x[0].valueFromDialog,
+          Password: x[1].valueFromDialog,
+          RoleID: x[2].valueFromDialog,
+          Mail: x[3].valueFromDialog,
           CreationDate: new Date,
         };
         console.log(this.User)
         this.CreateUser()
+          }
       })
   }
 
   CreateUser() {
 
+    
     this.apiService.getUserByName(this.User.UserName).subscribe(
       response => {
         if (response != null) {
@@ -68,35 +85,38 @@ export class UsersPageComponent implements OnInit {
 
   UpdateUser(event: any): void {
 
-    console.log('Update user method', event)
-    const temp = {
-      ID: event.id,
-      UserName: event.userName,
-      Password: event.password,
-      RoleID: event.roleID,
-      Mail: event.mail,
-      CreationDate: new Date(),
-      IsEdit: true // Add your new property here
-    };
+    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
+    {modalData: [
+      {key: 1, columnName: "ID", value: event.id,isModal:false},
+      {key: 2, columnName: "UserName", value: event.userName, isModal:true},
+      {key: 3, columnName: "Password", value: event.password, isModal:true},
+      {key: 4, columnName: "RoleID", value: event.roleID, isModal:true},
+      {key: 5, columnName: "Mail", value: event.mail, isModal:true},
+      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
+    ], 
+    isEdit: true};
+    const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
 
-    const dialogRef = this.dialog.open(AddOrEditUser, { data: temp })
+
     dialogRef.afterClosed().subscribe(
       x => {
-        this.User = {
-          ID: event.id,
-          UserName: x.valueFromInput1,
-          Password: x.valueFromInput2,
-          RoleID: x.valueFromInput3,
-          Mail: x.valueFromInput4,
-          CreationDate: new Date,
-        };
-        console.log(this.User)
-        //this update user
-        this.apiService.putUser(this.User).subscribe(
-          response => {
-            alertify.success(response)
-            this.LoadUserDataMethod()
-          })
+        if (x != null)
+        {
+          this.User = {
+            ID: event.id,
+            UserName: x[0]?.valueFromDialog,
+            Password: x[1]?.valueFromDialog,
+            RoleID: x[2]?.valueFromDialog,
+            Mail: x[3]?.valueFromDialog,
+            CreationDate: new Date
+          };
+          //this update user
+          this.apiService.putUser(this.User).subscribe(
+            response => {
+              alertify.success(response)
+              this.LoadUserDataMethod()
+            })
+        }
       })
   }
 

@@ -47,11 +47,11 @@ namespace MagicstoreAPI.Controllers
         public async Task<string> UpdateUser(Users user)
         {
             var result = _userService.UpdateUserService(user).Result;
-            var result2 = result == false ? "El empleado no puede ser actualizado" : "Empleado actualizado";
+            var result2 = result == false ? "El Usuario no puede ser actualizado" : "Usuario actualizado";
             return result2;
         }
 
-        // Metodo put, para actualizar usuario//
+        // Metodo delete, para eliminar usuario//
         [Route("/api/DeleteUser")]
         [HttpDelete]
         public async Task<string> DeleteUser([FromQuery] int ID )

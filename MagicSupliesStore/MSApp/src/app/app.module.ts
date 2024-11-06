@@ -8,13 +8,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersPageComponent } from './users-page/userspage.component';
 import { LoginpageComponent } from './login-page/loginpage';
+import { RolesPageComponent } from './roles-page/roles.component';
+import { PermissionsPageComponent } from './permissions-page/permissions.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersPageComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    RolesPageComponent,
+    PermissionsPageComponent
   ],
   imports: [
     BrowserModule,
