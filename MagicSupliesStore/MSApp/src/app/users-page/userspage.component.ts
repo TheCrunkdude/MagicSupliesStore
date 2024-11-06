@@ -31,9 +31,24 @@ export class UsersPageComponent implements OnInit {
   }
 
   AddOrEditUser() {
-    const dialogRef = this.dialog.open(AddOrEditUser);
+
+    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
+    {modalData: [
+      {key: 1, columnName: "ID", value: '',isModal:false},
+      {key: 2, columnName: "UserName", value: '', isModal:true},
+      {key: 3, columnName: "Password", value: '', isModal:true},
+      {key: 4, columnName: "RoleID", value: '', isModal:true},
+      {key: 5, columnName: "Mail", value: '', isModal:true},
+      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
+    ], 
+    isEdit: false};
+
+    const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
     dialogRef.afterClosed().subscribe(
       x => {
+
+        if (x != null)
+          {
         this.User = {
           ID: 0,
           UserName: x[0].valueFromDialog,
@@ -44,11 +59,13 @@ export class UsersPageComponent implements OnInit {
         };
         console.log(this.User)
         this.CreateUser()
+          }
       })
   }
 
   CreateUser() {
 
+    
     this.apiService.getUserByName(this.User.UserName).subscribe(
       response => {
         if (response != null) {
@@ -78,24 +95,28 @@ export class UsersPageComponent implements OnInit {
       {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
     ], 
     isEdit: true};
-
     const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
+
+
     dialogRef.afterClosed().subscribe(
       x => {
-        this.User = {
-          ID: event.id,
-          UserName: x[0].valueFromDialog,
-          Password: x[1].valueFromDialog,
-          RoleID: x[2].valueFromDialog,
-          Mail: x[3].valueFromDialog,
-          CreationDate: new Date,
-        };
-        //this update user
-        this.apiService.putUser(this.User).subscribe(
-          response => {
-            alertify.success(response)
-            this.LoadUserDataMethod()
-          })
+        if (x != null)
+        {
+          this.User = {
+            ID: event.id,
+            UserName: x[0]?.valueFromDialog,
+            Password: x[1]?.valueFromDialog,
+            RoleID: x[2]?.valueFromDialog,
+            Mail: x[3]?.valueFromDialog,
+            CreationDate: new Date
+          };
+          //this update user
+          this.apiService.putUser(this.User).subscribe(
+            response => {
+              alertify.success(response)
+              this.LoadUserDataMethod()
+            })
+        }
       })
   }
 
