@@ -1,5 +1,7 @@
 ﻿using MagicstoreAPI;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Repositories;
+using MagicstoreAPI.Repositories.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,12 +23,13 @@ options.UseSqlServer(connection));
 
 // Add services to the container.
 builder.Services.AddScoped<AuthenticationService>();
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<UserRepository>();
-builder.Services.AddScoped<RolesService>();
-builder.Services.AddScoped<RolesRepository>();
-builder.Services.AddScoped<PermissionsService>();
-builder.Services.AddScoped<PermissionsRepository>();
+builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRolesService, RolesService>();
+builder.Services.AddScoped<IRolesRepository,RolesRepository>();
+builder.Services.AddScoped<IPermissionsService, PermissionsService>();
+builder.Services.AddScoped<IPermissionsRepository, PermissionsRepository>();
+
 
 builder.Services.AddControllers();
 

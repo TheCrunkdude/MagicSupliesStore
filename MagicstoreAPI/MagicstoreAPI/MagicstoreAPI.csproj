@@ -22,6 +22,7 @@
     <None Remove="Repositories\" />
     <None Remove="Infrastructures\Entities\" />
     <None Remove="Infrastructures\DTO\" />
+    <None Remove="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -29,5 +30,6 @@
     <Folder Include="Repositories\" />
     <Folder Include="Infrastructures\Entities\" />
     <Folder Include="Infrastructures\DTO\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>
