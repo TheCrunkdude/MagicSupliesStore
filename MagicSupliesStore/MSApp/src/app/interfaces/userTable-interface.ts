@@ -3,7 +3,7 @@ export interface UserTable{
   ID: number,
   UserName: string,
   Password: string,
-  RoleID: number,
+  // RoleID: number,
   Mail: string,
   CreationDate: Date,
 }

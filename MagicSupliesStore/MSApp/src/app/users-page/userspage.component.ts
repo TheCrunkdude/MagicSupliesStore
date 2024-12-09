@@ -32,40 +32,41 @@ export class UsersPageComponent implements OnInit {
 
   AddOrEditUser() {
 
-    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
-    {modalData: [
-      {key: 1, columnName: "ID", value: '',isModal:false},
-      {key: 2, columnName: "UserName", value: '', isModal:true},
-      {key: 3, columnName: "Password", value: '', isModal:true},
-      {key: 4, columnName: "RoleID", value: '', isModal:true},
-      {key: 5, columnName: "Mail", value: '', isModal:true},
-      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
-    ], 
-    isEdit: false};
+    const modalValues: { modalData: { key: number, columnName: string, value: string, isModal: boolean }[], isEdit: boolean } =
+    {
+      modalData: [
+        { key: 1, columnName: "ID", value: '', isModal: false },
+        { key: 2, columnName: "UserName", value: '', isModal: true },
+        { key: 3, columnName: "Password", value: '', isModal: true },
+        // {key: 4, columnName: "RoleID", value: '', isModal:true},
+        { key: 4, columnName: "Mail", value: '', isModal: true },
+        { key: 5, columnName: "CreationDate", value: new Date().toString(), isModal: false },
+      ],
+      isEdit: false
+    };
 
     const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
     dialogRef.afterClosed().subscribe(
       x => {
 
-        if (x != null)
-          {
-        this.User = {
-          ID: 0,
-          UserName: x[0].valueFromDialog,
-          Password: x[1].valueFromDialog,
-          RoleID: x[2].valueFromDialog,
-          Mail: x[3].valueFromDialog,
-          CreationDate: new Date,
-        };
-        console.log(this.User)
-        this.CreateUser()
-          }
-      })
+        if (x != null) {
+          this.User = {
+            ID: 0,
+            UserName: x[0].valueFromDialog,
+            Password: x[1].valueFromDialog,
+            // RoleID: x[2].valueFromDialog,
+            Mail: x[2].valueFromDialog,
+            CreationDate: new Date,
+          };
+          console.log(this.User)
+          this.CreateUser()
+        }
+      }
+    )
   }
 
   CreateUser() {
 
-    
     this.apiService.getUserByName(this.User.UserName).subscribe(
       response => {
         if (response != null) {
@@ -85,29 +86,30 @@ export class UsersPageComponent implements OnInit {
 
   UpdateUser(event: any): void {
 
-    const modalValues: {modalData: {key: number, columnName:string, value: string, isModal:boolean}[], isEdit: boolean } = 
-    {modalData: [
-      {key: 1, columnName: "ID", value: event.id,isModal:false},
-      {key: 2, columnName: "UserName", value: event.userName, isModal:true},
-      {key: 3, columnName: "Password", value: event.password, isModal:true},
-      {key: 4, columnName: "RoleID", value: event.roleID, isModal:true},
-      {key: 5, columnName: "Mail", value: event.mail, isModal:true},
-      {key: 6, columnName: "CreationDate", value: new Date().toString(), isModal:false},
-    ], 
-    isEdit: true};
+    const modalValues: { modalData: { key: number, columnName: string, value: string, isModal: boolean }[], isEdit: boolean } =
+    {
+      modalData: [
+        { key: 1, columnName: "ID", value: event.id, isModal: false },
+        { key: 2, columnName: "UserName", value: event.userName, isModal: true },
+        { key: 3, columnName: "Password", value: event.password, isModal: true },
+        // {key: 4, columnName: "RoleID", value: event.roleID, isModal:true},
+        { key: 5, columnName: "Mail", value: event.mail, isModal: true },
+        { key: 6, columnName: "CreationDate", value: new Date().toString(), isModal: false },
+      ],
+      isEdit: true
+    };
     const dialogRef = this.dialog.open(AddOrEditUser, { data: modalValues })
 
 
     dialogRef.afterClosed().subscribe(
       x => {
-        if (x != null)
-        {
+        if (x != null) {
           this.User = {
             ID: event.id,
             UserName: x[0]?.valueFromDialog,
             Password: x[1]?.valueFromDialog,
-            RoleID: x[2]?.valueFromDialog,
-            Mail: x[3]?.valueFromDialog,
+            // RoleID: x[2]?.valueFromDialog,
+            Mail: x[2]?.valueFromDialog,
             CreationDate: new Date
           };
           //this update user
@@ -115,9 +117,11 @@ export class UsersPageComponent implements OnInit {
             response => {
               alertify.success(response)
               this.LoadUserDataMethod()
-            })
+            }
+          )
         }
-      })
+      }
+    )
   }
 
   //IMPLEMENT DELETE 
@@ -132,11 +136,6 @@ export class UsersPageComponent implements OnInit {
       )
     }
   }
-  //!!!!
-
-  TestAlert() {
-    alertify.success('TU CULO')
-  }
 
   ngOnInit(): void {
     this.LoadGrid()
@@ -146,15 +145,14 @@ export class UsersPageComponent implements OnInit {
   async LoadGrid() {
 
     //Load headers information
-    this.userHeaders = ['id', 'userName', 'password',
-      'roleID', 'mail', 'creationDate', 'actions'];
+    this.userHeaders = ['id', 'userName', 'password', 'mail', 'creationDate', 'actions'];
 
     //Loads columns information
     this.userColumns = [
       { key: 'id', header: 'ID' },
       { key: 'userName', header: 'UserName' },
       { key: 'password', header: 'Password' },
-      { key: 'roleID', header: 'Role ID' },
+      // { key: 'roleID', header: 'Role ID' },
       { key: 'mail', header: 'Mail' },
       { key: 'creationDate', header: 'Creation Date' },
     ];
@@ -168,10 +166,8 @@ export class UsersPageComponent implements OnInit {
           response => {
             // Este dataSource no es el mismo que el de mat table 
             this.dataSourceUserPage = new MatTableDataSource<UserTable>(response);
-          })
+        }
+      )
     }
-
   }
-
-
 }

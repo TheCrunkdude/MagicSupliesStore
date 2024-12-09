@@ -19,7 +19,7 @@ private apiUrl = 'https://localhost:7201/api';
   constructor(private http:HttpClient) { }
 
   getData (): Observable <any>{
-    return this.http.get (`${this.apiUrl}/LoginControler`)
+    return this.http.get (`${this.apiUrl}/LoginController`)
     console.log('getdata ok')
   }
 
@@ -47,7 +47,7 @@ private apiUrl = 'https://localhost:7201/api';
   }
   
   postData (loginModel:LoginModel): Observable <any>{
-    return this.http.post (`${this.apiUrl}/LoginControler`,loginModel,{ responseType: 'text'})
+    return this.http.post (`${this.apiUrl}/Login`,loginModel,{ responseType: 'text'})
   }
 
 ////Roles////
@@ -80,6 +80,9 @@ getPermissions(): Observable<PermissionsTable[]> {
 }
 getPermission (id:number):Observable <any> {
   return this.http.get(`${this.apiUrl}/GetPermission?id=${id}`);
+}  
+getPermissionByName (permission:string):Observable <any> {
+  return this.http.get(`${this.apiUrl}/GetPermission?permission=${permission}`);
 }  
 postPermission(permissionsTable:PermissionsTable): Observable<any>{
   return this.http.post (`${this.apiUrl}/PostNewPermission`,permissionsTable,{ responseType: 'text'})

@@ -16,7 +16,7 @@ export class RolesPageComponent implements OnInit {
 
     readonly dialog = inject(MatDialog);
     dataSourceRolesPage: any;//cambiar?//
-    Role!: RolesTable;
+    roles!: RolesTable;
     roleColumns: {key:string, header:string}[] = [];
     roleHeaders: string[] = [];
     @ViewChild('gridComponent') gridComponent !: GridComponent
@@ -28,28 +28,33 @@ export class RolesPageComponent implements OnInit {
         this.LoadRolesDataMethod()
     }
     AddOrEditRole() {
-      const dialogRef = this.dialog.open(AddEditRolesModel);
+      
+      const temp = {
+        ID: 0,
+        Role: '',
+        IsEdit: false // Add your new property here
+      };
+      const dialogRef = this.dialog.open(AddEditRolesModel, { data: temp });
       dialogRef.afterClosed().subscribe(
         x => {
-          this.Role = {
+          this.roles = {
             ID: 0,
-            permissionsID: x.valueFromInput1,
-            role: x.valueFromInput2
+            Role: x.valueFromInput1
           };
-          console.log(this.Role)
+          console.log(this.roles)
           this.CreateRole()
         })
     }
 
     CreateRole() {
 
-      this.apiService.getCheckRole(this.Role.role).subscribe(
+      this.apiService.getCheckRole(this.roles.Role).subscribe(
         response => {
           if (response != null) {
             alertify.success('El rol ya existe')
           }
           else {
-            this.apiService.postRole(this.Role).subscribe(
+            this.apiService.postRole(this.roles).subscribe(
               response => {
                 alertify.success(response)
                 this.LoadRolesDataMethod()
@@ -65,7 +70,6 @@ export class RolesPageComponent implements OnInit {
     console.log('Update Role method', event)
     const temp = {
       ID: event.id,
-      PermissioID: event.permissionsID,
       Role: event.role,
       IsEdit: true // Add your new property here
     };
@@ -73,14 +77,14 @@ export class RolesPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddEditRolesModel, { data: temp })
     dialogRef.afterClosed().subscribe(
       x => {
-        this.Role = {
+
+        this.roles = {
           ID: event.id,
-          permissionsID: x.valueFromInput1,
-          role: x.valueFromInput2,
+          Role: x.valueFromInput1,
         };
-        console.log(this.Role)
+        console.log('Role',this.roles, 'x', x)
         //this update user
-        this.apiService.putRole(this.Role).subscribe(
+        this.apiService.putRole(this.roles).subscribe(
           response => {
             alertify.success(response)
             this.LoadRolesDataMethod()
@@ -105,12 +109,12 @@ export class RolesPageComponent implements OnInit {
     async LoadGrid() {
 
         //Load headers information
-        this.roleHeaders = ['id', 'permissionsID', 'role', 'actions'];
+        this.roleHeaders = ['id', 'role', 'actions'];
 
         //Loads columns information
         this.roleColumns = [
             { key: 'id', header: 'ID' },
-            { key: 'permissionsID', header: 'Permissions ID' },
+            // { key: 'permissionsID', header: 'Permissions ID' },
             { key: 'role', header: 'Role' },
         ];
     }

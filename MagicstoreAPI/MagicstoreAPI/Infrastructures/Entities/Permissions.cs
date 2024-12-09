@@ -8,7 +8,7 @@ namespace MagicstoreAPI.Infrastructures.Entities
 	{
         [Key]
         public int ID { get; set; }
-        public int Permission { get; set; }
+        public string Permission { get; set; }
         public string Description { get; set; }
 
     }
