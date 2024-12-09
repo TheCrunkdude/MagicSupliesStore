@@ -23,9 +23,9 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
         }
 
-        public async Task<Permissions> GetPermissionValue(int? id)
+        public async Task<Permissions> GetPermissionValue(int? id, string? permission)
         {
-            var QueryResult = _applicationDb.MSDB_Permissions.Where(x=> x.ID ==id).FirstOrDefault();
+            var QueryResult = _applicationDb.MSDB_Permissions.Where(x=> x.ID ==id || x.Permission == permission).FirstOrDefault();
             return QueryResult;
         }
 

@@ -44,18 +44,18 @@ namespace MagicstoreAPI.Controllers
         //Metodo post, para generar nuevo Rol//
         [Route("/api/PostNewRole")]
         [HttpPost]
-        public async Task<string> CreateRole(Roles role1)
+        public async Task<string> CreateRole([FromBody]Roles role1)
         {
             var result = _rolesService.CreateNewRoleService(role1).Result;
-            var result2 = result == false ? "El rol ya existe" : "rol creado";
+            var result2 = result == false ? "El Rol ya existe" : "Rol creado";
             return result2;
         }
         [Route("/api/UpdateRole")]
         [HttpPut]
-        public async Task<string> UpdateRole(Roles role)
+        public async Task<string> UpdateRole([FromBody]Roles role1)
         {
-            var result = _rolesService.UpdateRoleService(role).Result;
-            var result2 = result == false ? "El Usuario no puede ser actualizado" : "Usuario actualizado";
+            var result = _rolesService.UpdateRoleService(role1).Result;
+            var result2 = result == false ? "El Rol no puede ser actualizado" : "Rol actualizado";
             return result2;
         }
         // Metodo put, para eliminar Rol//
@@ -65,7 +65,7 @@ namespace MagicstoreAPI.Controllers
         {
 
             var result = _rolesService.DeleteRoleService(ID).Result;
-            var result2 = result == false ? "Permiso no eliminado" : "Permiso eliminado";
+            var result2 = result == false ? "Rol no eliminado" : "Rol eliminado";
             return result2;
         }
 

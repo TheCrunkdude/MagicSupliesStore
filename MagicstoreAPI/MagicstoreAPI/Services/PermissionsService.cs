@@ -16,7 +16,6 @@ namespace MagicstoreAPI.Services
         }
         public async Task<List<Permissions>> GetPermissions()
         {
-
             try
             {
                 _logger.LogInformation("Get Permissions is ok ");
@@ -28,12 +27,12 @@ namespace MagicstoreAPI.Services
                 throw new Exception("Get Permissions Service Error" + ex.Message);
             }
         }
-        public async Task<Permissions> GetSinglePermission(int? id)
+        public async Task<Permissions> GetSinglePermission(int? id, string? permission)
         {
 
             try
             {
-                var result = await _permissionsRepository.GetPermissionValue(id);
+                var result = await _permissionsRepository.GetPermissionValue(id, permission);
                 return result;
             }
             catch (Exception ex)

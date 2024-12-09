@@ -39,12 +39,9 @@ export class LoginpageComponent implements OnInit {
             Password: result.valueFromInput2
           }
 
-          let result2 = ''
           this.ApiService.postData(request).subscribe(
             response => {
-              result2 = response;
-              console.log(result2)
-              localStorage.setItem('TokenID', result2)
+              localStorage.setItem('TokenID', response)
               this.navigate()
             })
 

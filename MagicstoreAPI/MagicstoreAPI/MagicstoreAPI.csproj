@@ -14,6 +14,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.20" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +25,8 @@
     <None Remove="Repositories\" />
     <None Remove="Infrastructures\Entities\" />
     <None Remove="Infrastructures\DTO\" />
+    <None Remove="Middleware\" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -29,5 +34,7 @@
     <Folder Include="Repositories\" />
     <Folder Include="Infrastructures\Entities\" />
     <Folder Include="Infrastructures\DTO\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>

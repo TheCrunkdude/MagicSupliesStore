@@ -1,6 +1,6 @@
 
 export interface RolesTable{
     ID: number,
-    permissionsID: number,
-    role: string
+    // permissionsID: number,
+    Role: string
   }
