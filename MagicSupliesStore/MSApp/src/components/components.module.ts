@@ -25,7 +25,7 @@ import { AddEditRolesModel } from '../app/models/add-edit-rolemodel';
     MenuComponent,
     GridComponent,
     AddOrEditUser,
-    AddEditRolesModel
+    AddEditRolesModel,
     
   ],
   imports: [

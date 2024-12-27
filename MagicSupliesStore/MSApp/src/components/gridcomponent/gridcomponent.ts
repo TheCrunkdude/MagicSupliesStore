@@ -17,7 +17,6 @@ export class GridComponent implements OnInit{
 
 SelectEditButtonEvent(element: any){
   this.buttonEditSelected.emit(element)
-  
 }
 SelectDeleteButtonEvent (element: any){
 this.buttonDeleteSelected.emit(element)

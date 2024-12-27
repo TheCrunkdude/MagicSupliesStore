@@ -143,7 +143,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   async LoadGrid() {
-
+    
     //Load headers information
     this.userHeaders = ['id', 'userName', 'password', 'mail', 'creationDate', 'actions'];
 

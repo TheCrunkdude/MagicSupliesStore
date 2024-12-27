@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserTable} from '../app/interfaces/userTable-interface';
 import { RolesTable } from '../app/interfaces/rolesTable-interface';
 import { PermissionsTable } from '../app/interfaces/permissionsTable-interface';
+import { rolePermissionsTable } from '../app/interfaces/rolesPermissionsTable-interface';
 
 export interface LoginModel{
   User : string,
@@ -92,6 +93,15 @@ putPermission(permissionsTable:PermissionsTable): Observable <any>{
 }
 deletePermission(id: number):Observable<any>{
   return this.http.delete(`${this.apiUrl}/DeletePermission?ID=${id}`,{ responseType: 'text'})
+}
+
+//RolePermissions
+
+getRolePermissions(): Observable<rolePermissionsTable[]> {
+  return this.http.get<rolePermissionsTable[]>(this.apiUrl+ '/GetAllRolePermissions');
+}
+updateRolePermissions(permissionRequest: any[]):Observable<any>{
+  return this.http.put(`${this.apiUrl}/UpdateRolePermission`,permissionRequest,{ responseType: 'text'})
 }
 
 }
