@@ -4,9 +4,11 @@ namespace MagicstoreAPI.Infrastructures.Entities
 	public class RolePermissions
 	{
 		public int ID { get; set; }
-		public int Role { get; set; }
-		public int Permission { get; set; }
-		public bool Active { get; set; }
+		public string Role { get; set; }
+        public int RoleID { get; set; }
+        public string Permission { get; set; }
+        public int PermissionID { get; set; }
+        public bool Active { get; set; }
 		//public DateTime CreationDate { get; set; }
 	}
 }

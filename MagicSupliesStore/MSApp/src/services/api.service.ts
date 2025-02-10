@@ -5,6 +5,7 @@ import { UserTable} from '../app/interfaces/userTable-interface';
 import { RolesTable } from '../app/interfaces/rolesTable-interface';
 import { PermissionsTable } from '../app/interfaces/permissionsTable-interface';
 import { rolePermissionsTable } from '../app/interfaces/rolesPermissionsTable-interface';
+import { userRolesTable } from '../app/interfaces/userRoles-interface';
 
 export interface LoginModel{
   User : string,
@@ -103,5 +104,17 @@ getRolePermissions(): Observable<rolePermissionsTable[]> {
 updateRolePermissions(permissionRequest: any[]):Observable<any>{
   return this.http.put(`${this.apiUrl}/UpdateRolePermission`,permissionRequest,{ responseType: 'text'})
 }
+
+//UserRoles
+
+getUserRoles():
+Observable<userRolesTable[]> {
+  return this.http.get<userRolesTable[]>(this.apiUrl+ '/GetAllUserRoles');
+}
+updateUserRoles(userRolesRequest: any[]):Observable<any>{
+  return this.http.put(`${this.apiUrl}/UpdateUserRoles`,userRolesRequest,{ responseType: 'text'})
+}
+
+
 
 }

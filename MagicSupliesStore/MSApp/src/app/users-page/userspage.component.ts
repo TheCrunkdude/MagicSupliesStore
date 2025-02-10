@@ -52,7 +52,7 @@ export class UsersPageComponent implements OnInit {
         if (x != null) {
           this.User = {
             ID: 0,
-            UserName: x[0].valueFromDialog,
+            userName: x[0].valueFromDialog,
             Password: x[1].valueFromDialog,
             // RoleID: x[2].valueFromDialog,
             Mail: x[2].valueFromDialog,
@@ -67,7 +67,7 @@ export class UsersPageComponent implements OnInit {
 
   CreateUser() {
 
-    this.apiService.getUserByName(this.User.UserName).subscribe(
+    this.apiService.getUserByName(this.User.userName).subscribe(
       response => {
         if (response != null) {
           alertify.success('El usuario ya existe')
@@ -106,7 +106,7 @@ export class UsersPageComponent implements OnInit {
         if (x != null) {
           this.User = {
             ID: event.id,
-            UserName: x[0]?.valueFromDialog,
+            userName: x[0]?.valueFromDialog,
             Password: x[1]?.valueFromDialog,
             // RoleID: x[2]?.valueFromDialog,
             Mail: x[2]?.valueFromDialog,

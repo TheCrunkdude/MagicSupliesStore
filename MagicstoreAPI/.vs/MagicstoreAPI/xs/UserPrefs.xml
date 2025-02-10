@@ -1,47 +1,44 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Controllers/UserController.cs" relfile="MagicstoreAPI/Controllers/UserController.cs" line="60" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Infrastructures/Entities/JwtSettings.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Repositories/RolePermissionsRepository.cs">
     <Files>
+      <File FileName="MagicstoreAPI/Repositories/RolePermissionsRepository.cs" Line="25" Column="26" />
+      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="33" Column="62" />
+      <File FileName="MagicstoreAPI/Controllers/RolePermissionsController.cs" Line="42" Column="28" />
+      <File FileName="MagicstoreAPI/Infrastructures/Entities/RolePermissions.cs" Line="1" Column="1" />
       <File FileName="MagicstoreAPI/Services/RolePermissionsService.cs" Line="1" Column="1" />
-      <File FileName="MagicstoreAPI/Controllers/RolePermissionsController.cs" Line="1" Column="1" />
-      <File FileName="MagicstoreAPI/Repositories/RolePermissionsRepository.cs" Line="34" Column="83" />
-      <File FileName="MagicstoreAPI/Controllers/UserController.cs" Line="63" Column="48" />
-      <File FileName="MagicstoreAPI/Services/UserService.cs" Line="87" Column="61" />
-      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" Line="66" Column="43" />
-      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" Line="45" Column="58" />
-      <File FileName="MagicstoreAPI/Infrastructures/DTO/UsersToken.cs" Line="4" Column="15" />
-      <File FileName="MagicstoreAPI/Services/PermissionsService.cs" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Controllers/PermissionsController.cs" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Program.cs" Line="64" Column="17" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Services/JwtTokenService.cs" Line="28" Column="57" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Infrastructures/Entities/JwtSettings.cs" Line="18" Column="1" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Infrastructures/Entities/UpdateEntity.cs" Line="10" Column="46" />
+      <File FileName="MagicstoreAPI/Program.cs" Line="82" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI" expanded="True">
-            <Node name="MagicstoreAPI" expanded="True">
+            <Node name="MagicstoreAPI">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Helpers" expanded="True" />
               <Node name="Infrastructures" expanded="True">
                 <Node name="DTO" expanded="True" />
-                <Node name="Entities" expanded="True">
-                  <Node name="JwtSettings.cs" selected="True" />
-                </Node>
+                <Node name="Entities" expanded="True" />
               </Node>
-              <Node name="Repositories" expanded="True" />
+              <Node name="Middleware" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Repositories" expanded="True">
+                <Node name="RolePermissionsRepository.cs" selected="True" />
+              </Node>
               <Node name="Services" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

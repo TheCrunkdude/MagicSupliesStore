@@ -12,6 +12,7 @@ import { RolesPageComponent } from './roles-page/roles.component';
 import { PermissionsPageComponent } from './permissions-page/permissions.component';
 import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermissions.component';
 import { TableComponent } from '../components/tableComponent/tableComponent';
+import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TableComponent } from '../components/tableComponent/tableComponent';
     RolesPageComponent,
     PermissionsPageComponent,
     RolePermissionsPageComponent,
+    UserRolesPageComponent,
     TableComponent
   ],
   imports: [

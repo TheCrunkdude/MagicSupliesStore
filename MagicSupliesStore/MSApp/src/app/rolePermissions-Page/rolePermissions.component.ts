@@ -1,15 +1,12 @@
 import { Component, inject, OnInit, ViewChild } from "@angular/core";
-import { rolePermissionsTable } from "../interfaces/rolesPermissionsTable-interface";
+import { rolePermissionsTable, rolePermissionsTableFilter } from "../interfaces/rolesPermissionsTable-interface";
 import { GridComponent } from "../../components/gridcomponent/gridcomponent";
 import { ApiService } from "../../services/api.service";
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from "@angular/material/dialog";
-import { TableComponent } from "../../components/tableComponent/tableComponent";
-import { Checkbox } from "primeng/checkbox";
 import { PermissionsTable } from "../interfaces/permissionsTable-interface";
-import { state } from "@angular/animations";
-import { RolesPageComponent } from "../roles-page/roles.component";
-import { Console } from "console";
+import { RolesTable } from "../interfaces/rolesTable-interface";
+
 
 
 @Component({
@@ -19,78 +16,68 @@ import { Console } from "console";
 })
 export class RolePermissionsPageComponent implements OnInit {
 
-  readonly dialog = inject(MatDialog);
-  dataSourceRolePermissionsPage: any;//cambiar?//
-  RolePermission: rolePermissionsTable[] = [];
-  rolePermissionsColumns: { key: string, header: string }[] = [];
-  rolePermissionsHeaders: string[] = [];
-  rows = ['Permission 1', 'Permission 2', 'Permission 3', 'Permission 4', 'Permission 5', 'Permission 6',];
-  columns = ['Role 1', 'Role 2', 'Role 3', 'Role 4', 'Role 5','Role 6'];
-  grid: boolean[][] = Array.from({ length: 6 }, () => Array(6).fill(false));
-  permissionRequest:rolePermissionsTable[] = [];
-
-
+  readonly dialog = inject(MatDialog)
+  dataSourceRolePermissionsPage: any//cambiar?//
+  rolePermissionsColumns: { key: string, header: string }[] = []
+  rolePermissionsHeaders: string[] = []
+  rows: any[] = []
+  columns: any[] = []
+  grid: boolean[][] = []
+  permissionRequest: rolePermissionsTable[] = []
+  rolePermissionsfilter: any[] = []
+  mapedRoles: any[] = []
+  mapedPerms: any[] = []
   @ViewChild('gridComponent') gridComponent !: GridComponent;
-  
-  async toggleChanges(event:any): Promise<void> {
-    let result: any; // Declarar la variable fuera del 'if'
-    
-    result = {id: 0, role: event.colIndex + 1, permission: event.rowIndex + 1, active: event.active}        
-    
 
-    if (result){
+  async toggleChanges(event: any): Promise<void> {
+    let result: any; // Declarar la variable fuera del 'if'
+
+    result = { id: 0, roleID: event.colIndex + 1, role: this.mapedRoles[event.colIndex].role, permissionID: event.rowIndex + 1, permission: this.mapedPerms[event.rowIndex].permission, active: event.active }
+    if (result) {
       this.permissionRequest = this.permissionRequest.filter(
         (entry: any) =>
           entry.role !== result.role || entry.permission !== result.permission
       );
       this.permissionRequest.push(result)
     }
-    else 
-    {
+    else {
       console.log('algo fallo!')
     }
-    console.log('todos los Role permission Request',this.permissionRequest)
-
   }
- 
-  constructor(public apiService: ApiService) 
-  {
 
+  constructor(public apiService: ApiService) {
   }
-  updateRolePerm(){
-  
-    const aquimelapelas: {
+
+  updateRolePerm() {
+
+    const updateRequest: {
       property1: number,
-      property2: number,
+      property2: string,
+      property3: number,
+      property4: string,
       active: boolean
     }[] = []
 
-
-    console.log('permisionrequiest', this.permissionRequest)
-
-    this.permissionRequest.forEach((element:any) => {
-      aquimelapelas.push({
-        property1 : element.role,
-        property2 : element.permission,
-        active : element.active
+    this.permissionRequest.forEach((element: any) => {
+      updateRequest.push({
+        property1: element.roleID,
+        property2: element.role,
+        property3: element.permissionID,
+        property4: element.permission,
+        active: element.active
       })
     });
-
-    console.log('caca', aquimelapelas)
-
-    this.apiService.updateRolePermissions(aquimelapelas).subscribe(x=>
-      {
-        console.log ('popo',x)
-      })
+    this.apiService.updateRolePermissions(updateRequest).subscribe(x => {
+      window.location.reload()
+    })
   }
-   setCellState(rowIndex: number, colIndex: number, state: boolean): void {
-    if (rowIndex >= 0 && rowIndex < this.grid.length && colIndex >= 0 && colIndex < this.grid[rowIndex].length) 
-    {
+
+  setCellState(rowIndex: number, colIndex: number, state: boolean): void {
+    if (rowIndex >= 0 && rowIndex < this.grid.length && colIndex >= 0 && colIndex < this.columns.length) {
       this.grid[rowIndex][colIndex] = state;
-    } 
-    else 
-    {
-      console.error('Índices fuera de rango.');
+    }
+    else {
+      console.error('Índices fuera de rango.', rowIndex, colIndex);
     }
   }
   ngOnInit(): void {
@@ -99,49 +86,72 @@ export class RolePermissionsPageComponent implements OnInit {
   }
 
   async LoadGrid() {
-
     //Load headers information
-    this.rolePermissionsHeaders = ['id', 'role', 'permission','active'];
+    this.rolePermissionsHeaders = ['role', 'permissions'];
     //Loads columns information
     this.rolePermissionsColumns = [
-      { key: 'id', header: 'ID' },
       { key: 'role', header: 'Role' },
-      { key: 'permission', header: 'Permission' },
-      { key: 'active', header: 'Active' },
-
+      { key: 'permissions', header: 'Permissions' },
     ];
+    //Aqui llenamos los valores de la primera columna, que son los permisos,
+    // obteniendolos directamente de la base de datos de permissions
+    this.apiService.getPermissions().subscribe(respons => {
+      respons = respons.sort((a, b) => a.id - b.id);
+      respons.forEach((element: PermissionsTable) => {
+        this.mapedPerms.push(element)
+        this.rows.push(element.permission)
+        this.grid =Array.from({ length: this.rows.length }, () => Array().fill(false))
+        console.log("permission", this.mapedPerms)
+      }
+      )
+    })
+    this.apiService.getRolesTable().subscribe(respons => {
+      respons = respons.sort((a, b) => a.id - b.id);
+      respons.forEach((element: RolesTable) => {
+        this.mapedRoles.push(element)
+        this.columns.push(element.role)
+        console.log("columns", this.columns)
+      })
+    })
   }
-  async LoadRolePermissionsDataMethod() {
-    if (this.apiService) {
-      this.apiService.getRolePermissions()
-        .subscribe(
-          response => {
-            // Este dataSource no es el mismo que el de mat table 
-            this.dataSourceRolePermissionsPage = new MatTableDataSource<rolePermissionsTable>(response);
 
-            //p table
-            console.log("permissions",response)
-            response.forEach((element:any) => {
-              
-              this.setCellState (element.permission-1,element.role-1,element.active)
-            });
-            response.forEach((element:rolePermissionsTable) => {
-              this.RolePermission.push(element)
-              this.permissionRequest.push({...element})
-            });
-          }
-        )
+  async LoadRolePermissionsDataMethod() {
+    if (!this.apiService) return;
+
+    this.apiService.getRolePermissions().subscribe(response => {
+      if (!response || response.length === 0) {
+        console.warn('No role permissions received.');
+        return;
+      }
+
+      // Iterar sobre response para setear el estado de las celdas
+      response.forEach((element: any) => {
+        this.setCellState(element.permissionID - 1, element.roleID - 1, element.active);
+      });
+
+      console.log("Role permissions:", response);
+  // Agrupar permisos por rol usando reduce()
+  const groupedRoles = response.reduce((acc: Record<string, Set<any>>, curr) => {
+    if (!acc[curr.role]) {
+      acc[curr.role] = new Set(); // Usamos un Set para evitar duplicados
     }
-  // async GroupPermissionsByRole(){
-  //   const groupByRole = permissions.reduce((acc, { role, permission }) => {
-  //     if (!acc[role]) {
-  //         acc[role] = [];
-  //     }
-  //     acc[role].push(permission);
-  //     return acc;
-  // }, {} as Record<number, number[]>);
+    acc[curr.role].add(curr.permission);
+    return acc;
+  }, {});
+  console.log("Grouped Roles:", groupedRoles);
+
+  // Convertir el objeto agrupado a un array con permisos concatenados
+  const result = Object.entries(groupedRoles).map(([role, permissions]) => ({
+    role,
+    permissions: Array.from(permissions).join(', ') // Convertir Set a string separado por comas
+  }));
+
+  console.log('Final grouped result:', result);
+
+  // Guardar en la tabla de datos
+  this.dataSourceRolePermissionsPage = new MatTableDataSource<rolePermissionsTableFilter>(result);
+
+});
   
-  // console.log(groupByRole);
-  //       }
   }
 }

@@ -25,9 +25,9 @@ namespace MagicstoreAPI.Repositories
             return Perms;
         }
 
-        public async Task<List<RolePermissions>> GetPermissionsByRole(int role)
+        public async Task<List<RolePermissions>> GetPermissionsByRole(int roleID)
         {
-            var Perms = _applicationDb.MSDB_RolesPermissions.Where(x => x.Role == role).ToList();
+            var Perms = _applicationDb.MSDB_RolesPermissions.Where(x => x.RoleID == roleID).ToList();
             return Perms;
         }
 
@@ -41,19 +41,21 @@ namespace MagicstoreAPI.Repositories
         }
         public async Task<bool> UpdateRolePermissionRepo(List<UpdateEntity> rolePermissions)
         {
-            //update user at the database//
+            //update Rolem Permission at the database//
             foreach (var rolePermission in rolePermissions)
             {
-                var rolePEntity = _applicationDb.MSDB_RolesPermissions.Where(x => x.Role == rolePermission.property1 && x.Permission == rolePermission.property2).FirstOrDefault();
+                var rolePEntity = _applicationDb.MSDB_RolesPermissions.Where(x => x.RoleID == rolePermission.property1 && x.PermissionID == rolePermission.property3).FirstOrDefault();
 
                 var newEntity = new RolePermissions();
-                newEntity.Role = rolePermission.property1;
-                newEntity.Permission = rolePermission.property2;
+
+                newEntity.RoleID = rolePermission.property1;
+                newEntity.Role = rolePermission.property2;
+                newEntity.PermissionID = rolePermission.property3;
+                newEntity.Permission = rolePermission.property4;
                 newEntity.Active = rolePermission.active;
 
                 switch (rolePermission.active)
                 {
-
                     case true:
                         if (rolePEntity==null)
                         {

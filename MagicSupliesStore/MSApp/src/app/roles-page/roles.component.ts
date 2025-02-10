@@ -38,8 +38,8 @@ export class RolesPageComponent implements OnInit {
       dialogRef.afterClosed().subscribe(
         x => {
           this.roles = {
-            ID: 0,
-            Role: x.valueFromInput1
+            id: 0,
+            role: x.valueFromInput1
           };
           console.log(this.roles)
           this.CreateRole()
@@ -48,7 +48,7 @@ export class RolesPageComponent implements OnInit {
 
     CreateRole() {
 
-      this.apiService.getCheckRole(this.roles.Role).subscribe(
+      this.apiService.getCheckRole(this.roles.role).subscribe(
         response => {
           if (response != null) {
             alertify.success('El rol ya existe')
@@ -70,7 +70,7 @@ export class RolesPageComponent implements OnInit {
     console.log('Update Role method', event)
     const temp = {
       ID: event.id,
-      Role: event.role,
+      role: event.role,
       IsEdit: true // Add your new property here
     };
 
@@ -79,8 +79,8 @@ export class RolesPageComponent implements OnInit {
       x => {
 
         this.roles = {
-          ID: event.id,
-          Role: x.valueFromInput1,
+          id: event.id,
+          role: x.valueFromInput1,
         };
         console.log('Role',this.roles, 'x', x)
         //this update user

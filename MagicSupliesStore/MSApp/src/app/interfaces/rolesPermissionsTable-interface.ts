@@ -1,7 +1,12 @@
 
 export interface rolePermissionsTable{
-    ID: number,
-    Permission: number,
-    Role: number,
-    Active: boolean
+    id: number,
+    permission: number,
+    role: number,
+    active: boolean
   }
+
+export interface rolePermissionsTableFilter{
+  permissions: string,
+  role: string,
+}

@@ -45,6 +45,8 @@ builder.Services.AddScoped<PermissionsService>();
 builder.Services.AddScoped<PermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsService>();
+builder.Services.AddScoped<UserRolesService>();
+builder.Services.AddScoped<UserRolesRepository>();
 
 
 
