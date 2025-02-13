@@ -54,8 +54,8 @@ namespace MagicstoreAPI.Helpers
                         audience: jwtSettings.ValidAudience,
                         claims: GetClaims(model, Guid.NewGuid(), configuration),
                         notBefore: new DateTimeOffset(DateTime.Now).DateTime,
-                        //expires: DateTime.Now.AddDays(2),
-                        expires: expireTime,//DeterminarDuracion(configuration),
+                        expires: DateTime.Now.AddDays(2),
+                        //expires: expireTime,//DeterminarDuracion(configuration),
                         signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key),
                         SecurityAlgorithms.HmacSha512Signature)
                     );

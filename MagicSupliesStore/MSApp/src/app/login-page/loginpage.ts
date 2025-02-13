@@ -2,7 +2,6 @@ import { AfterViewInit, Component, inject, model, OnInit, signal, ViewChild } fr
 import { DialogData, LoginInputComponent } from '../../components/component-login/componentlogin';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { ApiService, LoginModel } from '../../services/api.service';
 
 @Component({
@@ -38,21 +37,19 @@ export class LoginpageComponent implements OnInit {
             User: result.valueFromInput1,
             Password: result.valueFromInput2
           }
-
-          this.ApiService.postData(request).subscribe(
+          this.ApiService.login(request).subscribe(
             response => {
-              localStorage.setItem('TokenID', response)
-              this.navigate()
+              const json= JSON.parse(response);
+              localStorage.setItem('TokenID', json.token)
+              console.log ('aqui guarda el json.token:',json.token)
+              this.navigate() 
             })
 
         }
-      });
-
-
-
+      }); 
   }
-  navigate(): void {
 
+  navigate(): void {
 
     if (localStorage.getItem('TokenID') != ' ') {
       this.router.navigate(['MainPage'])

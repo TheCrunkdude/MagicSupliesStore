@@ -5,13 +5,18 @@ import { ComponentsModule } from '../components/components.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UsersPageComponent } from './users-page/userspage.component';
 import { LoginpageComponent } from './login-page/loginpage';
 import { RolesPageComponent } from './roles-page/roles.component';
 import { PermissionsPageComponent } from './permissions-page/permissions.component';
 import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermissions.component';
 import { TableComponent } from '../components/tableComponent/tableComponent';
+<<<<<<< Updated upstream
+=======
+import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
+import { AuthInterceptor } from '../services/authInterceptor';
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -33,7 +38,8 @@ import { TableComponent } from '../components/tableComponent/tableComponent';
     
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

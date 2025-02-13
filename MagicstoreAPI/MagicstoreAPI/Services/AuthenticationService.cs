@@ -48,7 +48,6 @@ namespace MagicstoreAPI.Services
                     //GuidId = Guid.NewGuid(),
                     //PerfilId = GetPerfilIdByUserId(usr.UsuarioId),
                     //ProfileID = usuario.?
-
                     UserName = usuario.UserName,
                     ID = usuario.ID,
                 }, _jwtSettings, _configuration/*, context*/);

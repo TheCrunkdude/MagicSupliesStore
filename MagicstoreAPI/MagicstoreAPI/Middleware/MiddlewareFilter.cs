@@ -36,7 +36,9 @@ namespace MagicstoreAPI.Middleware
                 {
                     await _next(httpContext);
                     return;
+
                 }
+
                 #endregion
             }
             catch (ApplicationException ex)
@@ -44,7 +46,6 @@ namespace MagicstoreAPI.Middleware
                 //este error ya se grabo en el Log desde el Filtro general de excepciones
                 if (ex.Message != "Error no controlado en la API, ya se capturo en el archivo LOG.")
                     this._logger.LogError($"Error en el middleware de validacion de la APIKey, ApplicationException: {ex.Message}");
-
                 httpContext.Response.StatusCode = 500;
                 await httpContext.Response.WriteAsync("Ocurrió un error interno en la API." + ex.Message);
                 return;
@@ -67,6 +68,7 @@ namespace MagicstoreAPI.Middleware
                 return;
             }
             await this._next(httpContext);
-            }
+
+        }
     }
 }

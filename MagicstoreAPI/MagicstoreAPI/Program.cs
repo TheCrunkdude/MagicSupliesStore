@@ -20,7 +20,6 @@ builder.Services.AddCors(options =>
 //DB Context (Liga nuestro servidor SQL a la API)//
 var connection = builder.Configuration.GetConnectionString("PostgresConnection");
 
-
 if (builder.Configuration.GetValue<string>("DatabaseType") == "postgres")
 {
     builder.Services.AddDbContext<ApplicationDBContext>(options =>
@@ -45,11 +44,15 @@ builder.Services.AddScoped<PermissionsService>();
 builder.Services.AddScoped<PermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsService>();
+<<<<<<< Updated upstream
 
 
 
+=======
+builder.Services.AddScoped<UserRolesService>();
+builder.Services.AddScoped<UserRolesRepository>();
+>>>>>>> Stashed changes
 builder.Services.AddControllers();
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
