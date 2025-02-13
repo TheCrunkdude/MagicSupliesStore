@@ -7,6 +7,7 @@ import { LoginpageComponent } from './login-page/loginpage';
 import { RolesPageComponent } from './roles-page/roles.component';
 import { PermissionsPageComponent } from './permissions-page/permissions.component';
 import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermissions.component';
+import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 
 export const routes: Routes = [
     {path: "MainPage", component:MainpageComponent},
@@ -14,8 +15,9 @@ export const routes: Routes = [
     {path: "", component:LoginpageComponent},
     {path:"Roles", component:RolesPageComponent},
     {path:"Permissions", component:PermissionsPageComponent},
-    {path: "RolePermissions", component:RolePermissionsPageComponent}
-//    {path: "**", component:NotFoundStatusComponent} //
+    {path: "RolePermissions", component:RolePermissionsPageComponent},
+    {path: "UserRoles", component:UserRolesPageComponent}
+    //    {path: "**", component:NotFoundStatusComponent} //
   ];
   
   @NgModule({

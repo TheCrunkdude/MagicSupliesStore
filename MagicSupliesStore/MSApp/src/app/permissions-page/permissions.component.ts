@@ -40,8 +40,8 @@ export class PermissionsPageComponent implements OnInit {
 
         if (x != null) {
           this.Permission = {
-            ID: 0,
-            Permission: x[0].valueFromDialog,
+            id: 0,
+            permission: x[0].valueFromDialog,
             Description: x[1].valueFromDialog,
           };
           console.log(this.Permission)
@@ -52,7 +52,7 @@ export class PermissionsPageComponent implements OnInit {
   }
   CreatePermission() {
 
-    this.apiService.getPermissionByName(this.Permission.Permission).subscribe(
+    this.apiService.getPermissionByName(this.Permission.permission).subscribe(
       response => {
         if (response != null) {
           alertify.success('El Permiso ya existe')
@@ -83,8 +83,8 @@ export class PermissionsPageComponent implements OnInit {
       x => {
         if (x != null) {
           this.Permission = {
-            ID: event.id,
-            Permission: x[0].valueFromDialog,
+            id: event.id,
+            permission: x[0].valueFromDialog,
             Description: x[1].valueFromDialog,
           };
           this.apiService.putPermission(this.Permission).subscribe(

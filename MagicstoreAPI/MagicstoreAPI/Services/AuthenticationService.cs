@@ -44,11 +44,6 @@ namespace MagicstoreAPI.Services
 
                 var Token = JwtHelper.GenTokenkey(new UsersToken()
                 {
-                    //EmailId = usr.Email,
-                    //GuidId = Guid.NewGuid(),
-                    //PerfilId = GetPerfilIdByUserId(usr.UsuarioId),
-                    //ProfileID = usuario.?
-
                     UserName = usuario.UserName,
                     ID = usuario.ID,
                 }, _jwtSettings, _configuration/*, context*/);

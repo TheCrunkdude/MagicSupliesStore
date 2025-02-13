@@ -26,6 +26,7 @@ namespace MagicstoreAPI
         public DbSet<Roles> MSDB_Roles { get; set; }
         public DbSet<Permissions> MSDB_Permissions { get; set; }
         public DbSet<RolePermissions> MSDB_RolesPermissions { get; set; }
+        public DbSet<UserRoles> MSDB_UserRoles { get; set; }
 
 
         protected virtual void InitalizeContext()

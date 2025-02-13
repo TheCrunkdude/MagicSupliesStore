@@ -41,7 +41,8 @@ export class LoginpageComponent implements OnInit {
 
           this.ApiService.postData(request).subscribe(
             response => {
-              localStorage.setItem('TokenID', response)
+              const json= JSON.parse(response)
+              localStorage.setItem('TokenID', json.token)
               this.navigate()
             })
 

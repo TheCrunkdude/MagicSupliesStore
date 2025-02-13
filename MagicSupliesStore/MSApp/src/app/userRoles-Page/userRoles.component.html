@@ -1,0 +1,23 @@
+
+<div>
+  
+    <app-gridcomponent #gridComponent 
+    [dataSourceGridInput]="dataSourceUserRolesPage" 
+    [columns]="userRolesColumns" 
+    [headers]="userRolesHeaders"
+    >
+    </app-gridcomponent>  
+
+  </div>
+  <div>
+    <app-tablecomponent #tableComponent
+    [dataSourceInput] ="dataSourceUserRolesPage"
+    [columns]="columns"
+    [rows]="rows"
+    [grid]="grid"
+    [tableType]="'checkboxType'"
+    (detectChangeEvent)="toggleChanges1($event)">
+    
+    </app-tablecomponent>
+    <p-button  class="boton" (click)="updateUserRoles()"> Update UserRoles</p-button>
+  </div>
