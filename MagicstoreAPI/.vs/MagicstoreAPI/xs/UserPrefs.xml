@@ -1,37 +1,31 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Repositories/RolePermissionsRepository.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/UserController.cs">
     <Files>
-      <File FileName="MagicstoreAPI/Repositories/RolePermissionsRepository.cs" Line="25" Column="26" />
-      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="33" Column="62" />
-      <File FileName="MagicstoreAPI/Controllers/RolePermissionsController.cs" Line="42" Column="28" />
-      <File FileName="MagicstoreAPI/Infrastructures/Entities/RolePermissions.cs" Line="1" Column="1" />
-      <File FileName="MagicstoreAPI/Services/RolePermissionsService.cs" Line="1" Column="1" />
-      <File FileName="MagicstoreAPI/Infrastructures/Entities/UpdateEntity.cs" Line="10" Column="46" />
-      <File FileName="MagicstoreAPI/Program.cs" Line="82" Column="1" />
+      <File FileName="MagicstoreAPI/Controllers/UserController.cs" Line="24" Column="10" />
+      <File FileName="MagicstoreAPI/Services/UserService.cs" Line="18" Column="1" />
+      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" Line="36" Column="1" />
+      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" Line="46" Column="18" />
+      <File FileName="MagicstoreAPI/Services/JwtTokenService.cs" Line="25" Column="23" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" Line="43" Column="1" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="60" Column="63" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Program.cs" Line="51" Column="1" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Middleware/MiddlewareFilter.cs" Line="68" Column="14" NotebookId="1" />
+      <File FileName="MagicstoreAPI/appsettings.json" Line="17" Column="122" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" Line="73" Column="2" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI" expanded="True">
-            <Node name="MagicstoreAPI">
+            <Node name="MagicstoreAPI" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Helpers" expanded="True" />
-              <Node name="Infrastructures" expanded="True">
-                <Node name="DTO" expanded="True" />
-                <Node name="Entities" expanded="True" />
-              </Node>
               <Node name="Middleware" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Repositories" expanded="True">
-                <Node name="RolePermissionsRepository.cs" selected="True" />
-              </Node>
               <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
             </Node>
@@ -40,5 +34,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

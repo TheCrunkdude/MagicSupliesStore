@@ -17,6 +17,7 @@ namespace MagicstoreAPI.Controllers
             _userService = userService;
         }
         // Metodo get, para obtener el valor de nuestra tabla//
+        [Authorize]
         [Route("/api/GetUsers")]
         [HttpGet]
         public async Task<List<Users>> GetUsers()
