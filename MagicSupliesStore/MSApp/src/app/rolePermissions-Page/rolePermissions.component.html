@@ -1,0 +1,23 @@
+
+<div>
+  
+    <app-gridcomponent #gridComponent 
+    [dataSourceGridInput]="dataSourceRolePermissionsPage" 
+    [columns]="rolePermissionsColumns" 
+    [headers]="rolePermissionsHeaders"
+    >
+    </app-gridcomponent>  
+
+  </div>
+  <div>
+    <app-tablecomponent #tableComponent
+    [dataSourceInput] ="dataSourceRolePermissionsPage"
+    [columns]="columns"
+    [rows]="rows"
+    [grid]="grid"
+    [tableType]="'checkboxType'"
+    (detectChangeEvent)="toggleChanges($event)">
+    
+    </app-tablecomponent>
+    <p-button  class="boton" (click)="updateRolePerm()"> Update Rolepermissions</p-button>
+  </div>

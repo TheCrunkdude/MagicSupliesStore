@@ -1,6 +1,6 @@
 
 export interface PermissionsTable{
-    ID: number,
-    PermissionID: number,
+    id: number,
+    permission: string,
     Description: string,
   }

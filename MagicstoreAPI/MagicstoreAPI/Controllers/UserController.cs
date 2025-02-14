@@ -1,7 +1,9 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures;
+using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
 using MagicstoreAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MagicstoreAPI.Interfaces;
 
@@ -17,6 +19,7 @@ namespace MagicstoreAPI.Controllers
             _iuserService = iuserService;
         }
         // Metodo get, para obtener el valor de nuestra tabla//
+        [Authorize]
         [Route("/api/GetUsers")]
         [HttpGet]
         public async Task<List<Users>> GetUsers()
@@ -36,7 +39,7 @@ namespace MagicstoreAPI.Controllers
         // Metodo post, para generar nuevo usuario//
         [Route("/api/PostNewUser")]
         [HttpPost]
-        public async Task<string> CreateNewUser(Users user)
+        public async Task<string> CreateNewUser(UsersDTO user)
         {
             var result = _iuserService.CreateNewUserService(user).Result;
             var result2 = result == false ? "El empleado ya existe" : "Empleado creado";
@@ -46,7 +49,7 @@ namespace MagicstoreAPI.Controllers
         // Metodo put, para actualizar usuario//
         [Route("/api/UpdateUser")]
         [HttpPut]
-        public async Task<string> UpdateUser(Users user)
+        public async Task<string> UpdateUser(UsersDTO user)
         {
             var result = _iuserService.UpdateUserService(user).Result;
             var result2 = result == false ? "El Usuario no puede ser actualizado" : "Usuario actualizado";
@@ -54,6 +57,7 @@ namespace MagicstoreAPI.Controllers
         }
 
         // Metodo delete, para eliminar usuario//
+        [Authorize]
         [Route("/api/DeleteUser")]
         [HttpDelete]
         public async Task<string> DeleteUser([FromQuery] int ID )

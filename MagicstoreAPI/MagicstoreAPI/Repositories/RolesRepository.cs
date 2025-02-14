@@ -50,9 +50,7 @@ namespace MagicstoreAPI.Repositories
             if (roleEntity != null)
             {
                 roleEntity.ID = role.ID;
-                roleEntity.PermissionsID = role.PermissionsID;
                 roleEntity.Role = role.Role;
-
                 var QueryResult = _applicationDb.MSDB_Roles.Update(roleEntity);
                 _applicationDb.SaveChanges();
                 return QueryResult.Entity;

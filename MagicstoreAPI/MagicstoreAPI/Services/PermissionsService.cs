@@ -1,97 +1,94 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
-using MagicstoreAPI.Interfaces;
-using MagicstoreAPI.Repositories.Interfaces;
+using MagicstoreAPI.Repositories;
 
 namespace MagicstoreAPI.Services
 {
-	public class PermissionsService : IPermissionsService
-	{
-		private IPermissionsRepository _iPermissionRepository;
-		private readonly ILogger<PermissionsService> _logger;
+    public class PermissionsService
+    {
+        private PermissionsRepository _permissionsRepository;
+        private readonly ILogger<PermissionsService> _logger;
 
-		public PermissionsService(ILogger<PermissionsService> logger,
-			IPermissionsRepository ipermissionsRepository)
-		{
-			_logger = logger;
-			_iPermissionRepository = ipermissionsRepository;
-		}
+        public PermissionsService(ILogger<PermissionsService> logger, PermissionsRepository permissionsRepository)
+        {
+            _logger = logger;
+            _permissionsRepository = permissionsRepository;
+        }
+        public async Task<List<Permissions>> GetPermissions()
+        {
+            try
+            {
+                _logger.LogInformation("Get Permissions is ok ");
+                List<Permissions> result = await _permissionsRepository.GetPermissionsRepo();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Get Permissions Service Error" + ex.Message);
+            }
+        }
+        public async Task<Permissions> GetSinglePermission(int? id, string? permission)
+        {
 
-		public async Task<List<Permissions>> GetPermissions()
-		{
+            try
+            {
+                var result = await _permissionsRepository.GetPermissionValue(id, permission);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Get SPermission Service Error" + ex.Message);
+            }
+        }
 
-			try
-			{
-				_logger.LogInformation("Get Permissions is ok ");
-				List<Permissions> result = await _iPermissionRepository.GetPermissionsRepo();
-				return result;
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Get Permissions Service Error" + ex.Message);
-			}
-		}
-		public async Task<Permissions> GetSinglePermission(int? id)
-		{
+        public async Task<bool> CreateNewPermissionService(Permissions permission)
+        {
+            try
+            {
+                _logger.LogInformation("Create New Permission service is ok ");
 
-			try
-			{
-				var result = await _iPermissionRepository.GetPermissionValue(id);
-				return result;
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("Get SPermission Service Error" + ex.Message);
-			}
-		}
+                var insertresult = await _permissionsRepository.CreateNewPermissionRepo(permission);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<bool> UpdatePermissionService(Permissions permission)
+        {
+            try
+            {
+                _logger.LogInformation("Update Permission service is ok ");
+                var insertresult = await _permissionsRepository.UpdatePermissionRepo(permission);
+                if (insertresult != null)
+                {
+                    return true;
+                }
+                return false;
+            }
 
-		public async Task<bool> CreateNewPermission(Permissions permission)
-		{
-			try
-			{
-				_logger.LogInformation("Create New Permission service is ok ");
-
-				var insertresult = await _iPermissionRepository.CreateNewPermissionRepo(permission);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-		public async Task<bool> UpdatePermissionService(Permissions permission)
-		{
-			try
-			{
-				var insertresult = await _iPermissionRepository.UpdatePermissionRepo(permission);
-				if (insertresult != null)
-				{
-					return true;
-				}
-				return false;
-			}
-
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-		public async Task<bool> DeletePermissionService(int id)
-		{
-			try
-			{
-				var deleteresult = await _iPermissionRepository.DeletePermissionRepo(id);
-				if (deleteresult != null)
-				{
-					return true;
-				}
-				return false;
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
-	}
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<bool> DeletePermissionService(int id)
+        {
+            try
+            {
+                var deleteresult = await _permissionsRepository.DeletePermissionRepo(id);
+                if (deleteresult != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
 }
 

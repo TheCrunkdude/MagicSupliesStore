@@ -1,56 +1,40 @@
-﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/ServicesTest/RolesServiceTest.cs" relfile="MagicStoreAPIUnitTest/ServicesTest/RolesServiceTest.cs" line="96" column="1" />
-      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Services/RolesService.cs" relfile="MagicstoreAPI/Services/RolesService.cs" line="38" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicStoreAPIUnitTest/ServicesTest/RolesServiceTest.cs">
+﻿<Properties StartupConfiguration="{42467EB6-F94F-4652-B6AA-F75ED706AE67}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicStoreAPIUnitTest/ServicesTest/PermissionsServiceTest.cs">
     <Files>
-      <File FileName="MagicstoreAPI/Services/PermissionsService.cs" />
-      <File FileName="MagicstoreAPI/Services/RolesService.cs" Line="67" Column="1" />
-      <File FileName="MagicstoreAPI/Repositories/RolesRepository.cs" Line="39" Column="43" />
-      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" Line="35" Column="1" />
-      <File FileName="MagicStoreAPIUnitTest/ServicesTest/PermissionsServiceTest.cs" Line="110" Column="56" />
-      <File FileName="MagicStoreAPIUnitTest/ServicesTest/RolesServiceTest.cs" Line="105" Column="47" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Controllers/UserController.cs" />
+      <File FileName="MagicstoreAPI/Services/UserService.cs" />
+      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" />
+      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" />
+      <File FileName="MagicStoreAPIUnitTest/Usings.cs" />
+      <File FileName="MagicStoreAPIUnitTest/ServicesTest/PermissionsServiceTest.cs" Line="44" Column="1" />
+      <File FileName="MagicstoreAPI/Services/JwtTokenService.cs" NotebookId="1" />
       <File FileName="MagicstoreAPI/Controllers/LoginController.cs" NotebookId="1" />
-      <File FileName=".vs/MagicstoreAPI/xs/UserPrefs.xml" Line="17" Column="56" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Program.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Middleware/MiddlewareFilter.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/appsettings.json" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Infrastructures/DTO/UsersDTO.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Infrastructures/DTO/UsersToken.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/appsettings.Development.json" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MagicstoreAPI" expanded="True">
-            <Node name="MagicstoreAPI" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Repositories" expanded="True" />
-              <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="MagicStoreAPIUnitTest">
-              <Node name="ServicesTest" expanded="True">
-                <Node name="RolesServiceTest.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
           <Node name="MagicstoreAPI">
+            <Node name="MagicstoreAPI" selected="True" />
             <Node name="MagicStoreAPIUnitTest" expanded="True">
-              <Node name="MagicStoreAPIUnitTest" expanded="True" />
-              <Node name="MagicStoreAPIUnitTest.ServicesTest">
-                <Node name="RolesServiceTest">
-                  <Node name="RolesService_GetRole_Throw_Error - 3e80aa34-14f1-6ceb-9d3e-5e5a0fc567ff" selected="True" />
-                </Node>
-              </Node>
+              <Node name="ServicesTest" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { UserTable} from '../app/interfaces/userTable-interface';
 import { RolesTable } from '../app/interfaces/rolesTable-interface';
 import { PermissionsTable } from '../app/interfaces/permissionsTable-interface';
+import { rolePermissionsTable } from '../app/interfaces/rolesPermissionsTable-interface';
+import { userRolesTable } from '../app/interfaces/userRoles-interface';
 
 export interface LoginModel{
   User : string,
@@ -19,7 +21,7 @@ private apiUrl = 'https://localhost:7201/api';
   constructor(private http:HttpClient) { }
 
   getData (): Observable <any>{
-    return this.http.get (`${this.apiUrl}/LoginControler`)
+    return this.http.get (`${this.apiUrl}/LoginController`)
     console.log('getdata ok')
   }
 
@@ -47,7 +49,7 @@ private apiUrl = 'https://localhost:7201/api';
   }
   
   postData (loginModel:LoginModel): Observable <any>{
-    return this.http.post (`${this.apiUrl}/LoginControler`,loginModel,{ responseType: 'text'})
+    return this.http.post (`${this.apiUrl}/Login`,loginModel,{ responseType: 'text'})
   }
 
 ////Roles////
@@ -81,6 +83,9 @@ getPermissions(): Observable<PermissionsTable[]> {
 getPermission (id:number):Observable <any> {
   return this.http.get(`${this.apiUrl}/GetPermission?id=${id}`);
 }  
+getPermissionByName (permission:string):Observable <any> {
+  return this.http.get(`${this.apiUrl}/GetPermission?permission=${permission}`);
+}  
 postPermission(permissionsTable:PermissionsTable): Observable<any>{
   return this.http.post (`${this.apiUrl}/PostNewPermission`,permissionsTable,{ responseType: 'text'})
 }
@@ -90,5 +95,26 @@ putPermission(permissionsTable:PermissionsTable): Observable <any>{
 deletePermission(id: number):Observable<any>{
   return this.http.delete(`${this.apiUrl}/DeletePermission?ID=${id}`,{ responseType: 'text'})
 }
+
+//RolePermissions
+
+getRolePermissions(): Observable<rolePermissionsTable[]> {
+  return this.http.get<rolePermissionsTable[]>(this.apiUrl+ '/GetAllRolePermissions');
+}
+updateRolePermissions(permissionRequest: any[]):Observable<any>{
+  return this.http.put(`${this.apiUrl}/UpdateRolePermission`,permissionRequest,{ responseType: 'text'})
+}
+
+//UserRoles
+
+getUserRoles():
+Observable<userRolesTable[]> {
+  return this.http.get<userRolesTable[]>(this.apiUrl+ '/GetAllUserRoles');
+}
+updateUserRoles(userRolesRequest: any[]):Observable<any>{
+  return this.http.put(`${this.apiUrl}/UpdateUserRoles`,userRolesRequest,{ responseType: 'text'})
+}
+
+
 
 }

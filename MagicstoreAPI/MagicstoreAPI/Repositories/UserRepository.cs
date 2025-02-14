@@ -2,14 +2,14 @@
 using System.Text.Json;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
-using MagicstoreAPI.Interfaces;
+using MagicstoreAPI.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class UserRepository : IUserRepository
-
+	public class UserRepository
 	{
         //propiedades//
         private readonly ILogger<UserRepository> _logger;
@@ -36,23 +36,43 @@ namespace MagicstoreAPI.Repositories
         }
 
         
-        public async Task<Users> CreateNewUser(Users user)
+        public async Task<Users> CreateNewUser(UsersDTO user)
         {
             //Insert a new user to the database//
-            var QueryResult = _applicationDb.MSDB_Users.Add(user).Entity;
+            byte[] passwordHash;
+            byte[] passwordSalt;
+            var authService = new AuthenticationService();
+            authService.CreatePasswordHash( user.Password, out passwordHash, out passwordSalt);
+
+            var user1 = new Users()
+            {
+                ID = user.ID,
+                UserName = user.UserName,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                Mail = user.Mail,
+                CreationDate= DateTime.UtcNow
+            }
+                ;
+            var QueryResult = _applicationDb.MSDB_Users.Add(user1).Entity;
             _applicationDb.SaveChanges();
             return QueryResult;
 
         }
-        public async Task<Users> UpdateUser(Users user)
+        public async Task<Users> UpdateUser(UsersDTO user)
         {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+            var authService = new AuthenticationService();
+            authService.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+
             //update user at the database//
             var UsersEntity = _applicationDb.MSDB_Users.Where(x => x.ID == user.ID).FirstOrDefault();
             if (UsersEntity !=null)
             {
                 UsersEntity.UserName = user.UserName;
-                UsersEntity.Password = user.Password;
-                UsersEntity.RoleID = user.RoleID;
+                UsersEntity.PasswordHash = passwordHash;
+                UsersEntity.PasswordSalt = passwordSalt;
                 UsersEntity.Mail = user.Mail;
                 UsersEntity.CreationDate = user.CreationDate;
 

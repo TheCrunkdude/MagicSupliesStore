@@ -1,4 +1,5 @@
 ﻿using System;
+using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
 using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Repositories;
@@ -48,7 +49,7 @@ namespace MagicstoreAPI.Services
 
         }
 
-        public async Task<bool> CreateNewUserService(Users user)
+        public async Task<bool> CreateNewUserService(UsersDTO user)
         {
             try
             {
@@ -63,7 +64,7 @@ namespace MagicstoreAPI.Services
             }
         }
 
-        public async Task<bool> UpdateUserService(Users user)
+        public async Task<bool> UpdateUserService(UsersDTO user)
         {
             try
             {
