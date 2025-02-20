@@ -1,7 +1,6 @@
 ﻿using MagicstoreAPI;
 using MagicstoreAPI.Interfaces;
 ﻿using System;
-using MagicstoreAPI;
 using MagicstoreAPI.Middleware;
 using MagicstoreAPI.Repositories;
 using MagicstoreAPI.Repositories.Interfaces;
@@ -39,7 +38,7 @@ else
 builder.Services.AddJWTTokenServices(builder.Configuration);
 
 // Add services to the container.
-builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<IAuthenticationService,AuthenticationService>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRolesService, RolesService>();
@@ -51,7 +50,6 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<RolesRepository>();
 builder.Services.AddScoped<PermissionsService>();
-builder.Services.AddScoped<PermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsRepository>();
 builder.Services.AddScoped<RolePermissionsService>();
 builder.Services.AddScoped<UserRolesService>();

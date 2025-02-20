@@ -8,8 +8,8 @@ namespace MagicstoreAPI.Interfaces
 	{
         Task<List<Users>> GetUsersRepo();
         Task<Users> GetUserValue(int? id, string? name);
-        Task<Users> CreateNewUser(Users user);
-        Task<Users> UpdateUser(Users user);
+        Task<Users> CreateNewUser(UsersDTO user);
+        Task<Users> UpdateUser(UsersDTO user);
         Task<Users> DeleteUser(int userID);
         GenericResponse AzureRequest(int configurationID, string json);
     }

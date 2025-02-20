@@ -38,7 +38,6 @@
             _mockRole = new Roles()
             {
                 ID = 1,
-                PermissionsID = 2,
                 Role = "popo"
             };
 
@@ -52,10 +51,9 @@
             _mockList.Add(new Roles()
             {
                 ID = 1,
-                PermissionsID = 2,
                 Role = "popo"
             });
-            _mockList.Add(new Roles() { ID = 2, PermissionsID = 1, Role = "caca" });
+            _mockList.Add(new Roles() { ID = 2, Role = "caca" });
 
             _mockRolesRepository.Setup(x => x.GetRolesRepo()).Returns(Task.FromResult(_mockList));
 
@@ -81,7 +79,6 @@
 
             //Assert//
             Assert.Equal(1, testResult.ID);
-            Assert.Equal(2, testResult.PermissionsID);
             Assert.Equal("popo", testResult.Role);
 
         }

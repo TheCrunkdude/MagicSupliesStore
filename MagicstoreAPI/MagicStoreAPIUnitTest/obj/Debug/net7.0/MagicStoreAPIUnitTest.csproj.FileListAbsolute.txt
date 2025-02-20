@@ -149,3 +149,8 @@
 /Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/obj/Debug/net7.0/MagicStoreAPIUnitTest.pdb
 /Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/obj/Debug/net7.0/MagicStoreAPIUnitTest.genruntimeconfig.cache
 /Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/obj/Debug/net7.0/ref/MagicStoreAPIUnitTest.dll
+/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/bin/Debug/net7.0/Microsoft.Data.Sqlite.dll
+/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/bin/Debug/net7.0/Npgsql.dll
+/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicStoreAPIUnitTest/bin/Debug/net7.0/SQLitePCLRaw.core.dll

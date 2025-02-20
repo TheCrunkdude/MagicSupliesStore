@@ -38,7 +38,7 @@ public class PermissionsServiceTest
         {
             ID = 1,
             Description = "Vales mierda",
-            Permission = 1
+            Permission = "popo"
         };
          _mockEexceptionMessage = "Database error";
 
@@ -49,14 +49,14 @@ public class PermissionsServiceTest
     [Fact]
     public async void GetSinglePermissionMethodWithSuccessfulResult()
     {
-        _mockPermissionsRepository.Setup(x => x.GetPermissionValue(It.IsAny<int>()))
+        _mockPermissionsRepository.Setup(x => x.GetPermissionValue(It.IsAny<int>(),"popo"))
             .Returns(Task.FromResult(_mockPermission));
 
-        var testResult = await _ipermissionService.GetSinglePermission(1);
+        var testResult = await _ipermissionService.GetSinglePermission(1, "popo");
 
         Assert.Equal(testResult.ID, 1);
         Assert.Equal(testResult.Description, "Vales mierda");
-        Assert.Equal(testResult.Permission, 1);
+        Assert.Equal(testResult.Permission, "popo");
     }
 
     [Fact]
@@ -65,7 +65,7 @@ public class PermissionsServiceTest
         _mockPermissionsRepository.Setup(x => x.CreateNewPermissionRepo(It.IsAny<Permissions>()))
             .Returns(Task.FromResult(_mockPermission));
 
-        var testResult = await _ipermissionService.CreateNewPermission(_mockPermission);
+        var testResult = await _ipermissionService.CreateNewPermissionService(_mockPermission);
 
         Assert.Equal(testResult, true);
 
@@ -79,7 +79,7 @@ public class PermissionsServiceTest
         _mockPermissionsRepository.Setup(x => x.CreateNewPermissionRepo(It.IsAny<Permissions>()))
             .ThrowsAsync(new Exception(_mockEexceptionMessage));
 
-        var exception1 = await Assert.ThrowsAsync<Exception>(() => _ipermissionService.CreateNewPermission(_mockPermission));
+        var exception1 = await Assert.ThrowsAsync<Exception>(() => _ipermissionService.CreateNewPermissionService(_mockPermission));
 
         Assert.Equal(exception1.Message, _mockEexceptionMessage);
 

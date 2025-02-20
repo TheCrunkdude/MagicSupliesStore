@@ -2,21 +2,25 @@
 using MagicstoreAPI.Helpers;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 
 namespace MagicstoreAPI.Services
 {
-	public class AuthenticationService
+	public class AuthenticationService : IAuthenticationService
 	{
-        private UserService _userService;
+        private IUserService _userService;
+        private IConfiguration _configuration;
+        private readonly ILogger<AuthenticationService> _logger;
+
         private UsersToken _token;
         private JwtSettings _jwtSettings;
-        private IConfiguration _configuration;
 
-        public AuthenticationService(UserService userService, JwtSettings jwtSettings, IConfiguration configuration)
+        public AuthenticationService(ILogger<AuthenticationService> logger, IUserService userService, JwtSettings jwtSettings, IConfiguration configuration)
 		{
+            _logger = logger;
             _userService = userService;
             _jwtSettings = jwtSettings;
             _configuration = configuration;
@@ -39,7 +43,7 @@ namespace MagicstoreAPI.Services
 
                 if (!VerifyPasswordHash(Password, dbContraseña, dbSalt))
                 {
-                    throw new Exception ("Error en authenticate");
+                    throw new UnauthorizedAccessException("Error en authenticate");
                 }
 
                 var Token = JwtHelper.GenTokenkey(new UsersToken()
@@ -65,7 +69,7 @@ namespace MagicstoreAPI.Services
 
             }
         }
-        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        public bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512(passwordSalt))
             {
@@ -73,6 +77,7 @@ namespace MagicstoreAPI.Services
                 return computedHash.SequenceEqual(passwordHash);
             }
         }
+
     }
 }
 
