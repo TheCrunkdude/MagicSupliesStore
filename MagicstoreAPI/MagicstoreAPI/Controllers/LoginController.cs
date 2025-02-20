@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using MagicstoreAPI.Infrastructures;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +17,8 @@ namespace MagicstoreAPI.Controllers
 
     public class LoginController : Controller
     {
-        private AuthenticationService _authenticationService;
-        public LoginController(AuthenticationService authenticationService)
+        private IAuthenticationService _authenticationService;
+        public LoginController(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
         }

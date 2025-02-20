@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Text.Json;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using Microsoft.Extensions.Logging;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class RolesRepository
+	public class RolesRepository : IRolesRepository
+
 	{
         //propiedades//
         private readonly ILogger<RolesRepository> _logger;

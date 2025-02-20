@@ -1,40 +1,70 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Services/AuthenticationService.cs" relfile="MagicstoreAPI/Services/AuthenticationService.cs" line="41" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Services/AuthenticationService.cs">
     <Files>
-      <File FileName="MagicstoreAPI/Controllers/UserController.cs" Line="24" Column="10" />
-      <File FileName="MagicstoreAPI/Services/UserService.cs" Line="18" Column="1" />
-      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" Line="36" Column="1" />
-      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" Line="46" Column="18" />
-      <File FileName="MagicstoreAPI/Services/JwtTokenService.cs" Line="25" Column="23" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" Line="43" Column="1" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="60" Column="63" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Program.cs" Line="51" Column="1" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Middleware/MiddlewareFilter.cs" Line="68" Column="14" NotebookId="1" />
-      <File FileName="MagicstoreAPI/appsettings.json" Line="17" Column="122" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" Line="73" Column="2" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Services/UserService.cs" Line="47" Column="1" NotebookId="2" />
+      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" Line="46" Column="42" NotebookId="2" />
+      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="38" Column="34" NotebookId="2" />
+      <File FileName="MagicStoreAPIUnitTest/ServicesTest/AuthenticationServiceTest.cs" Line="83" Column="53" NotebookId="3" />
+      <File FileName="MagicstoreAPI/Infrastructures/Entities/Users.cs" Line="15" Column="37" NotebookId="3" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="0" Y="148" Width="1680" Height="877">
+        <Files>
+          <File FileName="MagicstoreAPI/appsettings.json" Line="1" Column="1" />
+        </Files>
+      </FloatingWindow>
+      <FloatingWindow WindowId="2" X="537" Y="399" Width="1010" Height="626">
+        <Files>
+          <File FileName="MagicstoreAPI/Interfaces/IUserService.cs" Line="4" Column="1" NotebookId="1" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MagicstoreAPI" expanded="True">
-            <Node name="MagicstoreAPI" expanded="True">
+          <Node name="MagicstoreAPI">
+            <Node name="MagicstoreAPI">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
               <Node name="Helpers" expanded="True" />
+              <Node name="Infrastructures" expanded="True">
+                <Node name="DTO" expanded="True" />
+                <Node name="Entities" expanded="True" />
+              </Node>
+              <Node name="Interfaces" expanded="True" />
               <Node name="Middleware" expanded="True" />
-              <Node name="Services" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services">
+                <Node name="AuthenticationService.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="MagicStoreAPIUnitTest">
+              <Node name="ServicesTest" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MagicstoreAPI">
+            <Node name="MagicStoreAPIUnitTest" expanded="True">
+              <Node name="MagicStoreAPIUnitTest" expanded="True" />
+              <Node name="MagicStoreAPIUnitTest.ServicesTest" expanded="True">
+                <Node name="AuthenticationServiceTest" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

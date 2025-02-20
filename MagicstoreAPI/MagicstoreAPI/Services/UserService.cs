@@ -1,20 +1,23 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Repositories;
 
 namespace MagicstoreAPI.Services
 {
-	public class UserService
+	public class UserService : IUserService
 	{
-		private UserRepository _userRepository;
-		private readonly ILogger<UserService> _logger;
+        private IUserRepository _iUserRepository;
+        private readonly ILogger<UserService> _logger;
 
-		public UserService(ILogger<UserService> logger,UserRepository userRepository)
+		public UserService(ILogger<UserService> logger,
+            IUserRepository iuserRepository)
 		{
 			_logger = logger;
-			_userRepository = userRepository;
-		}
+            _iUserRepository = iuserRepository;
+
+        }
 
         public async Task<List<Users>> GetUsers()
         {
@@ -22,7 +25,7 @@ namespace MagicstoreAPI.Services
             try
             {
                 _logger.LogInformation("Get Users is ok ");
-                List<Users> result = await _userRepository.GetUsersRepo();
+                List<Users> result = await _iUserRepository.GetUsersRepo();
                 return result;
             }
             catch (Exception ex)
@@ -35,7 +38,7 @@ namespace MagicstoreAPI.Services
         {
             try
             {
-                var result = await _userRepository.GetUserValue(id, name);
+                var result = await _iUserRepository.GetUserValue(id, name);
                 return result;
             }
             catch (Exception ex)
@@ -52,7 +55,7 @@ namespace MagicstoreAPI.Services
             {
                 _logger.LogInformation("Create New user service is ok ");
 
-                var insertresult = await _userRepository.CreateNewUser (user);
+                var insertresult = await _iUserRepository.CreateNewUser (user);
                 return true;
             }
             catch (Exception ex)
@@ -66,7 +69,7 @@ namespace MagicstoreAPI.Services
             try
             {
                 _logger.LogInformation("Update user service is ok ");
-                var insertresult = await _userRepository.UpdateUser(user);
+                var insertresult = await _iUserRepository.UpdateUser(user);
                 if (insertresult != null)
                 {
                     return true;
@@ -84,7 +87,7 @@ namespace MagicstoreAPI.Services
         {
             try
             {
-                var deleteresult = await _userRepository.DeleteUser(userID);
+                var deleteresult = await _iUserRepository.DeleteUser(userID);
                 if (deleteresult !=null)
                 {
                     return true;

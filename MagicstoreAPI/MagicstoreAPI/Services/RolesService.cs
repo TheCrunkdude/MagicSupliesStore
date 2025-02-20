@@ -1,25 +1,26 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
-using MagicstoreAPI.Repositories;
+using MagicstoreAPI.Interfaces;
 
 namespace MagicstoreAPI.Services
 {
-	public class RolesService
-	{
-		private RolesRepository _rolesRepository;
-		private readonly ILogger<RolesService> _logger;
+	public class RolesService : IRolesService
+    {
+        private IRolesRepository _irolesRepository;
+        private readonly ILogger<RolesService> _logger;
 
-        public RolesService(ILogger<RolesService> logger, RolesRepository rolesRepository)
+        public RolesService(ILogger<RolesService> logger, IRolesRepository irolesRepository)
         {
             _logger = logger;
-            _rolesRepository = rolesRepository;
+            _irolesRepository = irolesRepository;
         }
+
         public async Task<List<Roles>> GetRoles()
         {
             try
             {
                 _logger.LogInformation("Get Roles is ok ");
-                List<Roles> result = await _rolesRepository.GetRolesRepo();
+                List<Roles> result = await _irolesRepository.GetRolesRepo();
                 return result;
             }
             catch (Exception ex)
@@ -34,7 +35,7 @@ namespace MagicstoreAPI.Services
 
             try
             {
-                var result = await _rolesRepository.GetRoleValue(id);
+                var result = await _irolesRepository.GetRoleValue(id);
                 return result;
             }
             catch (Exception ex)
@@ -48,7 +49,7 @@ namespace MagicstoreAPI.Services
 
             try
             {
-                var result = await _rolesRepository.GetCheckRoleValue(role);
+                var result = await _irolesRepository.GetCheckRoleValue(role);
                 return result;
             }
             catch (Exception ex)
@@ -64,7 +65,7 @@ namespace MagicstoreAPI.Services
             {
                 _logger.LogInformation("Create New role service is ok ");
 
-                var insertresult = await _rolesRepository.CreateNewRoleRepo(role);
+                var insertresult = await _irolesRepository.CreateNewRoleRepo(role);
                 return true;
             }
             catch (Exception ex)
@@ -77,7 +78,7 @@ namespace MagicstoreAPI.Services
             try
             {
                 _logger.LogInformation("Update role service is ok ");
-                var insertresult = await _rolesRepository.UpdateRoleRepo(role);
+                var insertresult = await _irolesRepository.UpdateRoleRepo(role);
                 if (insertresult != null)
                 {
                     return true;
@@ -94,7 +95,7 @@ namespace MagicstoreAPI.Services
         {
             try
             {
-                var deleteresult = await _rolesRepository.DeleteRoleRepo(ID);
+                var deleteresult = await _irolesRepository.DeleteRoleRepo(ID);
                 if (deleteresult != null)
                 {
                     return true;
