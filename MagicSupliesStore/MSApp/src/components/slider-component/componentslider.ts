@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
   export class componentslider  {
     name = 'Angular';
     imageObject = [{
-        image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
+        image: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.https://pixabay.com/illustrations/moon-cat-night-nature-animal-pet-9164274/jpg',
         thumbImage: 'https://sanjayv.github.io/ng-image-slider/contents/assets/img/slider/5.jpg',
         title: 'Hummingbirds are amazing creatures'
     }, {

@@ -1,6 +1,7 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
 using MagicstoreAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagicstoreAPI.Controllers
@@ -41,6 +42,7 @@ namespace MagicstoreAPI.Controllers
             var result2 = result == false ? "La Relacion Rol-Permiso ya existe" : "Relacion creada";
             return result2;
         }
+        [Authorize]
         [Route("/api/UpdateRolePermission")]
         [HttpPut]
         public async Task<string> UpdateRolePermission([FromBody] List<UpdateEntity> rolePermissions)
