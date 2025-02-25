@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "x2AE8nwLtFnZMTlazBAzs0+BcNzztp9nQ/4LDtQEhaUtHIBp1dex4KBN9qMCKX2piJMXFJa1KMJ9gFK9ZtjHaw==",
+  "dgSpecHash": "DfTxAq92DEYx3/awClIncCa4PXQW4ft39xgTOXKa56K9PgCAyQWPZ5p7XLlnN+uySt/ix/qY+4soGQvLPTPlRg==",
   "success": true,
   "projectFilePath": "/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj",
   "expectedPackageFiles": [
@@ -41,8 +41,8 @@
     "/Users/christiancontreras/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/christiancontreras/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/Users/christiancontreras/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "/Users/christiancontreras/.nuget/packages/npgsql/7.0.6/npgsql.7.0.6.nupkg.sha512",
-    "/Users/christiancontreras/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.11/npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+    "/Users/christiancontreras/.nuget/packages/npgsql/7.0.7/npgsql.7.0.7.nupkg.sha512",
+    "/Users/christiancontreras/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.18/npgsql.entityframeworkcore.postgresql.7.0.18.nupkg.sha512",
     "/Users/christiancontreras/.nuget/packages/sqlitepclraw.core/2.1.10/sqlitepclraw.core.2.1.10.nupkg.sha512",
     "/Users/christiancontreras/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/Users/christiancontreras/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",

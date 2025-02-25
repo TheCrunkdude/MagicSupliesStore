@@ -1,40 +1,47 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Repositories/UserRolesRepository.cs" relfile="MagicstoreAPI/Repositories/UserRolesRepository.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MagicstoreAPI/Controllers/UserController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../usr/local/share/dotnet/sdk/7.0.317/Microsoft.Common.CurrentVersion.targets">
     <Files>
-      <File FileName="MagicstoreAPI/Controllers/UserController.cs" Line="24" Column="10" />
-      <File FileName="MagicstoreAPI/Services/UserService.cs" Line="18" Column="1" />
-      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" Line="36" Column="1" />
-      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" Line="46" Column="18" />
-      <File FileName="MagicstoreAPI/Services/JwtTokenService.cs" Line="25" Column="23" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" Line="43" Column="1" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Helpers/JwthHelper.cs" Line="60" Column="63" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Program.cs" Line="51" Column="1" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Middleware/MiddlewareFilter.cs" Line="68" Column="14" NotebookId="1" />
-      <File FileName="MagicstoreAPI/appsettings.json" Line="17" Column="122" NotebookId="1" />
-      <File FileName="MagicstoreAPI/Controllers/RolesControler.cs" Line="73" Column="2" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" />
+      <File FileName="MagicstoreAPI/Controllers/UserController.cs" />
+      <File FileName="MagicstoreAPI/Program.cs" />
+      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" />
+      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.317/Microsoft.Common.CurrentVersion.targets" Line="4752" Column="5" />
+      <File FileName="MagicstoreAPI/Repositories/RolePermissionsRepository.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Interfaces/IAuthenticationService.cs" Line="12" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="MagicstoreAPI" expanded="True">
+          <Node name="MagicstoreAPI">
             <Node name="MagicstoreAPI" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Helpers" expanded="True" />
-              <Node name="Middleware" expanded="True" />
+              <Node name="Interfaces" expanded="True">
+                <Node name="IAuthenticationService.cs" selected="True" />
+              </Node>
+              <Node name="Repositories" expanded="True" />
               <Node name="Services" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
+            </Node>
+            <Node name="MagicStoreAPIUnitTest" expanded="True">
+              <Node name="ServicesTest" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="MagicstoreAPI" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
