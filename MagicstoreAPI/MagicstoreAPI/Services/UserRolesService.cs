@@ -28,6 +28,20 @@ namespace MagicstoreAPI.Services
                 throw new Exception("Get  User Roles Service Error" + ex.Message);
             }
         }
+        public async Task<List<UserRoles>> GetUserRolesByName(string name)
+        {
+            try
+            {
+                _logger.LogInformation("Get User Roles is ok ");
+                List<UserRoles> result = await _userRolesRepository.GetUserRoleByName(name);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Get  User Roles Service Error" + ex.Message);
+            }
+        }
+
 
         public async Task<bool> CreateNewUserRolesService(UserRoles userRoles)
         {

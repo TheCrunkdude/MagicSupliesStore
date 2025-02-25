@@ -19,6 +19,13 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
         }
 
+        public async Task<List<UserRoles>> GetUserRoleByName(string name)
+        {
+
+            var UsrRoles = _applicationDb.MSDB_UserRoles.Where(x => x.User == name).ToList();
+            return UsrRoles;
+        }
+
         public async Task<UserRoles> CreateNewUserRoleRepo(UserRoles userRole)
         {
             //rolePermission.CreationDate = DateTime.UtcNow;

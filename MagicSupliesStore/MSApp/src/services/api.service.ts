@@ -51,6 +51,9 @@ private apiUrl = 'https://localhost:7201/api';
   postData (loginModel:LoginModel): Observable <any>{
     return this.http.post (`${this.apiUrl}/Login`,loginModel,{ responseType: 'text'})
   }
+  getAccessPermissions():Observable<any>{
+    return this.http.post
+  }
 
 ////Roles////
 

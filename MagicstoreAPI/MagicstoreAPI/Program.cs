@@ -36,7 +36,7 @@ else
 builder.Services.AddJWTTokenServices(builder.Configuration);
 
 // Add services to the container.
-builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<AuthenticationService1>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<RolesService>();

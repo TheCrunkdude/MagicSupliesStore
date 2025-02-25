@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const token = localStorage.getItem('TokenID');
 console.log('token del interceptor',token)

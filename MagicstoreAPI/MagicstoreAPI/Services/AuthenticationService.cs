@@ -8,20 +8,23 @@ using Microsoft.Extensions.Configuration;
 
 namespace MagicstoreAPI.Services
 {
-	public class AuthenticationService
+	public class AuthenticationService1
 	{
         private UserService _userService;
         private UsersToken _token;
+        private RolePermissionsService _rolePermissions;
+        private UserRolesService _userRoles;
         private JwtSettings _jwtSettings;
         private IConfiguration _configuration;
 
-        public AuthenticationService(UserService userService, JwtSettings jwtSettings, IConfiguration configuration)
+        public AuthenticationService1(UserService userService, RolePermissionsService rolePermissions, UserRolesService userRoles, JwtSettings jwtSettings, IConfiguration configuration)
 		{
             _userService = userService;
             _jwtSettings = jwtSettings;
             _configuration = configuration;
+            _rolePermissions = rolePermissions;
         }
-        public AuthenticationService()
+        public AuthenticationService1()
         {
 
         }
@@ -31,7 +34,7 @@ namespace MagicstoreAPI.Services
             try
             {
                 var usuario = _userService.GetSingleUser(null, Name).Result;
-
+               
                 var dbNombre = usuario.UserName;
                 var dbSalt = usuario.PasswordSalt;
                 var dbContraseña = usuario.PasswordHash;
@@ -54,6 +57,19 @@ namespace MagicstoreAPI.Services
             {
                 throw ex;
             }
+        }
+        public async Task<List<Permissions>> AccessPermissions(string Name)
+        {
+            var usuario = _userRoles.GetUserRolesByName( Name).Result;
+            var permissions = new List<Permissions>();
+
+            foreach (var item in usuario)
+            {
+                var rolePermissions = await _rolePermissions.GetPermissionsByRole(item.RoleID);
+                permissions.AddRange((IEnumerable<Permissions>)rolePermissions);
+            }
+            return permissions;
+
         }
 
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
