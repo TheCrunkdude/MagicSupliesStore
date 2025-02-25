@@ -12,13 +12,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MagicstoreAPI.Controllers
 {
-
     [Route("api/[controller]")]
 
     public class LoginController : Controller
     {
+<<<<<<< HEAD
+        private AuthenticationService1 _authenticationService;
+        public LoginController(AuthenticationService1 authenticationService)
+=======
         private IAuthenticationService _authenticationService;
         public LoginController(IAuthenticationService authenticationService)
+>>>>>>> main
         {
             _authenticationService = authenticationService;
         }
@@ -44,7 +48,6 @@ namespace MagicstoreAPI.Controllers
 
             return Ok(mensaje);
         }
-
     }
 }
 

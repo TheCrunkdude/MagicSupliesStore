@@ -9,23 +9,34 @@ using Microsoft.Extensions.Configuration;
 
 namespace MagicstoreAPI.Services
 {
+<<<<<<< HEAD
+	public class AuthenticationService1
+=======
 	public class AuthenticationService : IAuthenticationService
+>>>>>>> main
 	{
         private IUserService _userService;
         private IConfiguration _configuration;
         private readonly ILogger<AuthenticationService> _logger;
 
         private UsersToken _token;
+        private RolePermissionsService _rolePermissions;
+        private UserRolesService _userRoles;
         private JwtSettings _jwtSettings;
 
+<<<<<<< HEAD
+        public AuthenticationService1(UserService userService, RolePermissionsService rolePermissions, UserRolesService userRoles, JwtSettings jwtSettings, IConfiguration configuration)
+=======
         public AuthenticationService(ILogger<AuthenticationService> logger, IUserService userService, JwtSettings jwtSettings, IConfiguration configuration)
+>>>>>>> main
 		{
             _logger = logger;
             _userService = userService;
             _jwtSettings = jwtSettings;
             _configuration = configuration;
+            _rolePermissions = rolePermissions;
         }
-        public AuthenticationService()
+        public AuthenticationService1()
         {
 
         }
@@ -35,7 +46,7 @@ namespace MagicstoreAPI.Services
             try
             {
                 var usuario = _userService.GetSingleUser(null, Name).Result;
-
+               
                 var dbNombre = usuario.UserName;
                 var dbSalt = usuario.PasswordSalt;
                 var dbContraseña = usuario.PasswordHash;
@@ -58,6 +69,19 @@ namespace MagicstoreAPI.Services
             {
                 throw ex;
             }
+        }
+        public async Task<List<Permissions>> AccessPermissions(string Name)
+        {
+            var usuario = _userRoles.GetUserRolesByName( Name).Result;
+            var permissions = new List<Permissions>();
+
+            foreach (var item in usuario)
+            {
+                var rolePermissions = await _rolePermissions.GetPermissionsByRole(item.RoleID);
+                permissions.AddRange((IEnumerable<Permissions>)rolePermissions);
+            }
+            return permissions;
+
         }
 
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)

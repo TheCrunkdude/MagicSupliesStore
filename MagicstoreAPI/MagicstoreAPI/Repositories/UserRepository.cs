@@ -42,7 +42,7 @@ namespace MagicstoreAPI.Repositories
             //Insert a new user to the database//
             byte[] passwordHash;
             byte[] passwordSalt;
-            var authService = new AuthenticationService();
+            var authService = new AuthenticationService1();
             authService.CreatePasswordHash( user.Password, out passwordHash, out passwordSalt);
 
             var user1 = new Users()
@@ -64,7 +64,7 @@ namespace MagicstoreAPI.Repositories
         {
             byte[] passwordHash;
             byte[] passwordSalt;
-            var authService = new AuthenticationService();
+            var authService = new AuthenticationService1();
             authService.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
 
             //update user at the database//

@@ -8,10 +8,11 @@ import { RolesPageComponent } from './roles-page/roles.component';
 import { PermissionsPageComponent } from './permissions-page/permissions.component';
 import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermissions.component';
 import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
+import { AuthGuard } from '../services/auth.guard';
 
 export const routes: Routes = [
     {path: "MainPage", component:MainpageComponent},
-    {path: "Users", component:UsersPageComponent},
+    {path: "Users", component : UsersPageComponent, canActivate: [AuthGuard]},
     {path: "", component:LoginpageComponent},
     {path:"Roles", component:RolesPageComponent},
     {path:"Permissions", component:PermissionsPageComponent},

@@ -7,13 +7,10 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { componentslider } from './slider-component/componentslider';
 import { MainpageComponent } from '../app/mainpage/mainpage-component';
 import { MenuComponent } from './componentmenu/menu.component';
-import { PrimeNgModule } from './primeng.module';
-import { UsersPageComponent } from '../app/users-page/userspage.component';
-import { LoginpageComponent } from '../app/login-page/loginpage';
-import { UserTable} from '../app/interfaces/userTable-interface';
-import { GridComponent } from './gridcomponent/gridcomponent';
+import { PrimeNgModule } from './primeng.module';import { GridComponent } from './gridcomponent/gridcomponent';
 import { AddOrEditUser } from '../app/models/add-edit-usersmodel';
 import { AddEditRolesModel } from '../app/models/add-edit-rolemodel';
+import { ConfirmationDialogModel } from '../app/models/confirmation-dialog-model';
 
 
 @NgModule({
@@ -26,6 +23,7 @@ import { AddEditRolesModel } from '../app/models/add-edit-rolemodel';
     GridComponent,
     AddOrEditUser,
     AddEditRolesModel,
+    ConfirmationDialogModel
     
   ],
   imports: [

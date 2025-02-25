@@ -36,12 +36,7 @@ export class LoginInputComponent implements OnInit {
     this.InputData.set(InputDataSignal)
 
     //you can use the value of the event emitter or the saved value from the child component
-    console.log("Login LEVEL value =====>")
-    console.log("Data value =====>")
-    console.log(this.data)
-    console.log("Event value =====>")
-    console.log(event)
-    console.log("valueFromInput1 ===> " + this.inputComponent1.valuefromInput + this.inputComponent2.valuefromInput  )
+     console.log("valueFromInput1 ===> " + this.inputComponent1.valuefromInput + this.inputComponent2.valuefromInput  )
   }
 
   onNoClick(): void {

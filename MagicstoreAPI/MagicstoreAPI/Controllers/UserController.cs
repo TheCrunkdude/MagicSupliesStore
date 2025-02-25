@@ -3,6 +3,7 @@ using MagicstoreAPI.Infrastructures;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
 using MagicstoreAPI.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MagicstoreAPI.Interfaces;
@@ -13,8 +14,15 @@ namespace MagicstoreAPI.Controllers
     [ApiController]
 	public class UserController: Controller 
 	{
+<<<<<<< HEAD
+        private UserService _userService;
+        private AuthenticationService1 _authenticationService;
+
+        public UserController(UserService userService)
+=======
         private IUserService _iuserService;
         public UserController(IUserService iuserService)
+>>>>>>> main
         {
             _iuserService = iuserService;
         }
@@ -69,6 +77,14 @@ namespace MagicstoreAPI.Controllers
         }
 
 
+        [Route("/api/access")]
+        [HttpPost]
+        public async Task<IActionResult> getAccessPermissions([FromBody] string userName)
+        {
+            var permissions = await _authenticationService.AccessPermissions(userName);
+
+            return Ok(permissions);
+        }
     }
 }
 

@@ -1,4 +1,36 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Repositories/UserRolesRepository.cs" relfile="MagicstoreAPI/Repositories/UserRolesRepository.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../../usr/local/share/dotnet/sdk/7.0.317/Microsoft.Common.CurrentVersion.targets">
+    <Files>
+      <File FileName="MagicstoreAPI/Controllers/LoginController.cs" />
+      <File FileName="MagicstoreAPI/Controllers/UserController.cs" />
+      <File FileName="MagicstoreAPI/Program.cs" />
+      <File FileName="MagicstoreAPI/Repositories/UserRepository.cs" />
+      <File FileName="MagicstoreAPI/Services/AuthenticationService.cs" />
+      <File FileName="../../../../../usr/local/share/dotnet/sdk/7.0.317/Microsoft.Common.CurrentVersion.targets" Line="4752" Column="5" />
+      <File FileName="MagicstoreAPI/Repositories/RolePermissionsRepository.cs" NotebookId="1" />
+      <File FileName="MagicstoreAPI/Interfaces/IAuthenticationService.cs" Line="12" Column="1" NotebookId="1" />
+    </Files>
+=======
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
+=======
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
+=======
   <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
@@ -26,10 +58,36 @@
         </Files>
       </FloatingWindow>
     </FloatingWindows>
+>>>>>>> main
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI">
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+            <Node name="MagicstoreAPI" expanded="True">
+              <Node name="Interfaces" expanded="True">
+                <Node name="IAuthenticationService.cs" selected="True" />
+              </Node>
+              <Node name="Repositories" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+            <Node name="MagicStoreAPIUnitTest" expanded="True">
+              <Node name="ServicesTest" expanded="True" />
+=======
+=======
+>>>>>>> Stashed changes
+            <Node name="MagicstoreAPI">
+              <Node name="Controllers">
+                <Node name="RolePermissionsController.cs" selected="True" />
+              </Node>
+              <Node name="Infrastructures" expanded="True" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
             <Node name="MagicstoreAPI">
               <Node name="Dependencies" expanded="True" />
               <Node name="Helpers" expanded="True" />
@@ -58,13 +116,49 @@
               <Node name="MagicStoreAPIUnitTest.ServicesTest" expanded="True">
                 <Node name="AuthenticationServiceTest" expanded="True" />
               </Node>
+>>>>>>> main
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+        <State name="__root__">
+          <Node name="MagicstoreAPI" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+<<<<<<< HEAD
+  <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
+=======
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+=======
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Repositories/UserRolesRepository.cs" relfile="MagicstoreAPI/Repositories/UserRolesRepository.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+>>>>>>> main
 </Properties>

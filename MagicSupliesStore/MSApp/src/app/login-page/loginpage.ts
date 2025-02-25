@@ -41,6 +41,7 @@ export class LoginpageComponent implements OnInit {
 
           this.ApiService.postData(request).subscribe(
             response => {
+              console.log(' el token debe guardarse aqui', response)
               const json= JSON.parse(response)
               localStorage.setItem('TokenID', json.token)
               this.navigate()

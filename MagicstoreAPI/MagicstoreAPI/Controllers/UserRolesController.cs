@@ -19,7 +19,16 @@ namespace MagicstoreAPI.Controllers
             List<UserRoles> result = _userRoleService.GetUserRolesService().Result;
             return (result);
         }
-      
+
+        [Route("/api/PostGetRolesByName")]
+        [HttpPost]
+        public async Task<List<UserRoles>> GetUserRoleByNameController([FromBody] string userName)
+        {
+            List<UserRoles> result = _userRoleService.GetUserRolesByName(userName).Result;
+            return (result);
+        }
+
+
         [Route("/api/PostAllUserRoles")]
         [HttpPost]
         public async Task<string> CreateUserRole([FromBody] UserRoles userRole) 

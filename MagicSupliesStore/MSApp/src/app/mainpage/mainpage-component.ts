@@ -18,7 +18,6 @@ export class MainpageComponent implements OnInit{
     const backDiv = document.getElementById("back");
     if (backDiv) 
       backDiv.style.background = "revert";
-    console.log('Mainpage funcionando')
 
     
   }
