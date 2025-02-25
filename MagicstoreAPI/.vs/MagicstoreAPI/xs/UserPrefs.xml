@@ -1,5 +1,6 @@
 ﻿<Properties StartupConfiguration="{86960CA0-256A-476B-9B2D-105CE0104E57}|https">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/christiancontreras/Projects/MagicSupliesStore/MagicstoreAPI/MagicstoreAPI/Repositories/UserRolesRepository.cs" relfile="MagicstoreAPI/Repositories/UserRolesRepository.cs" line="22" column="1" />
@@ -24,10 +25,15 @@
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench>
 >>>>>>> Stashed changes
+=======
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MagicstoreAPI">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             <Node name="MagicstoreAPI" expanded="True">
               <Node name="Interfaces" expanded="True">
@@ -39,17 +45,23 @@
             <Node name="MagicStoreAPIUnitTest" expanded="True">
               <Node name="ServicesTest" expanded="True" />
 =======
+=======
+>>>>>>> Stashed changes
             <Node name="MagicstoreAPI">
               <Node name="Controllers">
                 <Node name="RolePermissionsController.cs" selected="True" />
               </Node>
               <Node name="Infrastructures" expanded="True" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <State name="__root__">
           <Node name="MagicstoreAPI" selected="True" />
@@ -63,6 +75,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+=======
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
@@ -72,5 +90,8 @@
   <MonoDevelop.Ide.ItemProperties.MagicStoreAPIUnitTest PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.MagicstoreAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </Properties>
