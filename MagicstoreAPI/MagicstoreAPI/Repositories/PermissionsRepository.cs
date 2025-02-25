@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Text.Json;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Repositories.Interfaces;
 using Microsoft.Extensions.Logging;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class PermissionsRepository
-	{
+	public class PermissionsRepository : IPermissionsRepository
+    {
 
         private readonly ILogger<PermissionsRepository> _logger;
         private ApplicationDBContext _applicationDb;
@@ -16,6 +17,7 @@ namespace MagicstoreAPI.Repositories
             _logger = logger;
             _applicationDb = applicationDB;   
 		}
+
         public async Task<List<Permissions>> GetPermissionsRepo()
         {
             var QueryResult = _applicationDb.MSDB_Permissions.ToList();
@@ -29,9 +31,9 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
         }
 
-        public async Task<Permissions> CreateNewPermissionRepo(Permissions permission)
+        public async Task<Permissions> CreateNewPermissionRepo(Permissions permissions)
         {
-            var QueryResult = _applicationDb.MSDB_Permissions.Add(permission).Entity;
+            var QueryResult = _applicationDb.MSDB_Permissions.Add(permissions).Entity;
             _applicationDb.SaveChanges();
             return QueryResult;
 

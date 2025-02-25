@@ -1,15 +1,17 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Repositories;
+using MagicstoreAPI.Repositories.Interfaces;
 
 namespace MagicstoreAPI.Services
 {
-    public class PermissionsService
+    public class PermissionsService: IPermissionsService
     {
-        private PermissionsRepository _permissionsRepository;
+        private IPermissionsRepository _permissionsRepository;
         private readonly ILogger<PermissionsService> _logger;
 
-        public PermissionsService(ILogger<PermissionsService> logger, PermissionsRepository permissionsRepository)
+        public PermissionsService(ILogger<PermissionsService> logger, IPermissionsRepository permissionsRepository)
         {
             _logger = logger;
             _permissionsRepository = permissionsRepository;

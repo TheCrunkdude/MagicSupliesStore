@@ -2,6 +2,7 @@
 using System.Text.Json;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
@@ -9,8 +10,8 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class UserRepository
-	{
+	public class UserRepository: IUserRepository
+    {
         //propiedades//
         private readonly ILogger<UserRepository> _logger;
         private ApplicationDBContext _applicationDb;

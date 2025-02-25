@@ -62,6 +62,7 @@ MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/refint/MagicstoreAPI.dll
 MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/ref/MagicstoreAPI.dll
 MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/MagicstoreAPI.pdb
 /MagicstoreAPI/MagicstoreAPI/obj/Debug
+<<<<<<< HEAD
 /MagicstoreAPI/MagicStoreAPIUnitTest/obj/Debug/net7.0
 /MagicstoreAPI/.vs/MagicstoreAPI/xs/project-cache
 MagicstoreAPI/.vs/MagicstoreAPI/xs/UserPrefs.xml
@@ -76,3 +77,12 @@ MagicstoreAPI/.vs/MagicstoreAPI/xs/UserPrefs.xml
 MagicstoreAPI/.vs/MagicstoreAPI/xs/project-cache/MagicstoreAPI-Debug.json
 MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/MagicstoreAPI.csproj.CoreCompileInputs.cache
 MagicSupliesStore/MSApp/.angular/cache/18.2.5/MSApp/.tsbuildinfo
+=======
+MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/MagicstoreAPI.pdb
+MagicstoreAPI/MagicstoreAPI/bin/Debug/net7.0/MagicstoreAPI.dll
+MagicstoreAPI/MagicstoreAPI/bin/Debug/net7.0/MagicstoreAPI.pdb
+MagicstoreAPI/MagicstoreAPI/Controllers/LoginController.cs
+MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/MagicstoreAPI.dll
+MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/ref/MagicstoreAPI.dll
+MagicstoreAPI/MagicstoreAPI/obj/Debug/net7.0/MagicstoreAPI.pdb
+>>>>>>> main
