@@ -1,6 +1,8 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,12 +10,14 @@ namespace MagicstoreAPI.Controllers
 {
 	public class RolesControler: Controller
 	{
-		private RolesService _rolesService;
-		public RolesControler(RolesService rolesService)
+		private IRolesService _rolesService;
+		public RolesControler(IRolesService rolesService)
 		{
 			_rolesService = rolesService;
 		}
         // Metodo get, para obtener el valor de nuestra tabla//
+        [Authorize]
+
         [Route("/api/GetRoles")]
         [HttpGet]
         public async Task<List<Roles>> GetRoles()

@@ -7,6 +7,7 @@ namespace MagicstoreAPI.Infrastructures.DTO
         public long ProfileID { get; set; }
         public long ID { get; set; }
         public string UserName { get; set; }
+
     }
 }
 

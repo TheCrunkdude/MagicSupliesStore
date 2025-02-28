@@ -1,15 +1,16 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Repositories;
 
 namespace MagicstoreAPI.Services
 {
-	public class UserRolesService
-	{
-        private UserRolesRepository _userRolesRepository;
+	public class UserRolesService : IUserRolesService
+    {
+        private IUserRolesRepository _userRolesRepository;
         private readonly ILogger<UserRolesService> _logger;
 
-        public UserRolesService(ILogger<UserRolesService> logger, UserRolesRepository userRolesRepository)
+        public UserRolesService(ILogger<UserRolesService> logger, IUserRolesRepository userRolesRepository)
         {
             _logger = logger;
             _userRolesRepository = userRolesRepository;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using MagicstoreAPI.Infrastructures;
+using MagicstoreAPI.Infrastructures.Entities;
 using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -16,13 +17,8 @@ namespace MagicstoreAPI.Controllers
 
     public class LoginController : Controller
     {
-<<<<<<< HEAD
-        private AuthenticationService1 _authenticationService;
-        public LoginController(AuthenticationService1 authenticationService)
-=======
-        private IAuthenticationService _authenticationService;
-        public LoginController(IAuthenticationService authenticationService)
->>>>>>> main
+        private IAuthenticationService1 _authenticationService;
+        public LoginController(IAuthenticationService1 authenticationService)
         {
             _authenticationService = authenticationService;
         }
@@ -47,6 +43,16 @@ namespace MagicstoreAPI.Controllers
             var mensaje = await _authenticationService.Authenticate(loginModel.User, loginModel.Password);
 
             return Ok(mensaje);
+        }
+
+
+        [Route("/api/access")]
+        [HttpPost]
+        public async Task<List<string>> getAccessPermissions([FromBody] string username)
+        {
+            var permissions = await _authenticationService.AccessUserRoles(username);
+
+            return (permissions);
         }
     }
 }

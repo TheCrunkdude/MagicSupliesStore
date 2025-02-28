@@ -44,9 +44,15 @@ export class LoginpageComponent implements OnInit {
               console.log(' el token debe guardarse aqui', response)
               const json= JSON.parse(response)
               localStorage.setItem('TokenID', json.token)
-              this.navigate()
+              this.router.navigate(['MainPage'])
+
             })
 
+          this.ApiService.checkPermissions(request.User).subscribe(
+          (response: any) => {
+              console.log('Permisos del usuario desde la api', response)
+              sessionStorage.setItem('permissions', JSON.stringify(response))
+            })
         }
       });
 

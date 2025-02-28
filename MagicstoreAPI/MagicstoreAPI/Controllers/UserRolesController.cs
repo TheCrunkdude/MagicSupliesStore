@@ -1,5 +1,6 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,8 +8,8 @@ namespace MagicstoreAPI.Controllers
 {
 	public class UserRolesController
 	{
-        private UserRolesService _userRoleService;
-        public UserRolesController(UserRolesService userRolesService)
+        private IUserRolesService _userRoleService;
+        public UserRolesController(IUserRolesService userRolesService)
         {
             _userRoleService = userRolesService;
         }

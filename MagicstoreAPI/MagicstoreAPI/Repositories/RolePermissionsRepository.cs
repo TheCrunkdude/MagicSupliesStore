@@ -1,10 +1,11 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class RolePermissionsRepository
-	{
+	public class RolePermissionsRepository : IRolePermissionsRepository
+    {
 		private readonly ILogger<RolePermissionsRepository> _logger;
 		private ApplicationDBContext _applicationDb;
 		public RolePermissionsRepository(ILogger<RolePermissionsRepository> logger, ApplicationDBContext applicationDB)

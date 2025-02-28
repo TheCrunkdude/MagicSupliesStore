@@ -1,0 +1,10 @@
+<div class="error-page">
+    <img src="poop.png" alt="Error" class="error-image" />
+    <h1>{{ errorCode }} - {{ errorMessage }}</h1>
+    <p>Ocurrió un problema al procesar tu solicitud.</p>
+    
+    <div class="error-actions">
+      <p-button class="boton" (click)="navigateTo('/MainPage')">Ir a Inicio</p-button>
+      <p-button class="boton"(click)="navigateTo('/')">Iniciar Sesión</p-button>
+    </div>
+  </div>

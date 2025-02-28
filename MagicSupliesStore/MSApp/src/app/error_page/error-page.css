@@ -1,0 +1,15 @@
+.error-page {
+    background-color: white;  /* Fondo blanco */
+    color: black;  /* Asegura que el texto sea legible */
+    height: 100vh;  /* Ocupa toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.error-image {
+    width: 100px;  /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 20px;
+}

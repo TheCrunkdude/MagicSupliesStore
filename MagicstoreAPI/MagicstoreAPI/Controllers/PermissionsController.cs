@@ -1,5 +1,6 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 using MagicstoreAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +10,9 @@ namespace MagicstoreAPI.Controllers
 {
 	public class PermissionsController: Controller
 	{
-		private PermissionsService _permissionsService;
+		private IPermissionsService _permissionsService;
 
-        public PermissionsController(PermissionsService permissionsService)
+        public PermissionsController(IPermissionsService permissionsService)
 		{
 			_permissionsService = permissionsService;
 		}
