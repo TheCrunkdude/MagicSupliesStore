@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using System.Text.Json;
 using MagicstoreAPI.Infrastructures.DTO;
 using MagicstoreAPI.Infrastructures.Entities;
@@ -42,8 +43,9 @@ namespace MagicstoreAPI.Repositories
             //Insert a new user to the database//
             byte[] passwordHash;
             byte[] passwordSalt;
-            var authService = new AuthenticationService1();
-            authService.CreatePasswordHash( user.Password, out passwordHash, out passwordSalt);
+            CreatePasswordHash( user.Password, out passwordHash, out passwordSalt);
+
+
 
             var user1 = new Users()
             {
@@ -60,12 +62,12 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
 
         }
+
         public async Task<Users> UpdateUser(UsersDTO user)
         {
             byte[] passwordHash;
             byte[] passwordSalt;
-            var authService = new AuthenticationService1();
-            authService.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+            CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
 
             //update user at the database//
             var UsersEntity = _applicationDb.MSDB_Users.Where(x => x.ID == user.ID).FirstOrDefault();
@@ -92,6 +94,16 @@ namespace MagicstoreAPI.Repositories
             return QueryResult;
         }
 
+
+        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+
+            }
+        }
 
         public GenericResponse AzureRequest(int configurationID, string json)
         {

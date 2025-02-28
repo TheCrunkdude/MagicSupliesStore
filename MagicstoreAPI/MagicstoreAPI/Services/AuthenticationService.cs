@@ -9,59 +9,53 @@ using Microsoft.Extensions.Configuration;
 
 namespace MagicstoreAPI.Services
 {
-<<<<<<< HEAD
-	public class AuthenticationService1
-=======
-	public class AuthenticationService : IAuthenticationService
->>>>>>> main
+	public class AuthenticationService1 : IAuthenticationService1
 	{
         private IUserService _userService;
         private IConfiguration _configuration;
-        private readonly ILogger<AuthenticationService> _logger;
-
-        private UsersToken _token;
-        private RolePermissionsService _rolePermissions;
-        private UserRolesService _userRoles;
+        private ILogger<AuthenticationService1> _logger;
+        private UsersToken? _token;
+        private IRolePermissionsService _rolePermissions;
+        private IUserRolesService _userRolesService;
         private JwtSettings _jwtSettings;
 
-<<<<<<< HEAD
-        public AuthenticationService1(UserService userService, RolePermissionsService rolePermissions, UserRolesService userRoles, JwtSettings jwtSettings, IConfiguration configuration)
-=======
-        public AuthenticationService(ILogger<AuthenticationService> logger, IUserService userService, JwtSettings jwtSettings, IConfiguration configuration)
->>>>>>> main
+        public AuthenticationService1(ILogger<AuthenticationService1> logger,
+            IUserService userService,
+            IRolePermissionsService rolePermissions,
+            IUserRolesService userRoles,
+            JwtSettings jwtSettings,
+            IConfiguration configuration)
+
 		{
             _logger = logger;
             _userService = userService;
             _jwtSettings = jwtSettings;
             _configuration = configuration;
             _rolePermissions = rolePermissions;
+            _userRolesService = userRoles;
         }
-        public AuthenticationService1()
-        {
 
-        }
 
         public async Task<UsersToken> Authenticate(string Name, string Password)
         {
             try
             {
+                _logger.LogInformation("Authenticate is ok ");
+
                 var usuario = _userService.GetSingleUser(null, Name).Result;
-               
                 var dbNombre = usuario.UserName;
                 var dbSalt = usuario.PasswordSalt;
                 var dbContraseña = usuario.PasswordHash;
-       
 
                 if (!VerifyPasswordHash(Password, dbContraseña, dbSalt))
                 {
                     throw new UnauthorizedAccessException("Error en authenticate");
                 }
-
                 var Token = JwtHelper.GenTokenkey(new UsersToken()
                 {
                     UserName = usuario.UserName,
                     ID = usuario.ID,
-                }, _jwtSettings, _configuration/*, context*/);
+                },_jwtSettings, _configuration/*, context*/);
                 return Token;
             
             }
@@ -70,22 +64,24 @@ namespace MagicstoreAPI.Services
                 throw ex;
             }
         }
-        public async Task<List<Permissions>> AccessPermissions(string Name)
+        public async Task<List<string>> AccessUserRoles(string Name)
         {
-            var usuario = _userRoles.GetUserRolesByName( Name).Result;
-            var permissions = new List<Permissions>();
+            var usuario = _userRolesService.GetUserRolesByName(Name).Result;
+            var roles = usuario.Select(r => r.RoleID).ToList();
+            List<string> permList = new List<string> ();
 
-            foreach (var item in usuario)
+            foreach (var role in roles)
             {
-                var rolePermissions = await _rolePermissions.GetPermissionsByRole(item.RoleID);
-                permissions.AddRange((IEnumerable<Permissions>)rolePermissions);
-            }
-            return permissions;
+                var permissionByRole = _rolePermissions.GetPermissionsByRole(role).Result;
+                var permissions = permissionByRole.Select(r => r.Permission).ToList();
+                permList.AddRange(permissions);
 
+            }
+            return permList.Distinct().OrderBy(x=>x).ToList();
         }
 
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
+            {
             using (var hmac = new HMACSHA512())
             {
                 passwordSalt = hmac.Key;

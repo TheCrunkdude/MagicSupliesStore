@@ -14,6 +14,8 @@ import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermiss
 import { TableComponent } from '../components/tableComponent/tableComponent';
 import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 import { AuthInterceptor } from '../services/auth.Interceptor';
+import { ErrorInterceptor } from '../services/error.interceptor';
+import { ErrorComponent } from './error_page/error-page';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { AuthInterceptor } from '../services/auth.Interceptor';
     PermissionsPageComponent,
     RolePermissionsPageComponent,
     UserRolesPageComponent,
-    TableComponent
+    TableComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { AuthInterceptor } from '../services/auth.Interceptor';
   ],
   providers: [
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
 
   ],
   bootstrap: [AppComponent]

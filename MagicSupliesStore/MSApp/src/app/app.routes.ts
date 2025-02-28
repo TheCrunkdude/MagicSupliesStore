@@ -9,16 +9,19 @@ import { PermissionsPageComponent } from './permissions-page/permissions.compone
 import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermissions.component';
 import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 import { AuthGuard } from '../services/auth.guard';
+import { ErrorComponent } from './error_page/error-page';
 
 export const routes: Routes = [
     {path: "MainPage", component:MainpageComponent},
     {path: "Users", component : UsersPageComponent, canActivate: [AuthGuard]},
     {path: "", component:LoginpageComponent},
-    {path:"Roles", component:RolesPageComponent},
+    {path:"Roles", component:RolesPageComponent, canActivate: [AuthGuard], data: { permissions: ['perm 2'] }},
     {path:"Permissions", component:PermissionsPageComponent},
     {path: "RolePermissions", component:RolePermissionsPageComponent},
-    {path: "UserRoles", component:UserRolesPageComponent}
-    //    {path: "**", component:NotFoundStatusComponent} //
+    {path: "UserRoles", component:UserRolesPageComponent},
+    {path: "ErrorPage", component:ErrorComponent},
+    { path: 'error', component: ErrorComponent },
+    {path: "**", component:ErrorComponent} //
   ];
   
   @NgModule({

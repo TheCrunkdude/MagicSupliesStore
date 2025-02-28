@@ -14,17 +14,13 @@ namespace MagicstoreAPI.Controllers
     [ApiController]
 	public class UserController: Controller 
 	{
-<<<<<<< HEAD
-        private UserService _userService;
-        private AuthenticationService1 _authenticationService;
+        private IAuthenticationService1 _authenticationService;
 
-        public UserController(UserService userService)
-=======
         private IUserService _iuserService;
-        public UserController(IUserService iuserService)
->>>>>>> main
+        public UserController(IUserService iuserService, IAuthenticationService1 authenticationService1)
         {
             _iuserService = iuserService;
+            _authenticationService = authenticationService1;
         }
         // Metodo get, para obtener el valor de nuestra tabla//
         [Authorize]
@@ -76,15 +72,6 @@ namespace MagicstoreAPI.Controllers
             return result2;
         }
 
-
-        [Route("/api/access")]
-        [HttpPost]
-        public async Task<IActionResult> getAccessPermissions([FromBody] string userName)
-        {
-            var permissions = await _authenticationService.AccessPermissions(userName);
-
-            return Ok(permissions);
-        }
     }
 }
 

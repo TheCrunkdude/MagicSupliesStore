@@ -1,10 +1,11 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Interfaces;
 
 namespace MagicstoreAPI.Repositories
 {
-	public class UserRolesRepository
-	{
+	public class UserRolesRepository : IUserRolesRepository
+    {
         private readonly ILogger<UserRolesRepository> _logger;
         private ApplicationDBContext _applicationDb;
         public UserRolesRepository(ILogger<UserRolesRepository> logger, ApplicationDBContext applicationDB)

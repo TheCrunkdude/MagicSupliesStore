@@ -21,19 +21,9 @@ namespace MagicstoreAPI.Helpers
             List<Claim> claims = new List<Claim> {
                 new Claim("ID", userAccounts.ID.ToString()),
                 new Claim("ProfileID", userAccounts.ProfileID.ToString()),
-                //new Claim(ClaimTypes.Role, rol)
             };
 
-            //foreach (var rol in userAccounts.Permisos)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, rol));
-            //}
-            //foreach (var permiso in userAccounts.Permisos)
-            //{
-            //    claims.Add(new Claim("Permisos", permiso));
-            //}
-
-            return claims;
+                return claims;
         }
         public static UsersToken GenTokenkey(UsersToken model, JwtSettings jwtSettings, IConfiguration configuration)
         {
@@ -64,7 +54,6 @@ namespace MagicstoreAPI.Helpers
                 UserToken.UserName = model.UserName;
                 UserToken.ID = model.ID;
                 UserToken.ProfileID = model.ProfileID;
-                //UserToken.Permisos = model.Permisos;
 
                 return UserToken;
             }
