@@ -132,7 +132,12 @@ openLogoutDialog(): void {
                   label: 'User Roles',
                   routerLink: "/UserRoles"
 
+                },
+                {
+                  label: 'beers',
+                  routerLink: "/Beers"
                 }
+
               ]
             }
           ],

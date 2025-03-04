@@ -16,6 +16,7 @@ import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 import { AuthInterceptor } from '../services/auth.Interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
 import { ErrorComponent } from './error_page/error-page';
+import { BeerPageComponent } from './beer_page/beer-page';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ErrorComponent } from './error_page/error-page';
     RolePermissionsPageComponent,
     UserRolesPageComponent,
     TableComponent,
-    ErrorComponent
+    ErrorComponent,
+    BeerPageComponent
   ],
   imports: [
     BrowserModule,

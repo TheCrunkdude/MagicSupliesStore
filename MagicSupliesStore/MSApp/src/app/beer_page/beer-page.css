@@ -1,0 +1,19 @@
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    gap: 5px; /* Espaciado entre elementos */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.page-input {
+    width: 45px; /* Tamaño del input */
+    height: 35px;
+    text-align: center; /* Centra el texto dentro del input */
+}   
+
+
+.pagination-text {
+    font-size: 18px;
+    text-align: center;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
