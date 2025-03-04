@@ -10,6 +10,7 @@ import { RolePermissionsPageComponent } from './rolePermissions-Page/rolePermiss
 import { UserRolesPageComponent } from './userRoles-Page/userRoles.component';
 import { AuthGuard } from '../services/auth.guard';
 import { ErrorComponent } from './error_page/error-page';
+import { BeerPageComponent } from './beer_page/beer-page';
 
 export const routes: Routes = [
     {path: "MainPage", component:MainpageComponent},
@@ -20,8 +21,10 @@ export const routes: Routes = [
     {path: "RolePermissions", component:RolePermissionsPageComponent},
     {path: "UserRoles", component:UserRolesPageComponent},
     {path: "ErrorPage", component:ErrorComponent},
-    { path: 'error', component: ErrorComponent },
+    {path: 'error', component: ErrorComponent },
+    {path: "Beers", component:BeerPageComponent}, //
     {path: "**", component:ErrorComponent} //
+
   ];
   
   @NgModule({

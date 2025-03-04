@@ -14,13 +14,13 @@ export class ErrorInterceptor implements HttpInterceptor {
         let errorCode = error.status || 'Error';
         let errorMessage = '';
 
+        console.log("error",error)
         switch (error.status) {
           case 400: errorMessage = 'Solicitud incorrecta'; break;
           case 401: errorMessage = 'No tienes autorización'; break;
           case 403: errorMessage = 'Acceso prohibido'; break;
           case 404: errorMessage = 'Recurso no encontrado'; break;
           case 500: errorMessage = 'Error interno del servidor'; break;
-          default: errorMessage = 'Ha ocurrido un error inesperado'; break;
         }
 
         // Redirige a la página de error con parámetros

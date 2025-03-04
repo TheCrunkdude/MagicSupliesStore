@@ -1,0 +1,20 @@
+
+<div>
+    <!-- //crear un modelo para "agregar" que abra un modelo para poder agregar un usuario, 
+     debe tener un boton para agregar o cancelar y si le das "agregar" use el metodo post 
+     para golpear nuestra API// -->
+    <app-gridcomponent #gridComponent  [dataSourceGridInput]="dataSourceBeerPage" 
+    [columns]="columns" [headers]="headers" ></app-gridcomponent>
+   
+  </div>
+
+  <div class="pagination-container">
+    <p-button mat-fab extended (click)="previousPage()">
+        <
+      </p-button> 
+      <input class="page-input" type="text" [(ngModel)]="currentPage">
+    <p-button mat-fab extended (click)="nextPage()">
+        >
+      </p-button>
+    </div>
+    <p class="pagination-text"> Showing {{position-9}} to: {{position}} of: {{ totalItems }} items </p>

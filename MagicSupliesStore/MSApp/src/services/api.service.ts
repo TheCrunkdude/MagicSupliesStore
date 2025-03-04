@@ -6,6 +6,8 @@ import { RolesTable } from '../app/interfaces/rolesTable-interface';
 import { PermissionsTable } from '../app/interfaces/permissionsTable-interface';
 import { rolePermissionsTable } from '../app/interfaces/rolesPermissionsTable-interface';
 import { userRolesTable } from '../app/interfaces/userRoles-interface';
+import { BeerTable, PaginatorTable } from '../app/interfaces/beerTable-interface';
+import { paginatorInput } from '../app/interfaces/paginatorInput-interface';
 
 export interface LoginModel{
   User : string,
@@ -120,6 +122,10 @@ updateUserRoles(userRolesRequest: any[]):Observable<any>{
   return this.http.put(`${this.apiUrl}/UpdateUserRoles`,userRolesRequest,{ responseType: 'text'})
 }
 
+// Beer Grid
 
+getBeers (input: paginatorInput): Observable<any>{
+  return this.http.post(`${this.apiUrl}/Paginador`,input)
+}
 
 }
