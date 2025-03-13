@@ -7,22 +7,24 @@ namespace MagicstoreAPI.Services
 {
 	public class PaginatorService : IPaginatorService
     {
-        private IPaginadorRepo _paginadorRepo;
+        private IPaginatorRepo _paginadorRepo;
         private readonly ILogger<PaginatorService> _logger;
 
-        public PaginatorService(ILogger<PaginatorService> logger, IPaginadorRepo paginadorRepo)
+        public PaginatorService(ILogger<PaginatorService> logger, IPaginatorRepo paginadorRepo)
 		{
             _logger = logger;
             _paginadorRepo = paginadorRepo;
 
         }
 
-        public  PaginadorData GetItemsService(int startRow, int endRow)
+        public PaginadorData<T> GetItemsService<T>(IQueryable<T> query, int startRow, int endRow)
         {
+            _logger.LogInformation("Paginator GetItemsService is ok");
 
-            PaginadorData result =  _paginadorRepo.GetItemsRepo(startRow, endRow);
-            return result;
+            return _paginadorRepo.GetItemsRepo(query, startRow, endRow);
         }
+
+
 
 
     }

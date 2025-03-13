@@ -1,0 +1,25 @@
+ <div class="pagination-container">
+  
+ <div class="pagination-container-left">  
+    <label class="pagination-text-left" for="pageSize">
+      Items per page:
+      <select class="page-input" id="pageSize" (change)="changePageSize($event)">
+        <option [value]="5">5</option>
+        <option [value]="10" selected>10</option>
+        <option [value]="20">20</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="pagination-controls">
+    <p-button class = "boton" (click)="previousPage()" [disabled]="currentPage === 1"> < </p-button>
+    <input class="page-input" type="text" [(ngModel)]="currentPage">
+    <p-button class = "boton" (click)="nextPage()" [disabled]="currentPage === totalPages"> > </p-button>
+  </div>
+
+  <div class="pagination-container-right">  
+    <p class="pagination-text-right">Showing {{startRow}} to: {{position}} of: {{ totalItems }} items </p>
+  </div>
+
+</div>
+ 

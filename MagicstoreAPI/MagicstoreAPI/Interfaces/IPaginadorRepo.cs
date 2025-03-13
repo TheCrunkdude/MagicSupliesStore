@@ -3,10 +3,10 @@ using MagicstoreAPI.Infrastructures.Entities;
 
 namespace MagicstoreAPI.Interfaces
 {
-	public interface IPaginadorRepo
-	{
-        PaginadorData GetItemsRepo(int startRow, int endRow);
-
+    public interface IPaginatorRepo
+    {
+        PaginadorData<T> GetItemsRepo<T>(IQueryable<T> query, int startRow, int endRow);
+        
     }
 }
 

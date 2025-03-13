@@ -22,35 +22,30 @@ export class BeerPageComponent implements OnInit{
     startRow: number= 0;
     endRow: number = 0
     position: number = 0;
-
+    maxPages : number = 0;
+    pageSize :number = 10;
     @ViewChild('gridComponent') gridComponent !: GridComponent;
     constructor(public apiService: ApiService) {
 
     }
     
-
-    async previousPage(){
-        console.log("previous page funcionando")
-        if  (this.currentPage>1){
-            this.currentPage--
-            this.LoadBeerDataMethod()
-        }
-        else{        
-            alertify.error('you are currently in the fistpage, you stupid ass')
-        }
+    onPageChange(newPage: number) {
+      this.currentPage = newPage;
+      this.LoadBeerDataMethod();
     }
-    async nextPage(){
-        console.log("next page funcionando")
-        this.currentPage++
-        this.LoadBeerDataMethod()
+    
+    onPageSizeChange(newSize: number) {
+      this.pageSize = newSize;
+      this.currentPage = 1;
+      this.maxPages = Math.ceil(this.totalItems/ this.pageSize)
+      this.LoadBeerDataMethod();
+    }
         
-    }
+    
 
     async LoadGrid() {
-    
         //Load headers information
         this.headers = ['id', 'nombre', 'estilo', 'pais'];
-    
         //Loads columns information
         this.columns = [
           { key: 'id', header: 'ID' },
@@ -61,6 +56,13 @@ export class BeerPageComponent implements OnInit{
     
       }
 
+
+    changePageSize(newSize: number) {
+        this.pageSize = newSize;
+        this.currentPage = 1; 
+        this.position = this.currentPage * this.pageSize;
+        this.LoadBeerDataMethod();
+    }
       
 
       async LoadBeerDataMethod() {
@@ -69,12 +71,12 @@ export class BeerPageComponent implements OnInit{
         if (this.apiService) {
             console.log('currentpage', this.currentPage)
 
-             this.position = this.currentPage * 10
-            console.log('position', this.position)
+             this.position = this.currentPage * this.pageSize
+             this.startRow= (this.position -this.pageSize)+1
             let request: paginatorInput={
-                startRow: this.position - 10,
+                entity: 'cervezas',
+                startRow: this.position - this.pageSize,
                 endRow : this.position
-
             }
 
 
@@ -84,11 +86,7 @@ export class BeerPageComponent implements OnInit{
                 const rows = response.rows
                  this.totalItems = response.totalItems
 
-                console.log("total items",this.totalItems)
-                console.log(rows)
                 this.dataSourceBeerPage = new MatTableDataSource<BeerTable>(response.rows);
-                console.log(response.rows)
-                
             }
 
           )
