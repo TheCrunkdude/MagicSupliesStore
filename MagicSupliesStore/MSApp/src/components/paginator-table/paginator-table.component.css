@@ -26,6 +26,7 @@
     align-items: center;
     gap: 15px;
     flex: 1; 
+    width: 300px;
 }
 
 .page-input {

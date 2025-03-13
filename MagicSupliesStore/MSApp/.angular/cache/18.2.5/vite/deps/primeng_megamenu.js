@@ -1,9 +1,4 @@
 import {
-  RouterLink,
-  RouterLinkActive,
-  RouterModule
-} from "./chunk-SUIA46O3.js";
-import {
   AngleDownIcon,
   AngleRightIcon,
   Tooltip,
@@ -16,6 +11,11 @@ import {
 import {
   DomHandler
 } from "./chunk-KAFBEN4Q.js";
+import {
+  RouterLink,
+  RouterLinkActive,
+  RouterModule
+} from "./chunk-SUIA46O3.js";
 import {
   ObjectUtils,
   PrimeNGConfig,
@@ -94,8 +94,8 @@ import {
   ɵɵtextInterpolate1,
   ɵɵviewQuery
 } from "./chunk-WZ5D5QC4.js";
-import "./chunk-XPU7EA6D.js";
 import "./chunk-QN5HDKTT.js";
+import "./chunk-XPU7EA6D.js";
 import "./chunk-MHK6ZZQX.js";
 import {
   __spreadProps,

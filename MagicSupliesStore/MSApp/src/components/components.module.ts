@@ -25,7 +25,6 @@ import { ConfirmationDialogModel } from '../app/models/confirmation-dialog-model
     AddEditRolesModel,
     ConfirmationDialogModel,
     
-    
   ],
   imports: [
     CommonModule,

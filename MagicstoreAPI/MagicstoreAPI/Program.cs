@@ -49,7 +49,7 @@ builder.Services.AddScoped<IRolePermissionsService, RolePermissionsService>();
 builder.Services.AddScoped<IRolePermissionsRepository, RolePermissionsRepository>();
 builder.Services.AddScoped<IUserRolesService, UserRolesService >();
 builder.Services.AddScoped<IUserRolesRepository, UserRolesRepository>();
-builder.Services.AddScoped<IPaginadorRepo, PaginatorRepo>();
+builder.Services.AddScoped<IPaginatorRepo, PaginatorRepo>();
 builder.Services.AddScoped<IPaginatorService,PaginatorService>();
 
 

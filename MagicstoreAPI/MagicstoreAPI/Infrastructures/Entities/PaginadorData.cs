@@ -1,9 +1,9 @@
 ﻿using System;
 namespace MagicstoreAPI.Infrastructures.Entities
 {
-	public class PaginadorData
+	public class PaginadorData<T>
 	{
-		public List<Beers> Rows { get; set; }
+		public List<T> Rows { get; set; }
 		public int TotalItems { get; set; }
 
 	}

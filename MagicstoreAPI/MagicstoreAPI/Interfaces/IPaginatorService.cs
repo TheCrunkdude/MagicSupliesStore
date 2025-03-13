@@ -5,7 +5,7 @@ namespace MagicstoreAPI.Interfaces
 {
 	public interface IPaginatorService
 	{
-        PaginadorData GetItemsService(int startRow, int endRow);
+        PaginadorData<T> GetItemsService<T>(IQueryable<T> query, int startRow, int endRow);
 
     }
 }

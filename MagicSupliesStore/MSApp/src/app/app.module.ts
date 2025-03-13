@@ -17,6 +17,7 @@ import { AuthInterceptor } from '../services/auth.Interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
 import { ErrorComponent } from './error_page/error-page';
 import { BeerPageComponent } from './beer_page/beer-page';
+import { PaginatorComponent } from '../components/paginator-table/paginator-table.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BeerPageComponent } from './beer_page/beer-page';
     UserRolesPageComponent,
     TableComponent,
     ErrorComponent,
-    BeerPageComponent
+    BeerPageComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

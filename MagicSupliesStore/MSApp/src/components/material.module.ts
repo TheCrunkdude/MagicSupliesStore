@@ -4,7 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
+import {MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   exports: [
@@ -13,7 +14,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule, 
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
