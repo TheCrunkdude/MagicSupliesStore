@@ -8,6 +8,7 @@ using MagicstoreAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -20,7 +21,7 @@ builder.Services.AddCors(options =>
     });
 });
 //DB Context (Liga nuestro servidor SQL a la API)//
-var connection = builder.Configuration.GetConnectionString("PostgresConnection");
+var connection = builder.Configuration.GetConnectionString("AWSConection");
 
 
 if (builder.Configuration.GetValue<string>("DatabaseType") == "postgres")
@@ -64,11 +65,9 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger(); 
+app.UseSwaggerUI();
+
 app.UseRouting();
 
 app.UseMiddlewareFilter();

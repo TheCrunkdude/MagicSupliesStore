@@ -1,5 +1,6 @@
 ﻿using System;
 using MagicstoreAPI.Infrastructures.Entities;
+using MagicstoreAPI.Infrastructures.Entities.SeedData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
@@ -30,6 +31,35 @@ namespace MagicstoreAPI
         public DbSet<Beers> cervezas { get; set; }
 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Beers>().HasKey(b => b.id);
+            modelBuilder.Entity<Beers>().HasData(BeersSeedData.beers());
+
+
+            modelBuilder.Entity<Users>().HasKey(b => b.ID);
+            modelBuilder.Entity<Users>().HasData(UsersSeedData.usersSeed());
+
+
+            modelBuilder.Entity<Roles>().HasKey(b => b.ID);
+            modelBuilder.Entity<Roles>().HasData(RolesSeedData.rolesSeed());
+
+
+
+            modelBuilder.Entity<Permissions>().HasKey(b => b.ID);
+            modelBuilder.Entity<Permissions>().HasData(PermissionsSeedData.permissionsSeed());
+
+
+            modelBuilder.Entity<RolePermissions>().HasKey(b => b.ID);
+            modelBuilder.Entity<RolePermissions>().HasData(RolePermissionsSeedData.rolesPermissionsSeed());
+
+
+            modelBuilder.Entity<UserRoles>().HasKey(b => b.ID);
+            modelBuilder.Entity<UserRoles>().HasData(UserRolesSeedData.userRolesSeed());
+
+
+        }
 
         protected virtual void InitalizeContext()
         {

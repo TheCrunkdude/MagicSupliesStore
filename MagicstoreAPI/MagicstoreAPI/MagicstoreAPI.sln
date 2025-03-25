@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagicstoreAPI", "MagicstoreAPI.csproj", "{679C6219-DCC6-4FCF-9866-4A90623F3FA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{679C6219-DCC6-4FCF-9866-4A90623F3FA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679C6219-DCC6-4FCF-9866-4A90623F3FA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679C6219-DCC6-4FCF-9866-4A90623F3FA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679C6219-DCC6-4FCF-9866-4A90623F3FA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A9608B0-A7DA-44E9-BD5E-65315600D9BC}
+	EndGlobalSection
+EndGlobal

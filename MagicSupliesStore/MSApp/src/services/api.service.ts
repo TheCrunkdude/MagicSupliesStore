@@ -18,7 +18,7 @@ export interface LoginModel{
   providedIn: 'root'
 })
 export class ApiService {
-private apiUrl = 'https://localhost:7201/api';
+private apiUrl = 'http://localhost:83';
 
   constructor(private http:HttpClient) { }
 
