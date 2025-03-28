@@ -1,0 +1,72 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+trigger:
+- main  # Ejecutar en cada push a main
+
+pool:
+  vmImage: windows-latest  # Usa un agente de Windows
+
+variables:
+  DOTNET_VERSION: '7.0.2'
+  EC2_HOST: '54.175.57.107'
+  EC2_USERNAME: 'Administrator'
+  API_PATH: 'C:\Users\Administrator\Documents\Test'
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build_API
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: sdk
+        version: $(DOTNET_VERSION)
+
+    - script: |
+        dotnet restore
+        dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)/api
+      displayName: 'Compilar y Publicar API'
+
+    - publish: $(Build.ArtifactStagingDirectory)/api
+      artifact: api
+
+- stage: Deploy
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - job: DeployToEC2
+    steps:
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        artifactName: api
+        downloadPath: $(Build.ArtifactsDirectory)
+
+    - task: WindowsRemotePowerShell@1
+      inputs:
+        MachineName: $(EC2AMAZ-03OCM3G)
+        AdminUserName: $(Administrator)
+        AdminPassword: $(1se8Cn!wk1IFKe%VWvFbk9r$6Q4VeDel)
+        scriptType: 'InlineScript'
+        InlineScript: |
+          Stop-Service -Name "W3SVC" -Force
+          Remove-Item -Recurse -Force $(C:\Users\Administrator\Documents\Test)\*
+      displayName: 'Detener IIS y Limpiar Carpeta'
+
+    - task: CopyFilesOverSSH@0
+      inputs:
+        sshEndpoint: 'EC2-WinRM'  # Nombre de la conexión WinRM en Azure DevOps
+        sourceFolder: '$(Build.ArtifactsDirectory)/api'
+        targetFolder: '$(API_PATH)'
+      displayName: 'Copiar Archivos a EC2'
+
+    - task: WindowsRemotePowerShell@1
+      inputs:
+        MachineName: $(EC2AMAZ-03OCM3G)
+        AdminUserName: $(Administrator)
+        AdminPassword: $(1se8Cn!wk1IFKe%VWvFbk9r$6Q4VeDel)
+        scriptType: 'InlineScript'
+        InlineScript: |
+          Start-Service -Name "W3SVC"
+      displayName: 'Iniciar IIS'
