@@ -10,5 +10,5 @@ steps:
   inputs:
     command: 'build'
     projects: 'MagicstoreAPI.csproj'
-    workingDirectory: '$(Build.SourcesDirectory)/MagicstoreAPI/MagicstoreAPI/'
+    workingDirectory: ' C:\agent\_work\1\s\MagicstoreAPI\MagicstoreAPI'
 
