@@ -5,10 +5,43 @@ trigger:
 pool:
   name: Default 
 
+variables:
+  DOTNET_VERSION: '7.0.x'
+  EC2_HOST: '54.175.57.107'  # Reemplaza con tu IP pública de EC2
+  EC2_USERNAME: 'Administrator'
+  API_PATH: 'C:\Users\Administrator\Documents\APIwithAWS'
 steps:
+# 2️⃣ Restaurar dependencias y compilar
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'restore'
     projects: 'MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj'
-    workingDirectory: '$(Build.SourcesDirectory)/MagicstoreAPI/MagicstoreAPI'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    projects: 'MagicstoreAPI/MagicstoreAPI/MagicstoreAPI.csproj'
+    arguments: '--configuration Release --output $(Build.ArtifactStagingDirectory)/api'
+
+# 3️⃣ Descargar los artefactos de publicación
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)/api'
+    artifactName: 'api'
+
+# 4️⃣ Copiar archivos a EC2 por SSH
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'EC2-Windows-SSH'  # Nombre de la conexión SSH en Azure DevOps
+    sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
+    targetFolder: '$(API_PATH)'
+    cleanTargetFolder: true
+    overwrite: true
+
+# 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2-Windows-SSH'
+    runOptions: 'inline'
+    inline: |
+      Restart-Service W3SVC
