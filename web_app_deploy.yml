@@ -10,4 +10,4 @@ steps:
   inputs:
     command: 'build'
     projects: '"*/MagicstoreAPI.csproj"'
-    workingDirectory: '$(system.DeffaultsorkingDirectory)/MagicstoreAPI'
+    workingDirectory: '$(system.DeffaultworkingDirectory)/MagicstoreAPI'
