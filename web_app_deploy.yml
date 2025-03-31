@@ -35,7 +35,7 @@ steps:
     sshEndpoint: 'EC2-Windows-SSH'  # Nombre de la conexión SSH en Azure DevOps
     sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
     targetFolder: '$(API_PATH)'
-    cleanTargetFolder: true
+    cleanTargetFolder: false
     overwrite: true
 
 # 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
