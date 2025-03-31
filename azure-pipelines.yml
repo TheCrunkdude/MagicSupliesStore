@@ -1,7 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 trigger:
 - main  # Ejecutar en cada push a main
 
@@ -10,9 +6,7 @@ pool:
 
 variables:
   DOTNET_VERSION: '7.0.2'
-  EC2_HOST: '54.175.57.107'
-  EC2_USERNAME: 'Administrator'
-  API_PATH: 'C:\Users\Administrator\Documents\Test'
+  API_PATH: 'C:\Users\Administrator\Documents\Test'  # Ruta en EC2
 
 stages:
 - stage: Build
@@ -43,30 +37,31 @@ stages:
         artifactName: api
         downloadPath: $(Build.ArtifactsDirectory)
 
-    - task: WindowsRemotePowerShell@1
+    # 🔹 Conectarse a EC2 y detener IIS antes de copiar archivos
+    - task: SSH@0
       inputs:
-        MachineName: $(EC2AMAZ-03OCM3G)
-        AdminUserName: $(Administrator)
-        AdminPassword: $(1se8Cn!wk1IFKe%VWvFbk9r$6Q4VeDel)
-        scriptType: 'InlineScript'
-        InlineScript: |
+        sshEndpoint: 'EC2-Windows-SSH'  # Nombre de la conexión SSH en Azure DevOps
+        runOptions: 'inline'
+        inline: |
           Stop-Service -Name "W3SVC" -Force
-          Remove-Item -Recurse -Force $(C:\Users\Administrator\Documents\Test)\*
+          Remove-Item -Recurse -Force $(API_PATH)\*
       displayName: 'Detener IIS y Limpiar Carpeta'
 
+    # 🔹 Copiar archivos compilados a EC2 usando SSH (SCP)
     - task: CopyFilesOverSSH@0
       inputs:
-        sshEndpoint: 'EC2-WinRM'  # Nombre de la conexión WinRM en Azure DevOps
+        sshEndpoint: 'EC2-Windows-SSH'  # Nombre de la conexión SSH configurada en Azure DevOps
         sourceFolder: '$(Build.ArtifactsDirectory)/api'
         targetFolder: '$(API_PATH)'
+        cleanTargetFolder: true  # Borra archivos en el destino antes de copiar
+        overwrite: true  # Sobrescribe archivos existentes
       displayName: 'Copiar Archivos a EC2'
 
-    - task: WindowsRemotePowerShell@1
+    # 🔹 Reiniciar IIS después de copiar archivos
+    - task: SSH@0
       inputs:
-        MachineName: $(EC2AMAZ-03OCM3G)
-        AdminUserName: $(Administrator)
-        AdminPassword: $(1se8Cn!wk1IFKe%VWvFbk9r$6Q4VeDel)
-        scriptType: 'InlineScript'
-        InlineScript: |
+        sshEndpoint: 'EC2-Windows-SSH'
+        runOptions: 'inline'
+        inline: |
           Start-Service -Name "W3SVC"
       displayName: 'Iniciar IIS'
