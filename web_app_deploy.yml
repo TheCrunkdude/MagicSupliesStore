@@ -32,11 +32,10 @@ steps:
 # 4️⃣ Copiar archivos a EC2 por SSH
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'EC2-Windows-SSH'  # Nombre de la conexión SSH en Azure DevOps
-    sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
-    targetFolder: '$(API_PATH)'
-    cleanTargetFolder: false
-    overwrite: true
+    sshEndpoint: 'EC2-Windows-SSH'  # Nombre de tu conexión SSH en Azure DevOps
+    sourceFolder: '$(Build.ArtifactsDirectory)/api'
+    targetFolder: 'C:\Users\Administrator\Documents\APIwithAWS'
+    cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
 
 # 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
 - task: SSH@0
