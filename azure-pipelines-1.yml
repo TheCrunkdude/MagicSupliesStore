@@ -8,7 +8,7 @@ jobs:
 - job: VerifyEC2Connection
   displayName: 'Verificar conexión con EC2'
   pool:
-    vmImage: 'windows-latest'  # Puedes cambiarlo si prefieres un agente específico.
+    vmImage: 'EC2AMAZ-AOMA512'  # Puedes cambiarlo si prefieres un agente específico.
   steps:
     - task: CmdLine@2
       displayName: 'Verificar comunicación con EC2'
