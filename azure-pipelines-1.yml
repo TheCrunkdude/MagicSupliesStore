@@ -1,0 +1,27 @@
+trigger:
+- none  # Esto previene que el pipeline se ejecute automáticamente, solo puedes ejecutarlo manualmente.
+
+pool:
+  name: Default
+  demands:
+    - agent.name -equals <nombre_del_agente>
+
+jobs:
+- job: VerifyEC2Connection
+  displayName: 'Verificar conexión con EC2'
+  pool:
+    vmImage: 'windows-latest'  # Puedes cambiarlo si prefieres un agente específico.
+  steps:
+    - task: CmdLine@2
+      displayName: 'Verificar comunicación con EC2'
+      inputs:
+        script: |
+          echo "Iniciando verificación de comunicación con EC2..."
+          ping <I3.226.254.173>
+          if %ERRORLEVEL% NEQ 0 (
+            echo "Error: No se pudo conectar con EC2"
+            exit 1
+          ) else (
+            echo "Conexión exitosa con EC2"
+          )
+
