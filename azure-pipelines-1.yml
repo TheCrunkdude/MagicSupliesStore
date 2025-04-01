@@ -2,9 +2,7 @@ trigger:
 - none  # Esto previene que el pipeline se ejecute automáticamente, solo puedes ejecutarlo manualmente.
 
 pool:
-  name: Default
-  demands:
-    - agent.name -equals <nombre_del_agente>
+  name: Default 
 
 jobs:
 - job: VerifyEC2Connection
