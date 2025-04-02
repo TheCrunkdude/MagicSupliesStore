@@ -7,7 +7,7 @@ pool:
 
 variables:
   DOTNET_VERSION: '7.0.x'
-  EC2_HOST: '3.226.254.173'  # Reemplaza con tu IP pública de EC2
+  EC2_HOST: '44.210.121.232'  # Reemplaza con tu IP pública de EC2
   EC2_USERNAME: 'Administrator'
   API_PATH: 'C:\Users\Administrator\Documents\APIwithAWS'
 steps:
@@ -32,7 +32,7 @@ steps:
 # 4️⃣ Copiar archivos a EC2 por SSH
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'EC2-Windows-SSH2'  # Nombre de tu conexión SSH en Azure DevOps
+    sshEndpoint: 'EC2-Windows-SSH'  # Nombre de tu conexión SSH en Azure DevOps
     sourceFolder: '$(Build.ArtifactsDirectory)/api'
     targetFolder: 'C:\Users\Administrator\Documents\APIwithAWS'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
@@ -40,7 +40,7 @@ steps:
 # 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
 - task: SSH@0
   inputs:
-    sshEndpoint: 'EC2-Windows-SSH2'
+    sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
     inline: |
       Restart-Service W3SVC
