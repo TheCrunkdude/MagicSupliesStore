@@ -46,4 +46,6 @@ steps:
     sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
     inline: |
-      Restart-Service W3SVC
+      powershell Restart-Service W3SVC
+    readyTimeout: '40000'
+    failOnStdErr: false
