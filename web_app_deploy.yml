@@ -40,3 +40,9 @@ steps:
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
 
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2-Windows-SSH'
+    runOptions: 'inline'
+    inline: |
+      powershell -ExecutionPolicy Unrestricted -Command "if (Test-Path 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip') { Expand-Archive -Path 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -DestinationPath 'C:\Users\Administrator\Documents\publish' -Force; Remove-Item 'C:\Users\Administrator\Documents\SSHDestination\api.zip' -Force } else { Write-Host 'No se encontró el archivo ZIP' }"
