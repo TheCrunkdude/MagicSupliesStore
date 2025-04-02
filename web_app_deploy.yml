@@ -9,8 +9,11 @@ variables:
   DOTNET_VERSION: '7.0.x'
   EC2_HOST: '44.210.121.232'  # Reemplaza con tu IP pública de EC2
   EC2_USERNAME: 'Administrator'
-  API_PATH: 'C:\Users\Administrator\Documents\APIwithAWS'
+  API_PATH: 'C:\Users\Administrator\Documents\SSHDestination'
 steps:
+- script: dir $(Build.SourcesDirectory) -Recurse
+  displayName: '📂 Verificar estructura de archivos'
+
 # 2️⃣ Restaurar dependencias y compilar
 - task: DotNetCoreCLI@2
   inputs:
@@ -33,8 +36,8 @@ steps:
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'EC2-Windows-SSH'  # Nombre de tu conexión SSH en Azure DevOps
-    sourceFolder: '$(Build.ArtifactsDirectory)/api'
-    targetFolder: 'C:\Users\Administrator\Documents\APIwithAWS'
+    sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
+    targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
 
 # 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
