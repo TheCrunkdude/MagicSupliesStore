@@ -40,12 +40,3 @@ steps:
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
 
-# 5️⃣ Reiniciar IIS en EC2 para aplicar los cambios
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'EC2-Windows-SSH'
-    runOptions: 'inline'
-    inline: |
-      powershell Restart-Service W3SVC
-    readyTimeout: '40000'
-    failOnStdErr: false
