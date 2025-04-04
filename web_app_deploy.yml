@@ -39,12 +39,6 @@ steps:
     sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
-
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'EC2-Windows-SSH'
-    runOptions: 'inline'
-    inline: |
 - task: AWSPowerShellModuleScript@1
   inputs:
     regionName: 'us-east-1'
