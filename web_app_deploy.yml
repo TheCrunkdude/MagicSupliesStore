@@ -39,10 +39,12 @@ steps:
     sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
+    
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
     inline: |
-      powershell -ExecutionPolicy Bypass -File "C:\Users\Administrator\Documents\SSHDestination\AutoExtract.ps1"
+      "C:\Program Files\Git\bin\bash.exe" -c "unzip -o /c/Users/Administrator/Documents/SSHDestination/MagicstoreAPI.zip -d /c/Users/Administrator/Documents/publish && rm /c/Users/Administrator/Documents/SSHDestination/MagicstoreAPI.zip"
+
 
