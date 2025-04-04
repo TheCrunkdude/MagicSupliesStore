@@ -40,11 +40,10 @@ steps:
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
     
+
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
     inline: |
-      "C:\Program Files\Git\bin\bash.exe" -c "unzip -o /c/Users/Administrator/Documents/SSHDestination/MagicstoreAPI.zip -d /c/Users/Administrator/Documents/publish && rm /c/Users/Administrator/Documents/SSHDestination/MagicstoreAPI.zip"
-
-
+      "C:/Program Files/Git/bin/bash.exe" -c "unzip -o '/c/Users/Administrator/Documents/SSHDestination/api.zip' -d '/c/Users/Administrator/Documents/publish' && rm -f '/c/Users/Administrator/Documents/SSHDestination/api.zip'"
