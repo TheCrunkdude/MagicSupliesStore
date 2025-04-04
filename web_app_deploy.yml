@@ -40,3 +40,12 @@ steps:
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
 
+- task: PowerShellOnTargetMachines@3
+  inputs:
+    Machines: '44.210.121.232'
+    UserName: 'Administrator'
+    UserPassword: 'wD(Cdn9iROZB&w(9O9u4K&8$!DVyO@p*'
+    InlineScript: |
+      # Write your powershell commands here.
+      
+      Write-Output "Hello World"'
