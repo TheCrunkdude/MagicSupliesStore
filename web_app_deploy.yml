@@ -44,4 +44,4 @@ steps:
     sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
     inline: |
-      cmd.exe /c powershell -ExecutionPolicy Bypass -Command "if (Test-Path 'C:\Users\Administrator\Documents\SSHDestination\api.zip') { Expand-Archive -Path 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -DestinationPath 'C:\Users\Administrator\Documents\publish' -Force; Remove-Item 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -Force } else { Write-Host 'No se encontró el archivo ZIP' }"
+      cmd.exe /c powershell -ExecutionPolicy Bypass -Command Expand-Archive -Path 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -DestinationPath 'C:\Users\Administrator\Documents' -Force; Remove-Item 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -Force 
