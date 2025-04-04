@@ -39,18 +39,9 @@ steps:
     sourceFolder: '$(Build.ArtifactStagingDirectory)/api'
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
-- task: AWSPowerShellModuleScript@1
+- task: SSH@0
   inputs:
-    regionName: 'us-east-1'
-    scriptType: 'inline'
-    inlineScript: |
-      # You can write your powershell script inline here (the AWSPowerShell module will be imported automatically).
-      
-      -ExecutionPolicy Bypass -Command \& { 
-        if (Test-Path 'C:\Users\Administrator\Documents\SSHDestination\api.zip') { 
-          Expand-Archive -Path 'C:\Users\Administrator\Documents\SSHDestination\api.zip' -DestinationPath 'C:\Users\Administrator\Documents\publish' -Force;
-          Remove-Item 'C:\Users\Administrator\Documents\SSHDestination\api.zip' -Force
-        } else { 
-          Write-Host 'No se encontró el archivo ZIP' 
-        }
-      }\""
+    sshEndpoint: 'EC2-Windows-SSH'
+    runOptions: 'inline'
+    inline: |
+      cmd.exe /c powershell -ExecutionPolicy Bypass -Command "if (Test-Path 'C:\Users\Administrator\Documents\SSHDestination\api.zip') { Expand-Archive -Path 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -DestinationPath 'C:\Users\Administrator\Documents\publish' -Force; Remove-Item 'C:\Users\Administrator\Documents\SSHDestination\MagicstoreAPI.zip' -Force } else { Write-Host 'No se encontró el archivo ZIP' }"
