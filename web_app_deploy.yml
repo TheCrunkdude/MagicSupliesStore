@@ -40,10 +40,9 @@ steps:
     targetFolder: 'C:\Users\Administrator\Documents\SSHDestination'
     cleanTargetFolder: false  # 🔹 Evita que intente limpiar con "sh"
     
-
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2-Windows-SSH'
     runOptions: 'inline'
-    inline: |
-      "C:/Program Files/Git/bin/bash.exe" /c/Users/Administrator/Documents/desplegar.sh
+    inline: '"C:/Program Files/Git/bin/bash.exe" /c/Users/Administrator/Documents/desplegar.sh'
+
